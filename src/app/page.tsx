@@ -134,7 +134,14 @@ export default function Home() {
         </section>
 
         <section className={s.projectsSection}>
-          <h1 className="h1">Projects</h1>
+          <motion.h1
+            className="h1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            Projects
+          </motion.h1>
           <br />
           <div className={s.cardsContainer}>
             <MotionConfig transition={{ duration: 0.4, ease: "easeInOut" }}>
@@ -258,12 +265,16 @@ export default function Home() {
           </div>
         </section>
       </div>
-
-      <footer className={s.footer}>
+      <motion.footer
+        className={s.footer}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 3.2 }}
+      >
         {/* Icon */}
         Made by Nadia G.
         {/* Icon */}
-      </footer>
+      </motion.footer>
     </div>
   );
 }
