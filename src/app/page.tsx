@@ -23,79 +23,79 @@ export default function Home() {
 
           <div className={s.cardsContainer}>
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h3}>Project 1</h3>
+              <h3 className={s.h2}>Project 1</h3>
               {/* Backgorund img  o come uzu.works */}
               <p className={s.paragraph}>blbablabalba</p>
             </div>
