@@ -1,7 +1,10 @@
+"use client";
+
 import s from "./page.module.css";
 // import { Card } from "./ui/Card";
 import LeafIcon from "./icons/leaf";
 import Tree from "./icons/tree";
+import { motion, MotionConfig } from "motion/react";
 
 export default function Home() {
   return (
@@ -11,6 +14,7 @@ export default function Home() {
           {/* Siccome è il nome del sito-startup stilizzalo diversamente */}
           <h1 className="h1">Emerald Forge</h1>
           <br />
+
           <p className="paragraph">
             Hi, I am Nadia G. from Berlin, a seasoned software engineer with 9
             years of experience @ Doctolib.
@@ -60,109 +64,124 @@ export default function Home() {
           <h1 className="h1">Projects</h1>
           <br />
           <div className={s.cardsContainer}>
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
+            <MotionConfig transition={{ duration: 0.4, ease: "easeInOut" }}>
+              <motion.div
+                className={s.card}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: "0.1" }}
+              >
+                <div className={s.cardHeader}>
+                  <LeafIcon className={s.projectIcon} color="#013220" />
+                  <h3 className="h2">Project 1</h3>
+                </div>
+                <p className="paragraph">blbablabalba</p>
+              </motion.div>
 
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
+              <motion.div
+                className={s.card}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: "0.2" }}
+              >
+                <div className={s.cardHeader}>
+                  <LeafIcon className={s.projectIcon} color="#013220" />
+                  <h3 className="h2">Project 1</h3>
+                </div>
+                <p className="paragraph">blbablabalba</p>
+              </motion.div>
 
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
+              <motion.div
+                className={s.card}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: "0.3" }}
+              >
+                <div className={s.cardHeader}>
+                  <LeafIcon className={s.projectIcon} color="#013220" />
+                  <h3 className="h2">Project 1</h3>
+                </div>
+                <p className="paragraph">blbablabalba</p>
+              </motion.div>
 
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
+              <motion.div
+                className={s.card}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: "0.4" }}
+              >
+                <div className={s.cardHeader}>
+                  <LeafIcon className={s.projectIcon} color="#013220" />
+                  <h3 className="h2">Project 1</h3>
+                </div>
+                <p className="paragraph">blbablabalba</p>
+              </motion.div>
 
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
+              <motion.div
+                className={s.card}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: "0.5" }}
+              >
+                <div className={s.cardHeader}>
+                  <LeafIcon className={s.projectIcon} color="#013220" />
+                  <h3 className="h2">Project 1</h3>
+                </div>
+                <p className="paragraph">blbablabalba</p>
+              </motion.div>
 
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
+              <motion.div
+                className={s.card}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: "0.6" }}
+              >
+                <div className={s.cardHeader}>
+                  <LeafIcon className={s.projectIcon} color="#013220" />
+                  <h3 className="h2">Project 1</h3>
+                </div>
+                <p className="paragraph">blbablabalba</p>
+              </motion.div>
 
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
+              <motion.div
+                className={s.card}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: "0.7" }}
+              >
+                <div className={s.cardHeader}>
+                  <LeafIcon className={s.projectIcon} color="#013220" />
+                  <h3 className="h2">Project 1</h3>
+                </div>
+                <p className="paragraph">blbablabalba</p>
+              </motion.div>
 
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
+              <motion.div
+                className={s.card}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: "0.8" }}
+              >
+                <div className={s.cardHeader}>
+                  <LeafIcon className={s.projectIcon} color="#013220" />
+                  <h3 className="h2">Project 1</h3>
+                </div>
+                <p className="paragraph">blbablabalba</p>
+              </motion.div>
 
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
-
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
-
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
-
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
-
-            <div className={s.card}>
-              <div className={s.cardHeader}>
-                <LeafIcon className={s.projectIcon} color="#013220" />
-                <h3 className="h2">Project 1</h3>
-              </div>
-              <p className="paragraph">blbablabalba</p>
-            </div>
+              <motion.div
+                className={s.card}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: "0.9" }}
+              >
+                <div className={s.cardHeader}>
+                  <LeafIcon className={s.projectIcon} color="#013220" />
+                  <h3 className="h2">Project 1</h3>
+                </div>
+                <p className="paragraph">blbablabalba</p>
+              </motion.div>
+            </MotionConfig>
           </div>
         </section>
       </div>
