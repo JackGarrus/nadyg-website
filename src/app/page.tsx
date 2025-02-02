@@ -18,9 +18,57 @@ export default function Home() {
         </section>
 
         <section className={s.projectsSection}>
+          <h1 className={s.h1}>Projects</h1>
+          <br />
+
           <div className={s.cardsContainer}>
-            <h1 className={s.h1}>Projects</h1>
-            <br />
+            <div className={s.card}>
+              <h3 className={s.h3}>Project 1</h3>
+              {/* Backgorund img  o come uzu.works */}
+              <p className={s.paragraph}>blbablabalba</p>
+            </div>
+
+            <div className={s.card}>
+              <h3 className={s.h3}>Project 1</h3>
+              {/* Backgorund img  o come uzu.works */}
+              <p className={s.paragraph}>blbablabalba</p>
+            </div>
+
+            <div className={s.card}>
+              <h3 className={s.h3}>Project 1</h3>
+              {/* Backgorund img  o come uzu.works */}
+              <p className={s.paragraph}>blbablabalba</p>
+            </div>
+
+            <div className={s.card}>
+              <h3 className={s.h3}>Project 1</h3>
+              {/* Backgorund img  o come uzu.works */}
+              <p className={s.paragraph}>blbablabalba</p>
+            </div>
+
+            <div className={s.card}>
+              <h3 className={s.h3}>Project 1</h3>
+              {/* Backgorund img  o come uzu.works */}
+              <p className={s.paragraph}>blbablabalba</p>
+            </div>
+
+            <div className={s.card}>
+              <h3 className={s.h3}>Project 1</h3>
+              {/* Backgorund img  o come uzu.works */}
+              <p className={s.paragraph}>blbablabalba</p>
+            </div>
+
+            <div className={s.card}>
+              <h3 className={s.h3}>Project 1</h3>
+              {/* Backgorund img  o come uzu.works */}
+              <p className={s.paragraph}>blbablabalba</p>
+            </div>
+
+            <div className={s.card}>
+              <h3 className={s.h3}>Project 1</h3>
+              {/* Backgorund img  o come uzu.works */}
+              <p className={s.paragraph}>blbablabalba</p>
+            </div>
 
             <div className={s.card}>
               <h3 className={s.h3}>Project 1</h3>
