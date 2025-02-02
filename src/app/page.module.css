@@ -35,7 +35,6 @@
 
 .cardsContainer {
   display: grid;
-
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   grid-gap: 20px;
   background-color: #3e6a50;
@@ -44,28 +43,28 @@
 .card {
   background-color: #204d34;
   height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
 }
 
-.h1 {
-  font-size: 24px;
+.cardHeader {
+  display: flex;
 }
 
-.h2 {
-  font-size: 20px;
+.cardHeader h3 {
+  padding-left: 8px;
 }
 
-.h3 {
-  font-size: 18px;
-}
-
-.paragraph {
-  font-size: 16px;
+.projectIcon {
+  width: 20px;
 }
 
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(51, 91, 69);
+  background-color: #275945;
   padding: 50px 0;
 }

@@ -1,5 +1,6 @@
-"use client";
 import s from "./page.module.css";
+// import { Card } from "./ui/Card";
+import LeafIcon from "./icons/leaf";
 
 export default function Home() {
   return (
@@ -7,9 +8,9 @@ export default function Home() {
       <div className={s.container}>
         <section className={s.yapSection}>
           {/* Siccome è il nome del sito-startup stilizzalo diversamente */}
-          <h1 className={s.h1}>Emerald Forge</h1>
+          <h1 className="h1">Emerald Forge</h1>
           <br />
-          <p className={s.paragraph}>
+          <p className="paragraph">
             Hi, I’m Nadia G, an indie app developer from Berlin. Check out my
             productivity and creative apps.
           </p>
@@ -18,86 +19,111 @@ export default function Home() {
         </section>
 
         <section className={s.projectsSection}>
-          <h1 className={s.h1}>Projects</h1>
+          <h1 className="h1">Projects</h1>
           <br />
-
           <div className={s.cardsContainer}>
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
 
             <div className={s.card}>
-              <h3 className={s.h2}>Project 1</h3>
-              {/* Backgorund img  o come uzu.works */}
-              <p className={s.paragraph}>blbablabalba</p>
+              <div className={s.cardHeader}>
+                <LeafIcon className={s.projectIcon} color="#80ba27" />
+                <h3 className="h2">Project 1</h3>
+              </div>
+              <p className="paragraph">blbablabalba</p>
             </div>
           </div>
         </section>
