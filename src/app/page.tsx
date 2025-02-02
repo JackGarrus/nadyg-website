@@ -16,31 +16,36 @@ export default function Home() {
           <br />
 
           <p className="paragraph">
-            Hi, I am Nadia G. from Berlin, a seasoned software engineer with 9
-            years of experience @ Doctolib.
+            Hi, I am <strong>Nadia G.</strong> from Berlin, a seasoned software
+            engineer with 9 years of experience @ Doctolib.
             <br />
             <br />I also work on indie apps in my spare time. I love
-            experimenting with new ideas and building tools that solve my
-            problems, whether it’s something simple to make life a little easier
-            or a more complex project that challenges my skills.
+            experimenting with new ideas and building tools that solve problems,
+            whether it’s something simple to make my life a little easier or a
+            more complex project that challenges my skills.
             <br />
             <br />
-            On my blog, I write about everything from coding tips and
-            productivity hacks to reflections on my job journey and the pop
-            culture that inspires me.
+            On my blog, I write about everything from{" "}
+            <strong>coding tips</strong>, <strong>productivity hacks</strong> to
+            reflections on my <strong>job journey</strong> and the{" "}
+            <strong>pop culture</strong> that inspires me.
             <br />
-            <br />
-            I’m also passionate about the future of the internet, especially
-            privacy, free access to information, and finding European
-            alternatives to Big Tech.
+            <br />I consider myself a <strong>Free Internet Activist</strong>,
+            passionate about the future of the internet, especially privacy,
+            free access to information, and{" "}
+            <strong>finding European alternatives to Big Tech</strong>.
             <br />
             <br />
             When I’m away from the screen, you’ll find me hiking through nature,
-            exploring the outdoors, and tending to my garden. Summer in the park
-            is my happy place
+            exploring the outdoors, and tending to my plants.
             <br />
             <br />
-            Favourite color? Forest green{" "}
+            <br />
+            Currently learning? Linux
+            <br />
+            Favourite Berliner park? Wulheide
+            <br />
+            Favourite color? Forest green
             <span>
               <Tree className={s.projectIcon} color="#013220" />
             </span>
