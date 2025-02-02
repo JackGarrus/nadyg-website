@@ -69,7 +69,7 @@ export default function Home() {
                 className={s.card}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: "0.1" }}
+                transition={{ delay: 0.1 }}
               >
                 <div className={s.cardHeader}>
                   <LeafIcon className={s.projectIcon} color="#013220" />
@@ -82,7 +82,7 @@ export default function Home() {
                 className={s.card}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: "0.2" }}
+                transition={{ delay: 0.2 }}
               >
                 <div className={s.cardHeader}>
                   <LeafIcon className={s.projectIcon} color="#013220" />
@@ -95,7 +95,7 @@ export default function Home() {
                 className={s.card}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: "0.3" }}
+                transition={{ delay: 0.3 }}
               >
                 <div className={s.cardHeader}>
                   <LeafIcon className={s.projectIcon} color="#013220" />
@@ -108,7 +108,7 @@ export default function Home() {
                 className={s.card}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: "0.4" }}
+                transition={{ delay: 0.4 }}
               >
                 <div className={s.cardHeader}>
                   <LeafIcon className={s.projectIcon} color="#013220" />
@@ -121,7 +121,7 @@ export default function Home() {
                 className={s.card}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: "0.5" }}
+                transition={{ delay: 0.5 }}
               >
                 <div className={s.cardHeader}>
                   <LeafIcon className={s.projectIcon} color="#013220" />
@@ -134,7 +134,7 @@ export default function Home() {
                 className={s.card}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: "0.6" }}
+                transition={{ delay: 0.6 }}
               >
                 <div className={s.cardHeader}>
                   <LeafIcon className={s.projectIcon} color="#013220" />
@@ -147,7 +147,7 @@ export default function Home() {
                 className={s.card}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: "0.7" }}
+                transition={{ delay: 0.7 }}
               >
                 <div className={s.cardHeader}>
                   <LeafIcon className={s.projectIcon} color="#013220" />
@@ -160,7 +160,7 @@ export default function Home() {
                 className={s.card}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: "0.8" }}
+                transition={{ delay: 0.8 }}
               >
                 <div className={s.cardHeader}>
                   <LeafIcon className={s.projectIcon} color="#013220" />
@@ -173,7 +173,7 @@ export default function Home() {
                 className={s.card}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: "0.9" }}
+                transition={{ delay: 0.9 }}
               >
                 <div className={s.cardHeader}>
                   <LeafIcon className={s.projectIcon} color="#013220" />
