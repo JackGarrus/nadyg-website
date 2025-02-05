@@ -4,6 +4,7 @@ import s from "./page.module.css";
 // import { Card } from "./ui/Card";
 import LeafIcon from "./icons/leaf";
 import { motion, MotionConfig } from "motion/react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -112,14 +113,16 @@ export default function Home() {
           <br />
           <br />
           <div className={s.linksContainer}>
-            <motion.a
-              className={s.link}
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.2 }}
+              className={s.link}
             >
-              Blog
-            </motion.a>
+              <Link key="/blog" href="/blog" target="blank">
+                Blog
+              </Link>
+            </motion.div>
             <motion.a
               className={s.link}
               initial={{ opacity: 0 }}
