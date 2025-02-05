@@ -35,6 +35,7 @@
 
 .linksContainer {
   display: flex;
+  align-items: center;
 }
 
 .linksContainer a {

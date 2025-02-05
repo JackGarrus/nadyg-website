@@ -109,7 +109,6 @@ export default function Home() {
           >
             Favourite color? Forest green
           </motion.p>
-          {/* Come si creano i link in nextjs? */}
           <br />
           <br />
           <div className={s.linksContainer}>
@@ -119,7 +118,7 @@ export default function Home() {
               transition={{ delay: 2.2 }}
               className={s.link}
             >
-              <Link key="/blog" href="/blog" target="blank">
+              <Link key="/blog" href="/blog" target="blank" className={s.link}>
                 Blog
               </Link>
             </motion.div>
@@ -268,16 +267,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <motion.footer
-        className={s.footer}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 3.2 }}
-      >
-        {/* Icon */}
-        Made by Nadia G.
-        {/* Icon */}
-      </motion.footer>
     </div>
   );
 }
