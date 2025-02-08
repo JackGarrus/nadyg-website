@@ -15,7 +15,8 @@
 }
 
 .yapSection,
-.projectsSection {
+.projectsSection,
+.contactsSection {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -23,14 +24,9 @@
   padding: 20px;
 }
 
-.yapSection {
-  /* background-color: #427859; */
-  background-color: transparent;
-}
-
-.projectsSection {
-  /* background-color: #5a8c70; */
-  overflow-y: scroll;
+.contactsSection {
+  justify-content: center;
+  align-items: center;
 }
 
 .linksContainer {
