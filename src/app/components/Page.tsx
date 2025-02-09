@@ -1,4 +1,4 @@
-import s from "../page.module.css";
+import s from "./styles/page.module.css";
 
 export default function Page({
   children,
