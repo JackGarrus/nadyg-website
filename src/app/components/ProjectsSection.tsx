@@ -1,6 +1,6 @@
-import "@/app/globals.css";
-import s from "@/app/components/styles/projectsSection.module.css";
-import t from "@/app/typography.module.css";
+import "@/app/style/globals.css";
+import t from "@/app/style/typography.module.css";
+import s from "@/app/components/ProjectsSection.module.css";
 import Card from "./Card";
 import { motion, MotionConfig } from "motion/react";
 

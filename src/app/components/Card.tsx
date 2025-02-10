@@ -1,4 +1,4 @@
-import s from "@/app/components/styles/card.module.css";
+import s from "@/app/components/Card.module.css";
 import LeafIcon from "@/app/icons/leaf";
 import { motion } from "motion/react";
 
