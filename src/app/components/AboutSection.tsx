@@ -1,5 +1,5 @@
 import "@/app/globals.css";
-import s from "@/app/components/styles/aboutSection.module.css";
+import s from "@/app/components/AboutSection.module.css";
 import t from "@/app/typography.module.css";
 import { motion } from "motion/react";
 import Link from "next/link";

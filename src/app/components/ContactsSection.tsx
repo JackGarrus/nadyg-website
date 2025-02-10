@@ -1,5 +1,5 @@
 import "@/app/globals.css";
-import s from "@/app/components/styles/contactsSection.module.css";
+import s from "@/app/components/ContactsSection.module.css";
 import t from "@/app/typography.module.css";
 import l from "@/app/layout.module.css";
 import { useState } from "react";
