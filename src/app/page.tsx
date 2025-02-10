@@ -1,6 +1,6 @@
 "use client";
 
-import "@/app/globals.css";
+import "@/app/style/globals.css";
 import s from "@/app/page.module.css";
 import AboutSection from "@/app/components/AboutSection";
 import ContactsSection from "@/app/components/ContactsSection";

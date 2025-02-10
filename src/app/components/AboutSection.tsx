@@ -1,6 +1,6 @@
-import "@/app/globals.css";
+import "@/app/style/globals.css";
+import t from "@/app/style/typography.module.css";
 import s from "@/app/components/AboutSection.module.css";
-import t from "@/app/typography.module.css";
 import { motion } from "motion/react";
 import Link from "next/link";
 
