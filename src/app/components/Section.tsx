@@ -1,6 +1,6 @@
-import s from "./styles/page.module.css";
+import s from "./styles/section.module.css";
 
-export default function Page({
+export default function Section({
   children,
 }: Readonly<{
   children: React.ReactNode;

@@ -1,0 +1,13 @@
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex p + a {
+  padding-left: 8px;
+  color: #25af5f;
+}
+
+.flex p + a:hover {
+  color: inherit;
+}

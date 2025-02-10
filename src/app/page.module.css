@@ -9,80 +9,14 @@
 }
 
 .yapSection {
-  /* background-color: #427859; */
   background-color: transparent;
 }
 
 .projectsSection {
-  /* background-color: #5a8c70; */
   overflow-y: scroll;
 }
 
 .contactsSection {
   justify-content: center;
   align-items: center;
-}
-
-.linksContainer {
-  display: flex;
-  align-items: center;
-}
-
-.linksContainer a {
-  margin-right: 12px;
-  padding: 16px 0 16px;
-}
-
-a.link:hover {
-  color: #249754;
-}
-
-.email {
-  background-color: transparent;
-  border: none;
-  color: #25af5f;
-}
-
-.email:hover {
-  cursor: pointer;
-  color: inherit;
-}
-
-.copied {
-  padding-left: 16px;
-  font-style: italic;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-}
-
-.flex p + a {
-  padding-left: 8px;
-  color: #25af5f;
-}
-
-.flex p + a:hover {
-  color: inherit;
-}
-
-.cardsContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  grid-gap: 20px;
-  background-color: transparent;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 0;
-}
-
-.box {
-  width: 100;
-  height: 100;
-  background-color: lime;
 }
