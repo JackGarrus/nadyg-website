@@ -1,4 +1,4 @@
-import s from "./styles/section.module.css";
+import s from "@/app/components/styles/section.module.css";
 
 export default function Section({
   children,

@@ -1,5 +1,5 @@
-import s from "./styles/card.module.css";
-import LeafIcon from "../icons/leaf";
+import s from "@/app/components/styles/card.module.css";
+import LeafIcon from "@/app/icons/leaf";
 import { motion } from "motion/react";
 
 export default function Card() {

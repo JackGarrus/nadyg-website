@@ -1,11 +1,11 @@
 "use client";
 
-import "./globals.css";
-import s from "./page.module.css";
-import AboutSection from "./components/AboutSection";
-import ContactsSection from "./components/ContactsSection";
-import ProjectsSection from "./components/ProjectsSection";
-import Section from "./components/Section";
+import "@/app/globals.css";
+import s from "@/app/page.module.css";
+import AboutSection from "@/app/components/AboutSection";
+import ContactsSection from "@/app/components/ContactsSection";
+import ProjectsSection from "@/app/components/ProjectsSection";
+import Section from "@/app/components/Section";
 
 export default function Home() {
   return (
