@@ -1,7 +1,7 @@
-import "./../globals.css";
-import s from "./styles/contactsSection.module.css";
-import t from "./../typography.module.css";
-import l from "./../layout.module.css";
+import "@/app/globals.css";
+import s from "@/app/components/styles/contactsSection.module.css";
+import t from "@/app/typography.module.css";
+import l from "@/app/layout.module.css";
 import { useState } from "react";
 
 export default function ContactsSection() {
