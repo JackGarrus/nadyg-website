@@ -40,27 +40,6 @@ export default function ContactsSection() {
           Linkedin
         </a>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      {/* Sposta nel footer */}
-      <a href="https://pngtree.com/freepng/hand-drawn-green-gems-illustration_4531393.html">
-        Png image from pngtree.com/
-      </a>
     </>
   );
 }
