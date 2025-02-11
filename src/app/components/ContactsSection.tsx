@@ -1,3 +1,5 @@
+"use client";
+
 import "@/app/style/globals.css";
 import s from "@/app/components/ContactsSection.module.css";
 import t from "@/app/style/typography.module.css";

@@ -1,11 +1,10 @@
-"use client";
-
 import "@/app/style/globals.css";
 import s from "@/app/page.module.css";
 import AboutSection from "@/app/components/AboutSection";
 import ContactsSection from "@/app/components/ContactsSection";
-import ProjectsSection from "@/app/components/ProjectsSection";
+// import ProjectsSection from "@/app/components/ProjectsSection";
 import Section from "@/app/components/Section";
+import { BlogPosts } from "./components/posts";
 
 export default function Home() {
   return (
@@ -16,7 +15,8 @@ export default function Home() {
         </section>
 
         <section className={s.projectsSection}>
-          <ProjectsSection />
+          <h1 className="h1">My Blog</h1>
+          <BlogPosts />
         </section>
       </Section>
 
