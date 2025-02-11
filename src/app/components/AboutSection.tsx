@@ -4,7 +4,6 @@ import "@/app/style/globals.css";
 import t from "@/app/style/typography.module.css";
 import s from "@/app/components/AboutSection.module.css";
 import { motion } from "motion/react";
-import Link from "next/link";
 
 export default function AboutSection() {
   return (
@@ -73,11 +72,7 @@ export default function AboutSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 2.2 }}
           className={s.link}
-        >
-          <Link key="/blog" href="/blog" target="blank" className={s.link}>
-            Blog
-          </Link>
-        </motion.div>
+        ></motion.div>
       </div>
     </>
   );

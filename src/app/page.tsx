@@ -5,6 +5,7 @@ import ContactsSection from "@/app/components/ContactsSection";
 // import ProjectsSection from "@/app/components/ProjectsSection";
 import Section from "@/app/components/Section";
 import { BlogPosts } from "./components/posts";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,7 +16,9 @@ export default function Home() {
         </section>
 
         <section className={s.projectsSection}>
-          <h1 className="h1">My Blog</h1>
+          <Link key="/blog" href="/blog" target="blank" className={s.link}>
+            <h1>My Blog</h1>
+          </Link>
           <BlogPosts />
         </section>
       </Section>
