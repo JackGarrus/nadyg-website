@@ -4,6 +4,7 @@ import { formatDate, getBlogPosts } from "@/app/blog/utils";
 import { baseUrl } from "@/app/sitemap";
 import Section from "@/app/components/Section";
 import t from "@/app/style/typography.module.css";
+import clsx from "clsx";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -110,7 +111,7 @@ export default function Blog({ params }) {
           {post.metadata.title}
         </h1>
         <br />
-        <p className={t.p} style={{ textAlign: "right" }}>
+        <p className={clsx(t.p, t.blogPostDate)} style={{ textAlign: "right" }}>
           {formatDate(post.metadata.publishedAt)}
         </p>
         <br />

@@ -8,6 +8,8 @@ import { BlogPosts } from "./components/posts";
 import Link from "next/link";
 import ArrowUpSquare from "./icons/arrowUpSquare";
 import t from "@/app/style/typography.module.css";
+
+import l from "@/app/style/layout.module.css";
 import clsx from "clsx";
 
 export default function Home() {
@@ -23,10 +25,12 @@ export default function Home() {
             key="/blog"
             href="/blog"
             target="blank"
-            className={clsx(s.link, "flex ")}
+            className={clsx(s.link, l.flex, l.alignItemsCenter)}
           >
-            <h1 className={t.h1}>My Blog</h1>
-            <ArrowUpSquare className="icon" color="#f1b900" />
+            <h1 className={t.h1} style={{ paddingRight: "1rem" }}>
+              Blog
+            </h1>
+            <ArrowUpSquare className="icon" color="#fff" />
           </Link>
           <BlogPosts />
         </section>

@@ -14,7 +14,7 @@ export default function AboutSection() {
         transition={{ delay: 0.1 }}
         className={t.h1}
       >
-        Emerald Forge
+        Hi, I am <strong>Nadia G.</strong>
       </motion.h1>
       <br />
       <motion.p
@@ -23,8 +23,7 @@ export default function AboutSection() {
         transition={{ delay: 0.2 }}
         className={t.p}
       >
-        Hi, I am <strong>Nadia G.</strong> from Berlin, a seasoned software
-        engineer with 9 years of experience.
+        a seasoned software engineer with 9 years of experience based in Berlin.
       </motion.p>
       <br />
       <br />
