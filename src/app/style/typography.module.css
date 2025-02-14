@@ -35,6 +35,12 @@
 
 .blogPostTitle {
   font-size: 36px;
+  color: #abed1c;
+}
+
+.blogPostDate {
+  font-style: italic;
+  color: #8bb62e;
 }
 
 .blogPostParagraph {
@@ -43,13 +49,20 @@
 }
 
 .blogPostH1 {
-  font-size: 32px;
-}
-
-.blogPostH2 {
   font-size: 30px;
 }
 
-.blogPostH3 {
+.blogPostH2 {
   font-size: 28px;
+}
+
+.blogPostH3 {
+  font-size: 26px;
+}
+
+.blogPostH1,
+.blogPostH2,
+.blogPostH3 {
+  padding-bottom: 1.2rem;
+  color: #8bb62e;
 }

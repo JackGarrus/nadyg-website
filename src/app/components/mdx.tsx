@@ -54,10 +54,14 @@ function RoundedImage(props) {
 
 function Code({ children, ...props }) {
   const codeHTML = highlight(children);
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+  return (
+    <div style={{ background: "#0d2416", padding: "16px", lineHeight: 2 }}>
+      <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+    </div>
+  );
 }
 
-function slugify(str) {
+function slugify(str: string) {
   return str
     .toString()
     .toLowerCase()
@@ -68,7 +72,7 @@ function slugify(str) {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
-function createHeading(level) {
+function createHeading(level: number) {
   const Heading = ({ children }) => {
     const slug = slugify(children);
 
@@ -98,7 +102,6 @@ function createHeading(level) {
   };
 
   Heading.displayName = `Heading${level}`;
-
   return Heading;
 }
 
@@ -123,7 +126,6 @@ const components = {
 };
 
 export function CustomMDX(props) {
-  console.log(props);
   return (
     <MDXRemote
       {...props}
