@@ -11,3 +11,7 @@
 .flex p + a:hover {
   color: inherit;
 }
+
+.alignItemsCenter {
+  align-items: center;
+}

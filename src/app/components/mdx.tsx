@@ -1,20 +1,24 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { highlight } from 'sugar-high'
-import React from 'react'
+import "@/app/style/reset.css";
+import "@/app/style/globals.css";
+import Link from "next/link";
+import Image from "next/image";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { highlight } from "sugar-high";
+import React from "react";
+import t from "@/app/style/typography.module.css";
+import clsx from "clsx";
 
 function Table({ data }) {
-  let headers = data.headers.map((header, index) => (
+  const headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
-  ))
-  let rows = data.rows.map((row, index) => (
+  ));
+  const rows = data.rows.map((row, index) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
         <td key={cellIndex}>{cell}</td>
       ))}
     </tr>
-  ))
+  ));
 
   return (
     <table>
@@ -23,81 +27,103 @@ function Table({ data }) {
       </thead>
       <tbody>{rows}</tbody>
     </table>
-  )
+  );
 }
 
 function CustomLink(props) {
-  let href = props.href
+  const href = props.href;
 
-  if (href.startsWith('/')) {
+  if (href.startsWith("/")) {
     return (
       <Link href={href} {...props}>
         {props.children}
       </Link>
-    )
+    );
   }
 
-  if (href.startsWith('#')) {
-    return <a {...props} />
+  if (href.startsWith("#")) {
+    return <a {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+  return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  return <Image alt={props.alt} {...props} />;
 }
 
 function Code({ children, ...props }) {
-  let codeHTML = highlight(children)
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+  const codeHTML = highlight(children);
+  return (
+    <div style={{ background: "#0d2416", padding: "16px", lineHeight: 2 }}>
+      <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+    </div>
+  );
 }
 
-function slugify(str) {
+function slugify(str: string) {
   return str
     .toString()
     .toLowerCase()
     .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/&/g, "-and-") // Replace & with 'and'
+    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
+    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
-function createHeading(level) {
+function createHeading(level: number) {
   const Heading = ({ children }) => {
-    let slug = slugify(children)
+    const slug = slugify(children);
+
     return React.createElement(
       `h${level}`,
-      { id: slug },
+      {
+        id: slug,
+        className: clsx({
+          [t.blogPostH1]: level === 1,
+          [t.blogPostH2]: level === 2,
+          [t.blogPostH3]: level === 3,
+        }),
+      },
       [
-        React.createElement('a', {
+        React.createElement("a", {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: 'anchor',
+          className: clsx({
+            [t.blogPostH1]: level === 1,
+            [t.blogPostH2]: level === 2,
+            [t.blogPostH3]: level === 3,
+          }),
         }),
       ],
       children
-    )
-  }
+    );
+  };
 
-  Heading.displayName = `Heading${level}`
-
-  return Heading
+  Heading.displayName = `Heading${level}`;
+  return Heading;
 }
 
-let components = {
+function createParagraph({ children }) {
+  return (
+    <>
+      <p className={clsx(t.p, t.blogPostParagraph)}>{children} </p>
+      <br />
+    </>
+  );
+}
+
+const components = {
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
-  h4: createHeading(4),
-  h5: createHeading(5),
-  h6: createHeading(6),
+  p: createParagraph,
   Image: RoundedImage,
   a: CustomLink,
   code: Code,
   Table,
-}
+};
 
 export function CustomMDX(props) {
   return (
@@ -105,5 +131,5 @@ export function CustomMDX(props) {
       {...props}
       components={{ ...components, ...(props.components || {}) }}
     />
-  )
+  );
 }

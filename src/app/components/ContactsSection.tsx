@@ -1,3 +1,5 @@
+"use client";
+
 import "@/app/style/globals.css";
 import s from "@/app/components/ContactsSection.module.css";
 import t from "@/app/style/typography.module.css";
@@ -38,27 +40,6 @@ export default function ContactsSection() {
           Linkedin
         </a>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      {/* Sposta nel footer */}
-      <a href="https://pngtree.com/freepng/hand-drawn-green-gems-illustration_4531393.html">
-        Png image from pngtree.com/
-      </a>
     </>
   );
 }

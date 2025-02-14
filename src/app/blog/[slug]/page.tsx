@@ -2,17 +2,35 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "@/app/components/mdx";
 import { formatDate, getBlogPosts } from "@/app/blog/utils";
 import { baseUrl } from "@/app/sitemap";
+import Section from "@/app/components/Section";
+import t from "@/app/style/typography.module.css";
+import clsx from "clsx";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return posts.map((post) => {
+    console.log(post);
+    return {
+      slug: post.slug,
+    };
+  });
 }
 
+/*
+post: {
+  content: *il contenuto del file mdx
+  metadata: {
+    publishedAt
+    summary
+    title
+  }
+  slug: 'static-typing'
+}
+*/
 export function generateMetadata({ params }) {
   const post = getBlogPosts().find((post) => post.slug === params.slug);
+  console.log(post);
   if (!post) {
     return;
   }
@@ -59,40 +77,49 @@ export default function Blog({ params }) {
   }
 
   return (
-    <section>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${baseUrl}${post.metadata.image}`
-              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
-            author: {
-              "@type": "Person",
-              name: "My Portfolio",
-            },
-          }),
+    <Section>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          padding: "0 12vw 10vh",
         }}
-      />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+      >
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: post.metadata.title,
+              datePublished: post.metadata.publishedAt,
+              dateModified: post.metadata.publishedAt,
+              description: post.metadata.summary,
+              image: post.metadata.image
+                ? `${baseUrl}${post.metadata.image}`
+                : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+              url: `${baseUrl}/blog/${post.slug}`,
+              author: {
+                "@type": "Nadia G",
+                name: "Emerald Forge",
+              },
+            }),
+          }}
+        />
+        <h1 className={t.blogPostTitle} style={{ textAlign: "right" }}>
+          {post.metadata.title}
+        </h1>
+        <br />
+        <p className={clsx(t.p, t.blogPostDate)} style={{ textAlign: "right" }}>
           {formatDate(post.metadata.publishedAt)}
         </p>
+        <br />
+        <br />
+        <article>
+          <CustomMDX source={post.content} />
+        </article>
       </div>
-      <article className="prose">
-        <CustomMDX source={post.content} />
-      </article>
-    </section>
+    </Section>
   );
 }
