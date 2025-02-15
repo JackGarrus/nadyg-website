@@ -66,7 +66,7 @@
 
 .blogPostDate {
   font-style: italic;
-  color: color-mix(in srgb, var(--accent) 50%, black 5%);
+  color: var(--accent);
 }
 
 .blogPostParagraph {

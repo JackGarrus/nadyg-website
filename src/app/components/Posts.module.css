@@ -9,10 +9,10 @@
   border-top-right-radius: 60px;
   border-bottom-left-radius: 60px;
 }
-
+/*
 .container:hover {
   background-color: color-mix(in srgb, var(--dark-accent) 50%, white 2%);
-}
+} */
 
 .container::before,
 .container::after {
@@ -56,5 +56,5 @@
 .date {
   text-align: right;
   font-style: italic;
-  color: color-mix(in srgb, var(--dark-accent) 50%, white 40%);
+  color: var(--dark-accent);
 }

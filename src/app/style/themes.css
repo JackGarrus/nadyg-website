@@ -1,0 +1,59 @@
+:root {
+  /* Main Palette Principale (Light Mode Default) */
+  --accent: #38765b;
+  --normal: #0b3220;
+  --dark-accent: #254f3b;
+  --dark-shade: #e9dabe;
+  --main-brand: #38765b;
+
+  /* Syntax Highlighting (from the Palette) */
+  --sh-class: color-mix(in srgb, var(--accent) 80%, black);
+  --sh-identifier: color-mix(in srgb, var(--main-brand) 70%, white);
+  --sh-sign: color-mix(in srgb, var(--normal) 80%, black);
+  --sh-property: color-mix(in srgb, var(--dark-accent) 60%, var(--accent));
+  --sh-entity: color-mix(in srgb, var(--main-brand) 60%, var(--accent));
+  --sh-jsxliterals: color-mix(in srgb, var(--accent) 50%, var(--normal));
+  --sh-string: color-mix(in srgb, var(--main-brand) 50%, var(--dark-accent));
+  --sh-keyword: color-mix(in srgb, var(--accent) 90%, red);
+  --sh-comment: color-mix(in srgb, var(--normal) 50%, var(--dark-shade));
+}
+
+/* Automatic Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #e7c96c;
+    --normal: #e0d6c3;
+    --dark-accent: #254f3b;
+    --dark-shade: #0b3220;
+    --main-brand: #38765b;
+  }
+}
+
+/* 🌙 Manual Dark mode */
+[data-theme="dark"] {
+  --accent: #e7c96c;
+  --normal: #e0d6c3;
+  --dark-accent: #254f3b;
+  --dark-shade: #0b3220;
+  --main-brand: #38765b;
+}
+
+/* Light Mode manual */
+[data-theme="light"] {
+  --accent: #38765b;
+  --normal: #0b3220;
+  --dark-accent: #254f3b;
+  --dark-shade: #e9dabe;
+  --main-brand: #38765b;
+
+  /* 🎨 Syntax Highlighting for Light Mode */
+  --sh-class: color-mix(in srgb, var(--accent) 80%, black);
+  --sh-identifier: color-mix(in srgb, var(--main-brand) 70%, white);
+  --sh-sign: color-mix(in srgb, var(--normal) 70%, gray);
+  --sh-property: color-mix(in srgb, var(--dark-accent) 60%, var(--accent));
+  --sh-entity: color-mix(in srgb, var(--main-brand) 60%, var(--dark-shade));
+  --sh-jsxliterals: color-mix(in srgb, var(--accent) 50%, var(--dark-shade));
+  --sh-string: color-mix(in srgb, var(--main-brand) 50%, var(--dark-accent));
+  --sh-keyword: color-mix(in srgb, var(--accent) 90%, red);
+  --sh-comment: color-mix(in srgb, var(--normal) 50%, var(--dark-shade));
+}

@@ -8,13 +8,14 @@ import { BlogPosts } from "./components/posts";
 import Link from "next/link";
 import ArrowUpSquare from "./icons/arrowUpSquare";
 import t from "@/app/style/typography.module.css";
-
 import l from "@/app/style/layout.module.css";
 import clsx from "clsx";
+import ThemeToggle from "./theme/ThemeToggle";
 
 export default function Home() {
   return (
     <>
+      <ThemeToggle />
       <Section>
         <section className={s.yapSection}>
           <AboutSection />
