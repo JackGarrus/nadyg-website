@@ -1,5 +1,7 @@
 "use client";
 
+import Moon from "../icons/Moon";
+import Sun from "../icons/Sun";
 import { useTheme } from "./ThemeProvider";
 
 const ThemeToggle: React.FC = () => {
@@ -7,7 +9,11 @@ const ThemeToggle: React.FC = () => {
 
   return (
     <button onClick={toggleTheme} aria-label="Cambia tema">
-      {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+      {theme === "light" ? (
+        <Moon className="icon" color="#38765b" />
+      ) : (
+        <Sun className="icon" color="#38765b" />
+      )}
     </button>
   );
 };
