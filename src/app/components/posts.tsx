@@ -22,7 +22,8 @@ export function BlogPosts() {
           <Link key={post.slug} href={`/blog/${post.slug}`}>
             <div className={s.container}>
               <p className={clsx(s.title, t.p)}>{post.metadata.title}</p>
-              <p className={s.summary}>{post.metadata.summary}</p>
+              <p className={t.summary}>{post.metadata.summary}</p>
+              <br />
               <p className={s.date}>
                 {formatDate(post.metadata.publishedAt, false)}
               </p>

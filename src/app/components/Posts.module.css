@@ -53,13 +53,6 @@
   color: color-mix(in srgb, var(--accent) 50%, var(--normal) 50%);
 }
 
-.summary {
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  line-height: 1.5;
-  color: var(--normal);
-}
-
 .date {
   text-align: right;
   font-style: italic;

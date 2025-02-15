@@ -9,7 +9,7 @@ import clsx from "clsx";
 
 export default function AboutSection() {
   return (
-    <div className={l.pr32}>
+    <div className={s.container}>
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
