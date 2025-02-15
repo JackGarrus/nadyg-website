@@ -6,6 +6,8 @@
   background-color: transparent;
   transform: translateY(-10px);
   transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  border-top-right-radius: 60px;
+  border-bottom-left-radius: 60px;
 }
 
 .container:hover {
@@ -26,16 +28,16 @@
 .container::before {
   top: 0;
   left: 0;
-  border-top: 2px solid var(--accent);
-  border-left: 2px solid var(--accent);
+  border-top: 5px solid var(--accent);
+  border-left: 5px solid var(--accent);
 }
 
 .container::after {
   bottom: 0;
   right: 0;
   transform: translateY(10px);
-  border-bottom: 2px solid var(--accent);
-  border-right: 2px solid var(--accent);
+  border-bottom: 5px solid var(--accent);
+  border-right: 5px solid var(--accent);
 }
 
 .container:hover::before,
@@ -48,15 +50,18 @@
   font-weight: bold;
   padding-bottom: 1rem;
   line-height: 1.5;
+  color: color-mix(in srgb, var(--accent) 50%, var(--normal) 50%);
 }
 
 .summary {
   font-size: 1.1rem;
   letter-spacing: 1px;
   line-height: 1.5;
+  color: var(--normal);
 }
 
 .date {
   text-align: right;
   font-style: italic;
+  color: color-mix(in srgb, var(--dark-accent) 50%, white 40%);
 }

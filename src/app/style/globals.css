@@ -16,9 +16,11 @@
   --sh-comment: #cbc3c3; /* Lighter gray for comments */
 
   /* Typography */
-  --accent: #c9ffe4;
-  --normal: #99c3ae;
-  --dark-accent: #133f31;
+  --accent: #dcb06d;
+  --normal: #e0d6c3;
+  --dark-accent: #254f3b;
+  --dark-shade: #0b3220;
+  --main-brand: #38765b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,8 +60,9 @@ a.link:hover {
 }
 
 .icon {
-  width: 20px;
   height: 20px;
+  color: var(--accent);
+  padding-left: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {

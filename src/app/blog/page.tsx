@@ -10,7 +10,6 @@ export default function Page() {
   return (
     <Section>
       <h1 className="h1">Blog</h1>
-      <br />
       <BlogPosts />
     </Section>
   );

@@ -25,12 +25,12 @@ export default function Home() {
             key="/blog"
             href="/blog"
             target="blank"
-            className={clsx(s.link, l.flex, l.aic, l.pb16)}
+            className={clsx(s.link, l.flex, l.aic, l.jce)}
           >
-            <h1 className={t.h1} style={{ paddingRight: "1rem" }}>
+            <h1 className={clsx(t.h1, l.flex, l.aic, l.pl16, l.tar)}>
               Blog
+              <ArrowUpSquare className="icon" color="#dcb06d" />
             </h1>
-            <ArrowUpSquare className="icon" color="#c9ffe4" />
           </Link>
           <BlogPosts />
         </section>

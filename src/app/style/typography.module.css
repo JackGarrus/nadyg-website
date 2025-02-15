@@ -1,7 +1,6 @@
 .h1,
 .h2,
-.h3,
-.p {
+.h3 {
   line-height: 1.3;
   letter-spacing: 1px;
 }
@@ -28,19 +27,27 @@
 .h1 {
   font-size: 1.8rem;
   letter-spacing: 1px;
+  padding-bottom: 1.875rem;
 }
 
 .h2 {
   font-size: 1.75rem;
+  padding-bottom: 1.25rem;
 }
 
 .h3 {
   font-size: 1.6rem;
+  padding-bottom: 0.938rem;
 }
 
 .p {
+  line-height: 1.3;
   font-size: 1.3rem;
   color: var(--normal);
+}
+
+.tar {
+  text-align: right;
 }
 
 /* BLOG  */
