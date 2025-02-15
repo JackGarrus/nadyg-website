@@ -1,68 +1,72 @@
-.h1 {
-  font-size: 30px;
-
+.h1,
+.h2,
+.h3,
+.p {
   line-height: 1.3;
   letter-spacing: 1px;
+}
 
-  margin-bottom: 16px;
+.h1 strong,
+.h2 strong,
+.h3 strong,
+.p strong {
+  color: var(--accent);
+}
+
+.blogPostH1,
+.blogPostH2,
+.blogPostH3,
+.blogPostTitle,
+.blogPostParagraph,
+.h1,
+.h2,
+.h3 {
+  color: var(--accent);
+  padding-bottom: 1.2rem;
+}
+
+.h1 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
 }
 
 .h2 {
-  font-size: 28px;
-
-  line-height: 1.3;
-  letter-spacing: 1px;
-
-  margin-bottom: 16px;
+  font-size: 1.75rem;
 }
 
 .h3 {
-  font-size: 26px;
-
-  line-height: 1.3;
-  letter-spacing: 1px;
-
-  margin-bottom: 16px;
+  font-size: 1.6rem;
 }
 
 .p {
-  font-size: 22px;
-  line-height: 1.3;
-  letter-spacing: 1px;
+  font-size: 1.3rem;
+  color: var(--normal);
 }
 
 /* BLOG  */
 
 .blogPostTitle {
-  font-size: 36px;
-  color: #abed1c;
+  font-size: 2.25rem;
 }
 
 .blogPostDate {
   font-style: italic;
-  color: #8bb62e;
+  color: color-mix(in srgb, var(--accent) 50%, black 5%);
 }
 
 .blogPostParagraph {
-  font-size: 22px;
+  font-size: 1.375rem;
   line-height: 1.5;
 }
 
 .blogPostH1 {
-  font-size: 30px;
+  font-size: 1.875rem;
 }
 
 .blogPostH2 {
-  font-size: 28px;
+  font-size: 1.75rem;
 }
 
 .blogPostH3 {
-  font-size: 26px;
-}
-
-.blogPostH1,
-.blogPostH2,
-.blogPostH3 {
-  padding-bottom: 1.2rem;
-  color: #8bb62e;
+  font-size: 1.625rem;
 }

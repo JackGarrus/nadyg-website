@@ -23,7 +23,8 @@ export default function AboutSection() {
         transition={{ delay: 0.2 }}
         className={t.p}
       >
-        a seasoned software engineer with 9 years of experience based in Berlin.
+        a seasoned software engineer with <strong>9 years of experience</strong>{" "}
+        based in Berlin.
       </motion.p>
       <br />
       <br />
@@ -34,10 +35,9 @@ export default function AboutSection() {
         className={t.p}
       >
         On my blog, I write from <strong>coding tips</strong>,{" "}
-        <strong>productivity hacks</strong> tested on me, to reflections on my
+        <strong>productivity hacks</strong> tested on me, to reflections on my{" "}
         <strong>job journey</strong>. <br />
-        Time to time I also post about some <strong>pop culture</strong> topics
-        that inspires me.
+        Time to time I also post about some pop culture topics that inspires me.
       </motion.p>
       <br />
       <br />
