@@ -1,5 +1,4 @@
 .pageOuterContainer {
-  background-color: var(--dark-shade);
   min-height: 100vh;
   max-height: fit-content;
   width: 100vw;

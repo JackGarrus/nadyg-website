@@ -57,3 +57,8 @@
   --sh-keyword: color-mix(in srgb, var(--accent) 90%, red);
   --sh-comment: color-mix(in srgb, var(--normal) 50%, var(--dark-shade));
 }
+
+body {
+  background-color: var(--dark-shade);
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
