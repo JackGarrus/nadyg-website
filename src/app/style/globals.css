@@ -41,7 +41,7 @@ button:hover {
 
 .icon {
   height: 20px;
-  color: var(--accent);
+  fill: var(--accent);
   padding-left: 1rem;
 }
 
