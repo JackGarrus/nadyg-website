@@ -15,8 +15,10 @@ import ThemeToggle from "./theme/ThemeToggle";
 export default function Home() {
   return (
     <>
-      <Section>
+      <div className={clsx(l.w100, t.tar)}>
         <ThemeToggle />
+      </div>
+      <Section>
         <section className={s.yapSection}>
           <AboutSection />
         </section>

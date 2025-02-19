@@ -58,6 +58,10 @@
   text-align: right;
 }
 
+.h1 > .icon {
+  padding-right: 1rem;
+}
+
 /* BLOG  */
 
 .blogPostTitle {

@@ -42,7 +42,6 @@ button:hover {
 .icon {
   height: 20px;
   fill: var(--accent);
-  padding-left: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
