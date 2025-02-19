@@ -1,31 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-:root {
-  --sh-class: #b1ed1c; /* Brighter blue for class */
-  --sh-identifier: #6cdd7a; /* Lighter blue for identifiers */
-  --sh-sign: #cdd3de; /* Lighter gray to ensure signs are visible */
-  --sh-property: #3182ce; /* Brighter blue for properties */
-  --sh-entity: #2db1bc; /* Lighter teal for entities */
-  --sh-jsxliterals: #939dfd; /* Lighter purple for JSX literals */
-  --sh-string: #26dabd; /* Lighter teal for strings */
-  --sh-keyword: #1d9829; /* Brighter red for keywords */
-  --sh-comment: #cbc3c3; /* Lighter gray for comments */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html,
 body {
   max-width: 100vw;
@@ -33,37 +5,19 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.theme-transition {
+  transition: background-color 1s ease, color 1s ease;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-
-/* Typography             */
-
-h1 {
-  font-size: 24px;
-}
-
-h2 {
-  font-size: 20px;
-}
-
-h3 {
-  font-size: 18px;
-}
-
-p {
-  font-size: 16px;
-  line-height: 1.3;
-  letter-spacing: 0.5px;
 }
 
 a {
@@ -75,9 +29,19 @@ a.link:hover {
   color: #249754;
 }
 
+button {
+  background: transparent;
+  border: none;
+  padding: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 .icon {
-  width: 20px;
   height: 20px;
+  fill: var(--accent);
 }
 
 @media (prefers-color-scheme: dark) {

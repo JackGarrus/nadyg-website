@@ -1,3 +1,7 @@
+.w100 {
+  width: 100%;
+}
+
 .flex {
   display: flex;
   align-items: center;
@@ -12,6 +16,52 @@
   color: inherit;
 }
 
-.alignItemsCenter {
+.aic {
   align-items: center;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jce {
+  justify-content: end;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.p0 {
+  padding: 0;
+}
+
+.m0 {
+  margin: 0;
+}
+
+/* PADDING */
+
+.p16 {
+  padding: 1rem;
+}
+
+.pr16 {
+  padding-right: 1rem;
+}
+
+.pb16 {
+  padding-bottom: 1rem;
+}
+
+.pt16 {
+  padding-top: 1rem;
+}
+
+.pl16 {
+  padding-left: 1rem;
+}
+
+.pr32 {
+  padding-right: 2rem;
 }
