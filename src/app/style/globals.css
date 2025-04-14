@@ -51,8 +51,8 @@ button:hover {
   fill: color-mix(in srgb, var(--normal) 40%, grey);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
 }
