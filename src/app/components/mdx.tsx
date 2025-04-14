@@ -81,7 +81,7 @@ function createHeading(level: number) {
       `h${level}`,
       {
         id: slug,
-        className: clsx({
+        className: clsx(t.highlight, {
           [t.blogPostH1]: level === 1,
           [t.blogPostH2]: level === 2,
           [t.blogPostH3]: level === 3,

@@ -14,25 +14,27 @@ export default function AboutSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className={t.h1}
+        className={t.aboutTitle}
       >
         <br />
-        Nadia Guarracino
+        <strong>Nadia Guarracino</strong>
       </motion.h1>
 
       <h2>Full-Stack Engineer @Doctolib</h2>
       <br />
-      <p>
+      <p className={t.aboutParagraph}>
         I have been building for the web since 2019, and my current stack
-        includes React, Ruby on Rails, and PostgreSQL.
+        includes <span className={t.highlight}>React</span>,
+        <span className={t.highlight}>Ruby on Rails</span>, and
+        <span className={t.highlight}>PostgreSQL</span>.
       </p>
       <br />
-      <p>
+      <p className={t.aboutParagraph}>
         In this blog, I share what I learn, practical experiences, real-world
         solutions, and interesting resources related to web development.
       </p>
       <br />
-      <p>
+      <p className={t.aboutParagraph}>
         This is a space to document my journey — and hopefully help other
         developers along the way{" "}
       </p>

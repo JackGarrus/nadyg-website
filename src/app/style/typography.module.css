@@ -1,6 +1,8 @@
 .h1,
 .h2,
-.h3 {
+.h3,
+.aboutTitle,
+.blogTitle {
   line-height: 1.3;
   letter-spacing: 1px;
 }
@@ -12,11 +14,6 @@
   color: color-mix(in srgb, var(--accent) 50%, var(--normal) 50%);
 }
 
-.blogPostH1,
-.blogPostH2,
-.blogPostH3,
-.blogPostTitle,
-.blogPostParagraph,
 .h1,
 .h2,
 .h3 {
@@ -24,7 +21,27 @@
   padding-bottom: 1.2rem;
 }
 
-.h1 {
+.aboutTitle {
+  color: var(--about-title);
+}
+
+.blogTitle {
+  color: var(--blog-title);
+}
+
+.blogPostTitle,
+.blogPostH1,
+.blogPostH2,
+.blogPostH3,
+.blogPostParagraph {
+  color: var(--normal);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.h1,
+.aboutTitle,
+.blogTitle {
   font-size: 1.8rem;
   letter-spacing: 1px;
   padding-bottom: 1.875rem;
@@ -62,6 +79,18 @@
   padding-right: 1rem;
 }
 
+.aboutParagraph {
+  font-size: 1rem;
+  color: var(--normal);
+  line-height: 1.2;
+}
+
+.highlight {
+  background-color: var(--highlight);
+  padding: 0 4px;
+  width: fit-content;
+}
+
 /* BLOG  */
 
 .blogPostTitle {
@@ -70,7 +99,7 @@
 
 .blogPostDate {
   font-style: italic;
-  color: var(--accent);
+  color: var(--normal);
 }
 
 .blogPostParagraph {

@@ -82,7 +82,7 @@ export default function Blog({ params }) {
         style={{
           display: "flex",
           flexDirection: "column",
-          padding: "0 12vw 10vh",
+          padding: "10rem 12rem 10rem",
         }}
       >
         <script
@@ -107,7 +107,10 @@ export default function Blog({ params }) {
             }),
           }}
         />
-        <h1 className={t.blogPostTitle} style={{ textAlign: "right" }}>
+        <h1
+          className={clsx(t.blogPostTitle, t.highlight)}
+          style={{ textAlign: "right" }}
+        >
           {post.metadata.title}
         </h1>
         <br />

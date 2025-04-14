@@ -28,7 +28,7 @@ export default function Home() {
               target="blank"
               className={clsx(s.link, l.flex, l.aic, l.jce)}
             >
-              <h1 className={clsx(t.h1, l.flex, l.aic, l.pl16, l.tar)}>
+              <h1 className={clsx(t.blogTitle, l.flex, l.aic, l.pl16, l.tar)}>
                 Blog
                 <ArrowUpSquare className="icon" color="#dcb06d" />
               </h1>
