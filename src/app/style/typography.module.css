@@ -1,60 +1,32 @@
+/* =======================
+  TYPOGRAPHY GLOBAL RULES
+========================== */
+
+/* Base line-height & letter-spacing */
 .h1,
 .h2,
 .h3,
 .aboutTitle,
-.blogTitle {
+.blogTitle,
+.p,
+.summary {
   line-height: 1.3;
   letter-spacing: 1px;
 }
 
-.h1 strong,
-.h2 strong,
-.h3 strong,
-.p strong {
-  color: color-mix(in srgb, var(--accent) 50%, var(--normal) 50%);
-}
-
-.h1,
-.h2,
-.h3 {
-  color: var(--accent);
-  padding-bottom: 1.2rem;
-}
-
-.aboutTitle {
-  color: var(--about-title);
-}
-
-.blogTitle {
-  color: var(--blog-title);
-}
-
-.blogPostTitle,
-.blogPostH1,
-.blogPostH2,
-.blogPostH3,
-.blogPostParagraph {
-  color: var(--normal);
-  padding-bottom: 1.2rem;
-  margin-bottom: 1rem;
-}
-
+/* Font size */
 .h1,
 .aboutTitle,
 .blogTitle {
   font-size: 1.8rem;
-  letter-spacing: 1px;
-  padding-bottom: 1.875rem;
 }
 
 .h2 {
   font-size: 1.75rem;
-  padding-bottom: 1.25rem;
 }
 
 .h3 {
   font-size: 1.6rem;
-  padding-bottom: 0.938rem;
 }
 
 .p {
@@ -65,41 +37,100 @@
   font-size: 1.1rem;
 }
 
+.aboutParagraph {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+/* Color */
+.h1,
+.h2,
+.h3 {
+  color: var(--accent);
+}
+
+.aboutTitle,
+.blogPostTitle,
+.blogPostH1,
+.blogPostH2,
+.blogPostH3,
+.blogPostParagraph,
 .summary,
-.p {
-  line-height: 1.5;
+.p,
+.aboutParagraph,
+.blogPostDate {
   color: var(--normal);
 }
 
+.blogTitle {
+  color: var(--blog-title);
+}
+
+/* Strong highlight */
+.h1 strong,
+.h2 strong,
+.h3 strong,
+.p strong {
+  color: color-mix(in srgb, var(--accent) 50%, var(--normal) 50%);
+}
+
+/* Padding & spacing */
+.h1,
+.aboutTitle {
+  padding-bottom: 1.875rem;
+}
+
+.h2 {
+  padding-bottom: 1.25rem;
+}
+
+.h3 {
+  padding-bottom: 0.938rem;
+}
+
+.h1,
+.h2,
+.h3 {
+  padding-bottom: 1.2rem;
+}
+
+.blogPostTitle,
+.blogPostH1,
+.blogPostH2,
+.blogPostH3,
+.blogPostParagraph {
+  padding-bottom: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Font weight */
+.aboutTitle {
+  font-weight: 400;
+}
+
+/* Alignments */
 .tar {
   text-align: right;
 }
 
-.h1 > .icon {
-  padding-right: 1rem;
-}
-
-.aboutParagraph {
-  font-size: 1rem;
-  color: var(--normal);
-  line-height: 1.2;
-}
-
+/* Highlight span */
 .highlight {
   background-color: var(--highlight);
   padding: 0 4px;
   width: fit-content;
 }
 
-/* BLOG  */
+/* h1 icon spacing */
+.h1 > .icon {
+  padding-right: 1rem;
+}
+
+/* =======================
+         BLOG STYLES
+========================== */
 
 .blogPostTitle {
   font-size: 2.25rem;
-}
-
-.blogPostDate {
-  font-style: italic;
-  color: var(--normal);
 }
 
 .blogPostParagraph {
@@ -118,6 +149,14 @@
 .blogPostH3 {
   font-size: 1.625rem;
 }
+
+.blogPostDate {
+  font-style: italic;
+}
+
+/* =======================
+        MEDIA QUERIES
+========================== */
 
 @media (max-width: 600px) {
   .p {

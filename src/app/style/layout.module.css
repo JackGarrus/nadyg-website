@@ -42,6 +42,10 @@
 
 /* PADDING */
 
+.pl8 {
+  padding-left: 0.6rem;
+}
+
 .p16 {
   padding: 1rem;
 }

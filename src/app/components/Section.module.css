@@ -1,5 +1,6 @@
 .pageOuterContainer {
-  min-height: 90vh;
+  /* bring min-height to 90vh once the theme switcher is back*/
+  min-height: 100vh;
   max-height: fit-content;
   width: 100vw;
   padding: 0 5rem 0;

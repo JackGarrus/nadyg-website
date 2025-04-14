@@ -5,21 +5,28 @@ import t from "@/app/style/typography.module.css";
 import s from "@/app/components/AboutSection.module.css";
 import { motion } from "motion/react";
 import Image from "next/image";
+import clsx from "clsx";
+import Linkedin from "../icons/Linkedin";
+import Github from "../icons/Github";
+import Link from "next/link";
+import l from "@/app/style/layout.module.css";
 
 export default function AboutSection() {
   return (
     <div className={s.container}>
-      <Image src="/profile.jpg" alt="Profile" width={200} height={200} />
+      <div>
+        <Image src="/profile.jpg" alt="Profile" width={200} height={200} />
+      </div>
+      <br />
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className={t.aboutTitle}
+        className={clsx(t.aboutTitle, t.highlight)}
       >
-        <br />
-        <strong>Nadia Guarracino</strong>
+        Nadia Guarracino
       </motion.h1>
-
+      <br />
       <h2>Full-Stack Engineer @Doctolib</h2>
       <br />
       <p className={t.aboutParagraph}>
@@ -31,13 +38,33 @@ export default function AboutSection() {
       <br />
       <p className={t.aboutParagraph}>
         In this blog, I share what I learn, practical experiences, real-world
-        solutions, and interesting resources related to web development.
+        solutions, and interesting resources related to web developmentall
+        delivered clearly and without fluff.
       </p>
       <br />
       <p className={t.aboutParagraph}>
-        This is a space to document my journey — and hopefully help other
-        developers along the way{" "}
+        I get straight to the point, and you’ll always walk away having learned
+        something useful, promise 😉!
       </p>
+      <br />
+      <div className={s.contacts}>
+        <Link
+          key="/linkedin"
+          href="https://www.linkedin.com/in/nadia-guarracino17/"
+          target="blank"
+          className={s.link}
+        >
+          <Linkedin className="icon" />
+        </Link>
+        <Link
+          key="/github"
+          href="https://github.com/JackGarrus"
+          target="blank"
+          className={clsx(s.link, l.pl8)}
+        >
+          <Github className="icon" />
+        </Link>
+      </div>
     </div>
   );
 }

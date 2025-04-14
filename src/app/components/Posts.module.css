@@ -24,7 +24,7 @@
 }
 
 .title {
-  font-weight: bold;
+  font-weight: 500;
   padding-bottom: 1rem;
   line-height: 1.5;
   color: color-mix(in srgb, var(--blogPostTitle) 50%, var(--normal) 50%);
