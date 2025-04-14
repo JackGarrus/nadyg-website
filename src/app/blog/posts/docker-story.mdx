@@ -1,0 +1,143 @@
+---
+title: "Why Everyone Uses Docker, Even When They Don’t"
+publishedAt: "2025-04-14"
+summary: "How Docker lost control of its runtime, yet became the standard, and found survival through developer tools"
+---
+
+## The Docker Engine
+
+<br />
+<Image src="/docker-engine.png" width={400} height={350} alt="Example" />
+<br />
+<br />
+
+Under the hood, Docker is made up of two daemons — background processes that interact
+with the system:
+
+- dockerd – listens for Docker API requests and manages objects like images, containers, volumes, and networks.
+
+- containerd – handles only the container lifecycle, with a lower-level interface.
+
+As containers became more widely adopted, Docker decided to extract containerd from its ecosystem and make it usable as a standalone runtime — without requiring full commitment to the Docker stack.
+
+<Image src="/dockerd-containerd.png" width={400} height={350} alt="Example" />
+<br />
+<br />
+
+That’s when Kubernetes and many other modern cloud platforms entered the scene.
+
+<br />
+
+## Docker Inc: Where’s the Money?
+
+<br />
+
+When Docker donated containerd to the CNCF, it was a smart community move — and it quickly became the industry standard.
+
+But here’s the catch:
+Docker Inc. is a for-profit company.
+And now it wasn’t making any money from either dockerd or containerd.
+
+So… how was it surviving?
+
+➡️ By selling Docker Desktop.
+
+<br />
+
+## Kubernetes Enters the Picture
+
+<br />
+
+Kubernetes didn’t want to depend on Docker.
+
+It was even developing its own runtime: CRI-O, meant to replace containerd.
+But by then, containerd was already mature and widely adopted by major players like AWS, Google Cloud, Azure, and IBM.
+
+So, to survive:
+
+Kubernetes surrendered to containerd.
+
+Docker donated containerd to survive.
+
+Ironically, Docker ended up making its container creation model the global standard, even if the rest of its stack was being phased out.
+
+<Image
+  src="/dockerd-separate.containerd.png"
+  width={400}
+  height={350}
+  alt="dockerd-separate-containerd"
+/>
+
+<br />
+<br />
+<br />
+## Docker Hub: The Hidden Pillar
+
+<br />
+
+Here’s the twist:
+containerd relies on images created in the Docker format.
+
+➡️ And the biggest image registry in the world?
+Docker Hub, of course — hosting millions of downloadable images.
+
+<br />
+
+## Colima: Docker Without Docker Desktop
+
+<br />
+“Wait… if I’m using dockerd + containerd, why would I need Colima?”
+
+Great question.
+
+Colima doesn’t replace the Docker engine — it replaces Docker Desktop.
+
+It gives you:
+
+a working dockerd + containerd environment
+
+without paying for Docker Desktop
+
+and works on macOS via a lightweight Linux VM (Lima)
+
+So:
+
+<Image src="/colima-does.png" width={600} height={200} alt="colima does" />
+
+<br />
+
+In brief:
+
+<Image src="/colima-is.png" width={600} height={350} alt="colima is" />
+<br />
+<br />
+
+## Why Docker Runs Natively on Linux
+
+<br />
+Because Linux already has everything Docker needs built-in:
+
+cgroups
+
+namespaces
+
+container-friendly file systems
+
+→ Docker runs directly on the OS.
+→ No VM required.
+
+On macOS and Windows, though, a VM is necessary — like Docker Desktop or Colima.
+
+## TL;DR
+
+containerd is now the industry standard container runtime.
+
+Docker Inc. makes money from Docker Desktop, not the daemons.
+
+Kubernetes adopted containerd because it was already widespread.
+
+Docker Hub is still the central container image registry.
+
+Colima is a free alternative to Docker Desktop on macOS.
+
+On Linux, Docker runs natively — no VM required.
