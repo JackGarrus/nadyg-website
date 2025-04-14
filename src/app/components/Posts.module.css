@@ -12,15 +12,19 @@
 }
 
 .card_inner {
-  border: 1px solid;
+  border: 5px solid var(--highlight);
   padding: 1rem;
 
-  background-color: var(--highlight);
+  background-color: transparent;
   transition: background-color 0.3s ease-in-out;
 }
 
 .card_inner:hover {
-  background-color: rgb(238, 241, 240);
+  background-color: var(--accent);
+}
+
+.card_inner:hover > * {
+  color: white;
 }
 
 .title {
@@ -34,4 +38,11 @@
   text-align: right;
   font-style: italic;
   color: var(--dark-accent);
+}
+
+@media screen and (min-width: 1024px) {
+  .card_inner {
+    border: 1px solid var(--normal);
+    padding: 1rem;
+  }
 }

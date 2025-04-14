@@ -1,16 +1,6 @@
 .page {
-  display: grid;
-  grid-template-areas: "about posts";
-  grid-template-columns: 1fr 2fr;
-}
-
-.yapSection {
-  grid-area: about;
-}
-
-.blogSection {
-  grid-area: posts;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .yapSection,
@@ -26,5 +16,24 @@
   overflow-y: scroll;
   scrollbar-color: var(--main-brand);
   scrollbar-width: thin;
-  background-color: gold;
+  /* background-color: gold; */
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .page {
+    display: grid;
+    grid-template-areas: "about posts";
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .yapSection {
+    grid-area: about;
+  }
+
+  .blogSection {
+    grid-area: posts;
+    padding: 2rem;
+    border: 10px solid var(--highlight);
+  }
 }

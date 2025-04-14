@@ -1,27 +1,56 @@
 .container {
-  padding-right: 2rem;
+  padding-top: 2rem;
 }
 
-.linksContainer {
+.aboutImage {
+  grid-area: image;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
-.linksContainer a {
-  margin-right: 12px;
-  padding: 16px 0 16px;
+.aboutImage h1 {
+  margin-top: 1rem;
 }
 
-a.link:hover {
-  color: #249754;
+.aboutDescription {
+  grid-area: about;
+  display: flex;
+  flex-direction: column;
 }
 
 .contacts {
   display: flex;
+  padding-bottom: 2rem;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
   .container {
     padding-right: 0;
+
+    display: grid;
+    grid-template-areas: "image . about";
+    grid-template-columns: auto 2rem auto;
+
+    height: 100vh;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    padding-right: 2rem;
+  }
+
+  .contacts {
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: start;
   }
 }
