@@ -3,7 +3,7 @@
   --accent: #38765b;
   --normal: #0b3220;
   --dark-accent: #254f3b;
-  --dark-shade: #e9dabe;
+  --dark-shade: #fdfdfd;
   --main-brand: #38765b;
 
   /* Syntax Highlighting (from the Palette) */
@@ -22,7 +22,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --accent: #e7c96c;
-    --normal: #e0d6c3;
+    --normal: #fdfdfd;
     --dark-accent: #254f3b;
     --dark-shade: #0b3220;
     --main-brand: #38765b;
@@ -31,8 +31,8 @@
 
 /* 🌙 Manual Dark mode */
 [data-theme="dark"] {
-  --accent: #e7c96c;
-  --normal: #e0d6c3;
+  --accent: #38765b;
+  --normal: #fdfdfd;
   --dark-accent: #254f3b;
   --dark-shade: #0b3220;
   --main-brand: #38765b;
@@ -40,21 +40,25 @@
 
 /* Light Mode manual */
 [data-theme="light"] {
-  --accent: #38765b;
+  --accent: #007bff;
+  --blogPostTitle: #5b5a5a;
   --normal: #0b3220;
   --dark-accent: #254f3b;
-  --dark-shade: #e9dabe;
+  --dark-shade: #fdfdfd;
   --main-brand: #38765b;
+  --about-title: #007bff;
+  --blog-title: #254f3b;
+  --highlight: gold;
 
   /* 🎨 Syntax Highlighting for Light Mode */
-  --sh-class: color-mix(in srgb, var(--accent) 80%, black);
-  --sh-identifier: color-mix(in srgb, var(--main-brand) 70%, white);
-  --sh-sign: color-mix(in srgb, var(--normal) 70%, gray);
+  --sh-class: color-mix(in srgb, var(--highlight) 80%, black);
+  --sh-identifier: color-mix(in srgb, var(--normal) 70%, white);
+  --sh-sign: color-mix(in srgb, var(--accent) 70%, gray);
   --sh-property: color-mix(in srgb, var(--dark-accent) 60%, var(--accent));
   --sh-entity: color-mix(in srgb, var(--main-brand) 60%, var(--dark-shade));
   --sh-jsxliterals: color-mix(in srgb, var(--accent) 50%, var(--dark-shade));
-  --sh-string: color-mix(in srgb, var(--main-brand) 50%, var(--dark-accent));
-  --sh-keyword: color-mix(in srgb, var(--accent) 90%, red);
+  --sh-string: color-mix(in srgb, var(--accent) 50%, var(--dark-accent));
+  --sh-keyword: color-mix(in srgb, var(--normal) 90%, red);
   --sh-comment: color-mix(in srgb, var(--normal) 50%, var(--dark-shade));
 }
 

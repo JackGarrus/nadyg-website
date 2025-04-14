@@ -5,6 +5,6 @@
 
 .code > code[class^="language-"] {
   font-weight: bold;
-  line-height: 2;
+  line-height: 1.6;
   font-size: 1rem;
 }

@@ -40,8 +40,15 @@ button:hover {
 }
 
 .icon {
-  height: 20px;
-  fill: var(--accent);
+  height: 30px;
+}
+
+.icon:nth-child(2) {
+  padding-left: 8px;
+}
+
+.icon path {
+  fill: color-mix(in srgb, var(--normal) 40%, grey);
 }
 
 @media (prefers-color-scheme: dark) {

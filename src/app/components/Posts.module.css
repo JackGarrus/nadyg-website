@@ -1,67 +1,33 @@
-.container {
-  position: relative;
-  padding: 1rem;
-  margin-bottom: 1rem;
-
+.page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 1rem;
   background-color: transparent;
-  transform: translateY(-10px);
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-  border-top-right-radius: 60px;
-  border-bottom-left-radius: 60px;
+
+  align-items: center;
 }
 
-.container::before,
-.container::after {
-  content: "";
-  position: absolute;
-  width: 20%;
-  height: auto;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-/*
-.container::before {
-  top: 0;
-  left: 0;
-
-  border-top: 50px solid transparent;
-  border-image-source: url("../icons/ivy.png");
-  border-image-slice: 100;
-  border-image-width: 20% 50%;
-  background-color: yellow;
-  border-image-repeat: round;
-  border-image-outset: 15px;
-  border-style: solid;
-  border-width: 0.3vw;
-} */
-
-.container::after {
-  bottom: 0;
-  right: 0;
-  transform: translateY(10px);
-  /*  border-right: 5px solid var(--accent);
-
-  border-right: 10px solid transparent;
-  border: 5px solid transparent;
-  border-image-source: url("../icons/ivy.png");
-  border-image-slice: 100;
-  border-image-width: 0 20% 40%;
-  border-image-repeat: round;
-  border-image-outset: 15px; */
+.card {
+  width: 100%;
 }
 
-.container:hover::before,
-.container:hover::after {
-  opacity: 1;
-  transform: translateY(0);
+.card_inner {
+  border: 1px solid;
+  padding: 1rem;
+
+  background-color: var(--highlight);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.card_inner:hover {
+  background-color: rgb(238, 241, 240);
 }
 
 .title {
-  font-weight: bold;
+  font-weight: 500;
   padding-bottom: 1rem;
   line-height: 1.5;
-  color: color-mix(in srgb, var(--accent) 50%, var(--normal) 50%);
+  color: color-mix(in srgb, var(--blogPostTitle) 50%, var(--normal) 50%);
 }
 
 .date {
