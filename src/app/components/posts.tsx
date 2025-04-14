@@ -8,7 +8,7 @@ export function BlogPosts() {
   const allBlogs = getBlogPosts();
 
   return (
-    <div>
+    <div className={s.page}>
       {allBlogs
         .sort((a, b) => {
           if (
@@ -19,8 +19,8 @@ export function BlogPosts() {
           return 1;
         })
         .map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`}>
-            <div className={s.container}>
+          <Link key={post.slug} href={`/blog/${post.slug}`} className={s.card}>
+            <div className={s.card_inner}>
               <p className={clsx(s.title, t.p)}>{post.metadata.title}</p>
               <p className={t.summary}>{post.metadata.summary}</p>
               <br />

@@ -1,17 +1,30 @@
+.page {
+  display: grid;
+  grid-template-areas: "about posts";
+  grid-template-columns: 1fr 2fr;
+}
+
+.yapSection {
+  grid-area: about;
+}
+
+.blogSection {
+  grid-area: posts;
+  padding: 2rem;
+}
+
 .yapSection,
-.projectsSection,
-.contactsSection {
+.blogSection {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
 }
 
-.projectsSection {
+.blogSection {
+  max-height: 80vh;
   overflow-y: scroll;
-}
-
-.contactsSection {
-  justify-content: center;
-  align-items: center;
+  scrollbar-color: var(--main-brand);
+  scrollbar-width: thin;
+  background-color: gold;
 }

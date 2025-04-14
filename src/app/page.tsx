@@ -1,8 +1,6 @@
 import "@/app/style/globals.css";
 import s from "@/app/page.module.css";
 import AboutSection from "@/app/components/AboutSection";
-import ContactsSection from "@/app/components/ContactsSection";
-// import ProjectsSection from "@/app/components/ProjectsSection";
 import Section from "@/app/components/Section";
 import { BlogPosts } from "./components/posts";
 import Link from "next/link";
@@ -19,30 +17,25 @@ export default function Home() {
         <ThemeToggle />
       </div>
       <Section>
-        <section className={s.yapSection}>
-          <AboutSection />
-        </section>
-
-        <section className={s.projectsSection}>
-          <Link
-            key="/blog"
-            href="/blog"
-            target="blank"
-            className={clsx(s.link, l.flex, l.aic, l.jce)}
-          >
-            <h1 className={clsx(t.h1, l.flex, l.aic, l.pl16, l.tar)}>
-              Blog
-              <ArrowUpSquare className="icon" color="#dcb06d" />
-            </h1>
-          </Link>
-          <BlogPosts />
-        </section>
-      </Section>
-
-      <Section>
-        <section className={s.contactsSection}>
-          <ContactsSection />
-        </section>
+        <div className={s.page}>
+          <section className={s.yapSection}>
+            <AboutSection />
+          </section>
+          <section className={s.blogSection}>
+            <Link
+              key="/blog"
+              href="/blog"
+              target="blank"
+              className={clsx(s.link, l.flex, l.aic, l.jce)}
+            >
+              <h1 className={clsx(t.h1, l.flex, l.aic, l.pl16, l.tar)}>
+                Blog
+                <ArrowUpSquare className="icon" color="#dcb06d" />
+              </h1>
+            </Link>
+            <BlogPosts />
+          </section>
+        </div>
       </Section>
     </>
   );
