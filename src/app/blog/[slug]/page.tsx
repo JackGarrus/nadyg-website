@@ -19,20 +19,9 @@ export async function generateStaticParams() {
   });
 }
 
-/*
-post: {
-  content: *il contenuto del file mdx
-  metadata: {
-    publishedAt
-    summary
-    title
-  }
-  slug: 'static-typing'
-}
-*/
 export function generateMetadata({ params }) {
   const post = getBlogPosts().find((post) => post.slug === params.slug);
-  console.log(post);
+
   if (!post) {
     return;
   }
@@ -43,9 +32,8 @@ export function generateMetadata({ params }) {
     summary: description,
     image,
   } = post.metadata;
-  const ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+
+  const ogImage = image?.startsWith("http") ? image : `${baseUrl}${image}`;
 
   return {
     title,
@@ -97,8 +85,8 @@ export default function Blog({ params }) {
                 : `/og?title=${encodeURIComponent(post.metadata.title)}`,
               url: `${baseUrl}/blog/${post.slug}`,
               author: {
-                "@type": "Nadia G",
-                name: "Emerald Forge",
+                "@type": "Nadia Guarracino",
+                name: "Nadia Guarracino",
               },
             }),
           }}
