@@ -10,12 +10,15 @@ import Linkedin from "../icons/Linkedin";
 import Github from "../icons/Github";
 import Link from "next/link";
 import l from "@/app/style/layout.module.css";
+import Codepen from "../icons/Linkedin copy";
 
 export default function AboutSection() {
   return (
     <div className={s.container}>
       <div className={s.aboutImage}>
-        <Image src="/me.jpeg" alt="Profile" width={200} height={200} />
+        <div className={s.me}>
+          <Image src="/me.jpeg" alt="Profile" width={200} height={200} />
+        </div>
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -67,6 +70,14 @@ export default function AboutSection() {
             className={clsx(s.link, l.pl8)}
           >
             <Github className="icon" />
+          </Link>
+          <Link
+            key="/codepen"
+            href="https://codepen.io/NadGu"
+            target="blank"
+            className={clsx(s.link, l.pl8)}
+          >
+            <Codepen className="icon" />
           </Link>
         </div>
       </div>
