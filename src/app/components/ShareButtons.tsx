@@ -1,5 +1,16 @@
+"use client";
+import { useEffect, useState } from "react";
+
 const ShareButtons = () => {
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+  const [currentUrl, setCurrentUrl] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setCurrentUrl(window.location.href);
+    }
+  }, []);
+
+  if (!currentUrl) return null;
 
   const encodedUrl = encodeURIComponent(currentUrl);
   const text = encodeURIComponent("Dai un'occhiata a questo articolo!");
