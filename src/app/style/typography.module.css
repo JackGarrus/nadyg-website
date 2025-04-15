@@ -75,7 +75,18 @@
 }
 
 .blogTitle {
-  color: var(--blog-title);
+  color: var(--normal);
+  width: 100%;
+  text-align: right;
+  border-bottom: 2px solid var(--highlight);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--highlight);
 }
 
 /* Strong highlight */

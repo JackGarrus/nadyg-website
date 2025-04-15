@@ -23,6 +23,7 @@ export default function Home() {
             <AboutSection />
           </section>
           <section className={s.blogSection}>
+            {/*
             <Link
               key="/blog"
               href="/blog"
@@ -34,6 +35,9 @@ export default function Home() {
                 <ArrowUpSquare className="icon" />
               </div>
             </Link>
+            */}
+            <p className={t.blogTitle}>Blog</p>
+            <p className={t.subtitle}>Latest posts</p>
             <BlogPosts />
           </section>
         </div>

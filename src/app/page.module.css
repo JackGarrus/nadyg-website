@@ -34,7 +34,7 @@
   .blogSection {
     grid-area: posts;
     padding: 2rem;
-    border: 10px solid var(--highlight);
+    border: 7px solid var(--highlight);
     max-height: 80vh;
     margin-bottom: 0;
   }
