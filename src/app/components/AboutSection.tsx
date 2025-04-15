@@ -80,6 +80,9 @@ export default function AboutSection() {
             <Codepen className="icon" />
           </Link>
         </div>
+        <br />
+        <br />
+        <i>Powered by Next.js, icons by Font Awesome</i>
       </div>
     </div>
   );
