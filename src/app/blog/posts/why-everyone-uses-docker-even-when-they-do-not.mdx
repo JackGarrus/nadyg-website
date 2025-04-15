@@ -69,8 +69,9 @@ So the Kubernetes team decided to build something simpler: a lightweight runtime
 
 At that point, Docker Inc. realized something important:
 
-“We're not going to make money from dockerd or containerd, but we can make money from developer tools.”
+“We're not going to make money from dockerd or containerd, but we can make money from developer tools!”
 
+<br />
 So in 2017, Docker made a bold move. It:
 
 <ul>
@@ -85,7 +86,10 @@ So in 2017, Docker made a bold move. It:
   </li>
 </ul>
 
-Smart play. Now the ecosystem could adopt containerd freely, and Docker could monetize elsewhere.
+Smart play. After all, containerd runs Docker images. And where are most of those stored? On Docker Hub (hehe).
+
+<br />
+Now the ecosystem could adopt containerd freely, and Docker could monetize elsewhere.
 
 (And yes, Docker still uses containerd internally as part of dockerd. That didn't change.)
 
@@ -105,11 +109,11 @@ containerd became the most widely adopted container runtime in Kubernetes cluste
 
 <br />
 
-CRI-O remained a valid alternative, but containerd won the popularity contest
+CRI-O remained a valid alternative, but containerd won the popularity contest.
 
 <br />
-And no — Kube didn’t “drop CRI.” It still uses it, but now it talks to containerd
-directly using a CRI plugin, rather than going through dockerd
+And no — Kube didn’t drop CRI. It still uses it, but now it talks to containerd
+directly using a CRI plugin, rather than going through dockerd.
 
 <br />
 <br />
@@ -119,7 +123,8 @@ directly using a CRI plugin, rather than going through dockerd
 
 Meanwhile, most devs were still using Docker Desktop on macOS to run containers locally.
 
-But then Docker Inc. started charging for Docker Desktop in certain cases, and developers looked for alternatives.
+<br />
+But then <strong>Docker Inc. started charging for Docker Desktop</strong> in certain cases, and developers looked for alternatives.
 
 <br />
 
@@ -173,10 +178,12 @@ So basically, Colima gives you a fully Docker-compatible setup, without Docker D
 <br />
 <br />
 <br />
+<br />
 
 ## Fun-fact: Docker Runs Natively on Linux
 
-Of course it does.
+Of course it does. How could it not!
+<br />
 
 Linux already has everything Docker needs built-in: cgroups, namespaces, container-friendly file systems...
 
@@ -195,26 +202,26 @@ Docker Desktop or Colima or something else.
 
 <ul>
   <li>
-    <strong>containerd</strong> is now the <strong>industry standard</strong>{" "}
+    <strong>containerd</strong> is now the <strong>industry standard</strong>
     container runtime.
   </li>
   <li>
-    <strong>Docker Inc.</strong> makes money from{" "}
-    <strong>Docker Desktop</strong>, not the daemons.
+    <strong>Docker Inc.</strong> makes money from
+    <strong>Docker Desktop</strong>, not the daemons
   </li>
   <li>
     <strong>Kubernetes</strong> adopted containerd because it was already
-    widespread.
+    widespread
   </li>
   <li>
-    <strong>Docker Hub</strong> is still the central container image registry.
+    <strong>Docker Hub</strong> is still the central container image registry
   </li>
   <li>
-    <strong>Colima</strong> is a free alternative to Docker Desktop on macOS.
+    <strong>Colima</strong> is a free alternative to Docker Desktop on macOS
   </li>
   <li>
     On <strong>Linux</strong>, Docker runs <strong>natively</strong> as no VM
-    required.
+    required
   </li>
 </ul>
 <br />
