@@ -9,6 +9,7 @@ import t from "@/app/style/typography.module.css";
 import s from "@/app/components/MDX.module.css";
 import clsx from "clsx";
 import { ReactNode } from "react";
+import Callout from "./Callout";
 
 function Table({ data }) {
   const headers = data.headers.map((header, index) => (
@@ -131,8 +132,8 @@ function ListItem({ children }: { children: ReactNode }) {
   return <li className={s.li}>{children}</li>;
 }
 
-function Callout({ children }: { children: ReactNode }) {
-  return <div className={s.callout}>{children}</div>;
+function callout({ children }: { children: ReactNode }) {
+  return <Callout>{children}</Callout>;
 }
 
 const components = {
@@ -147,7 +148,7 @@ const components = {
   Image: RoundedImage,
   a: CustomLink,
   code: Code,
-  Callout: Callout,
+  Callout: callout,
   Table,
 };
 
