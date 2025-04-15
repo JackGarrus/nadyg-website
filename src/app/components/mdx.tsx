@@ -8,6 +8,7 @@ import React from "react";
 import t from "@/app/style/typography.module.css";
 import s from "@/app/components/MDX.module.css";
 import clsx from "clsx";
+import { ReactNode } from "react";
 
 function Table({ data }) {
   const headers = data.headers.map((header, index) => (
@@ -66,15 +67,15 @@ function slugify(str: string) {
   return str
     .toString()
     .toLowerCase()
-    .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
-    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/&/g, "-and-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-");
 }
 
 function createHeading(level: number) {
-  const Heading = ({ children }) => {
+  const Heading = ({ children }: { children: ReactNode }) => {
     const slug = slugify(children);
 
     return React.createElement(
@@ -106,13 +107,32 @@ function createHeading(level: number) {
   return Heading;
 }
 
-function createParagraph({ children }) {
+function createParagraph({ children }: { children: ReactNode }) {
   return (
     <>
-      <p className={clsx(t.p, t.blogPostParagraph)}>{children} </p>
-      <br />
+      <p className={clsx(t.p, t.blogPostParagraph)}>{children}</p>
     </>
   );
+}
+
+function Strong({ children }: { children: ReactNode }) {
+  return <strong className={s.strong}>{children}</strong>;
+}
+
+function Blockquote({ children }: { children: ReactNode }) {
+  return <blockquote className={s.blockquote}>{children}</blockquote>;
+}
+
+function UnorderedList({ children }: { children: ReactNode }) {
+  return <ul className={s.ul}>{children}</ul>;
+}
+
+function ListItem({ children }: { children: ReactNode }) {
+  return <li className={s.li}>{children}</li>;
+}
+
+function Callout({ children }: { children: ReactNode }) {
+  return <div className={s.callout}>{children}</div>;
 }
 
 const components = {
@@ -120,9 +140,14 @@ const components = {
   h2: createHeading(2),
   h3: createHeading(3),
   p: createParagraph,
+  strong: Strong,
+  blockquote: Blockquote,
+  ul: UnorderedList,
+  li: ListItem,
   Image: RoundedImage,
   a: CustomLink,
   code: Code,
+  Callout: Callout,
   Table,
 };
 

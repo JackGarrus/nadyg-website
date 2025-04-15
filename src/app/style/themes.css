@@ -4,10 +4,12 @@
   --normal: #0b3220;
   --dark-accent: #254f3b;
   --dark-shade: #fdfdfd;
+  --contrast: #fdfdfd;
   --main-brand: #38765b;
   --about-title: #007bff;
   --blog-title: #254f3b;
   --highlight: rgb(24, 187, 100);
+  --highlight-opaque: rgb(19, 192, 94, 0.24);
 
   /* 🎨 Syntax Highlighting for Light Mode */
   --sh-class: color-mix(in srgb, var(--highlight) 80%, black);
@@ -28,6 +30,7 @@
     --normal: #0b3220;
     --dark-accent: #254f3b;
     --dark-shade: #fdfdfd;
+    --contrast: #fdfdfd;
     --main-brand: #38765b;
     --about-title: #007bff;
     --blog-title: #254f3b;

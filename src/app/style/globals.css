@@ -52,6 +52,33 @@ button:hover {
   fill: var(--highlight);
 }
 
+/* List */
+
+ul li {
+  margin-bottom: 1rem;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+li::before {
+  content: "";
+  background: var(--highlight);
+  width: 10px;
+  height: 10px;
+}
+
+@media screen and (min-width: 400px) {
+  ul {
+    margin-left: 2rem;
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   html {
     color-scheme: light;
