@@ -136,17 +136,23 @@
   padding-right: 1rem;
 }
 
-/* =======================
-         BLOG STYLES
-========================== */
+/*************** BLOG STYLES */
 
 .blogPostTitle {
   font-size: 2.25rem;
+
+  display: flex;
+  align-self: end;
 }
 
 .blogPostParagraph {
   font-size: 1.375rem;
   line-height: 1.5;
+}
+
+li .blogPostParagraph {
+  max-width: 300px;
+  margin-left: 0;
 }
 
 .blogPostH1 {
@@ -166,11 +172,10 @@
 
 .blogPostDate {
   font-style: italic;
+  width: 100%;
 }
 
-/* =======================
-        MEDIA QUERIES
-========================== */
+/************** MEDIA QUERIES */
 
 @media (max-width: 600px) {
   .p {
@@ -185,5 +190,10 @@
 @media screen and (min-width: 400px) {
   .blogPostParagraph {
     margin-left: 1rem;
+    width: auto;
+  }
+
+  li .blogPostParagraph {
+    max-width: 100%;
   }
 }

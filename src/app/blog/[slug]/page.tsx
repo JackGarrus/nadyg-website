@@ -5,6 +5,7 @@ import { baseUrl } from "@/app/sitemap";
 import Section from "@/app/components/Section";
 import t from "@/app/style/typography.module.css";
 import s from "./Page.module.css";
+import l from "@/app/style/layout.module.css";
 import clsx from "clsx";
 import ShareButtons from "@/app/components/ShareButtons";
 
@@ -104,13 +105,16 @@ export default function Blog({ params }) {
           {post.metadata.title}
         </h1>
         <br />
-        <p className={clsx(t.p, t.blogPostDate)} style={{ textAlign: "right" }}>
-          {formatDate(post.metadata.publishedAt)}
-        </p>
+        <div className={clsx(l.flex, l.jcsb, l.aic)}>
+          <p className={clsx(t.p, t.blogPostDate)}>
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+
+          <ShareButtons />
+        </div>
         <br />
         <br />
         <article>
-          <ShareButtons />
           <CustomMDX source={post.content} />
           <ShareButtons hasMessage />
         </article>

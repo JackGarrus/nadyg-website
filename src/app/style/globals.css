@@ -60,7 +60,7 @@ ul li {
 
 li {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: start;
 }
 
@@ -69,6 +69,13 @@ li::before {
   background: var(--highlight);
   width: 10px;
   height: 10px;
+  margin-right: 10px;
+}
+
+ul {
+  margin-left: 0.2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 @media screen and (min-width: 400px) {
