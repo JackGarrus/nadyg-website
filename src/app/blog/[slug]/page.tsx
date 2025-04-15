@@ -4,7 +4,9 @@ import { formatDate, getBlogPosts } from "@/app/blog/utils";
 import { baseUrl } from "@/app/sitemap";
 import Section from "@/app/components/Section";
 import t from "@/app/style/typography.module.css";
+import s from "./Page.module.css";
 import clsx from "clsx";
+import ShareButtons from "@/app/components/ShareButtons";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -78,13 +80,7 @@ export default function Blog({ params }) {
 
   return (
     <Section>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          padding: "10rem 12rem 10rem",
-        }}
-      >
+      <div className={s.pageLayout}>
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -121,6 +117,7 @@ export default function Blog({ params }) {
         <br />
         <article>
           <CustomMDX source={post.content} />
+          <ShareButtons />
         </article>
       </div>
     </Section>

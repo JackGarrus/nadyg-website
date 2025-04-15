@@ -17,7 +17,12 @@
   scrollbar-color: var(--main-brand);
   scrollbar-width: thin;
   /* background-color: gold; */
-  padding: 0.5rem;
+}
+
+@media screen and (min-width: 400px) {
+  .blogSection {
+    padding: 0.5rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {

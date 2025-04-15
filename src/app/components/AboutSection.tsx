@@ -15,7 +15,7 @@ export default function AboutSection() {
   return (
     <div className={s.container}>
       <div className={s.aboutImage}>
-        <Image src="/profile.jpg" alt="Profile" width={200} height={200} />
+        <Image src="/me.jpeg" alt="Profile" width={200} height={200} />
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

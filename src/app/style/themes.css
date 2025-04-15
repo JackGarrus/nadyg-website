@@ -7,7 +7,7 @@
   --main-brand: #38765b;
   --about-title: #007bff;
   --blog-title: #254f3b;
-  --highlight: gold;
+  --highlight: rgb(24, 187, 100);
 
   /* 🎨 Syntax Highlighting for Light Mode */
   --sh-class: color-mix(in srgb, var(--highlight) 80%, black);
@@ -31,7 +31,7 @@
     --main-brand: #38765b;
     --about-title: #007bff;
     --blog-title: #254f3b;
-    --highlight: gold;
+    --highlight: rgb(19, 192, 94);
 
     /* 🎨 Syntax Highlighting for Light Mode */
     --sh-class: color-mix(in srgb, var(--highlight) 80%, black);

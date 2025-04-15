@@ -1,0 +1,11 @@
+.pageLayout {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0;
+}
+
+@media screen and (min-width: 1200px) {
+  .pageLayout {
+    padding: 10rem 12rem 10rem;
+  }
+}

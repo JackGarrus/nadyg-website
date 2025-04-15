@@ -12,7 +12,7 @@
 }
 
 .card_inner {
-  border: 5px solid var(--highlight);
+  border: 3px solid var(--highlight);
   padding: 1rem;
 
   background-color: transparent;
@@ -38,6 +38,12 @@
   text-align: right;
   font-style: italic;
   color: var(--dark-accent);
+}
+
+@media screen and (min-width: 400px) {
+  .card_inner {
+    border: 5px solid var(--highlight);
+  }
 }
 
 @media screen and (min-width: 1024px) {

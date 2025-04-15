@@ -1,0 +1,10 @@
+.pageLayout h1 {
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .pageLayout {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
