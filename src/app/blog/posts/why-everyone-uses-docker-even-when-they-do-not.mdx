@@ -29,108 +29,134 @@ that interact with the system):
 
 <ul>
   <li>
-    <strong>dockerd</strong> – listens for Docker API requests and manages
+    <strong>dockerd</strong>: listens for Docker API requests and manages
     objects like images, containers, volumes, and networks.
   </li>
   <li>
-    <strong>containerd</strong> – handles only the container lifecycle, with a
+    <strong>containerd</strong>: handles only the container lifecycle, with a
     lower-level interface.
   </li>
 </ul>
 
-As containers became more widely adopted, Docker decided to extract <strong>containerd</strong> from its ecosystem and make it usable as a <strong>standalone runtime</strong> — without requiring full commitment to the Docker stack.
+Originally, containerd was just a component inside Docker, but as containers became more widely adopted, things got complicated, especially when Kubernetes entered the picture.
 
-That’s when Kubernetes and many other modern cloud platforms entered the scene.
+<br />
+<br />
+## Kubernetes Didn't Want Docker
+
+Originally, Kubernetes only worked with Docker.
+But over time, people wanted to use different runtimes (like containerd standalone, etc.).
+
+<br />
+So the Kubernetes team created <strong>CRI</strong>, so Kubernetes could support
+any runtime, as long as it followed this standard interface.
+
+<Callout>
+  <strong>CRI</strong>:Container Runtime Interface. API that tells Kube how to
+  talk to a container runtime
+</Callout>
+
+<br />
+
+On top of that, <strong>dockerd</strong> was doing way more then Kube needed, like handling volumes, networks, image builds, and logs.
+So the Kubernetes team decided to build something simpler: a lightweight runtime made just for Kubernetes, called <strong>CRI-O</strong>
 
 <br />
 <br />
 <br />
 
-## Docker Inc: How Is It Making Money?
+## Docker’s Strategic Pivot
 
-When Docker <strong>donated containerd</strong> to the CNCF, it was a smart community move, and it quickly became the industry standard.
+At that point, Docker Inc. realized something important:
 
-But here’s the catch: Docker Inc. is a for-profit company (duh), but it isn't making any money from either dockerd or containerd.
+“We're not going to make money from dockerd or containerd, but we can make money from developer tools.”
 
-<br />
-So… how was it surviving?
-
-<br />
-...<strong>By selling Docker Desktop!</strong>
-
-<br />
-<br />
-<br />
-
-## Kubernetes Enters the Picture
-
-Now, Kubernetes didn’t want to depend on Docker.
-
-It was even developing its own runtime: <strong>CRI-O</strong>, meant to <strong>replace containerd</strong>.
-But by then, containerd was already mature and widely adopted by major players like <strong>AWS, Google Cloud, Azure</strong>, and <strong>IBM</strong>.
-
-So, to survive:
+So in 2017, Docker made a bold move. It:
 
 <ul>
   <li>
-    Kubernetes <strong>surrendered</strong> to containerd
+    open-sourced containerd
   </li>
   <li>
-    Docker<strong>donated</strong> containerd to survive
+    donated it to the CNCF (Cloud Native Computing Foundation)
+  </li>
+  <li>
+    pivoted to focus on Docker Desktop and Docker Hub
   </li>
 </ul>
 
-Ironically, Docker ended up making its <strong>container creation model</strong>
-the global standard, even if the rest of its stack was being phased out.
+Smart play. Now the ecosystem could adopt containerd freely, and Docker could monetize elsewhere.
 
-<br />
-<br />
-
-Here’s the twist: <strong>containerd</strong> relies on images created in the <strong>Docker format</strong>.
-
-<br />
-
-...And guess what is the biggest image registry in the world?
-
-<br />
-<strong>Docker Hub</strong>!
+(And yes, Docker still uses containerd internally as part of dockerd. That didn't change.)
 
 <br />
 <br />
 <br />
 
-## Ever heard about Colima?
+## Kubernetes surrenders to containerd
 
-<blockquote>
-  “Wait… if I’m using dockerd + containerd, why would I need Colima?”
-</blockquote>
+Once containerd became an open source standalone runtime, Kubernetes had to adopt it.
 
-Great question. Also, becuase I have asked it (modestly).
+<br />
+Why?
+<br />
 
+containerd became the most widely adopted container runtime in Kubernetes clusters, major cloud providers (AWS, GCP, Azure, IBM...) all adopted it.
+
+<br />
+
+CRI-O remained a valid alternative, but containerd won the popularity contest
+
+<br />
+And no — Kube didn’t “drop CRI.” It still uses it, but now it talks to containerd
+directly using a CRI plugin, rather than going through dockerd
+
+<br />
+<br />
+<br />
+
+## Enter Colima
+
+Meanwhile, most devs were still using Docker Desktop on macOS to run containers locally.
+
+But then Docker Inc. started charging for Docker Desktop in certain cases, and developers looked for alternatives.
+
+<br />
+
+That’s when Colima entered the scene.
+
+<br />
+<br />
+<br />
+
+## What Is Colima?
+
+Colima is a free, open-source replacement for Docker Desktop.
+
+It doesn't replace the Docker engine itself, instead, it:
+
+<ul>
+  <li>
+    provides a working dockerd + containerd environment
+  </li>
+  <li>
+    runs inside a lightweight Linux VM (via Lima)
+  </li>
+  <li>
+    works beautifully on macOS
+  </li>
+</ul>
+
+Is CLI-based, fast, and ideal for devs who don’t need a GUI
+
+<br />
+So basically, Colima gives you a fully Docker-compatible setup, without Docker Desktop, without the licensing restrictions.
+
+<br />
 <Callout>
   <strong>Colima</strong> doesn’t replace the Docker engine: it replaces
   <strong>Docker Desktop</strong>.
 </Callout>
-
-It gives you:
-
-<ul>
-  <li>
-    a working <strong>dockerd + containerd</strong> environment
-  </li>
-  <li>
-    <strong>without paying</strong> for Docker Desktop
-  </li>
-  <li>
-    and works on <strong>macOS via a lightweight Linux VM</strong> (Lima)
-  </li>
-</ul>
-
-Basically:
-
-<br />
-<br />
-<br />
 
 <Image
   src="/colima-is.png"
@@ -148,9 +174,11 @@ Basically:
 <br />
 <br />
 
-## Why Docker Runs Natively on Linux
+## Fun-fact: Docker Runs Natively on Linux
 
-Because Linux already has everything Docker needs built-in: cgroups, namespaces, container-friendly file systems...
+Of course it does.
+
+Linux already has everything Docker needs built-in: cgroups, namespaces, container-friendly file systems...
 
 <br />
 
