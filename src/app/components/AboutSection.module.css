@@ -1,7 +1,3 @@
-.container {
-  padding-top: 2rem;
-}
-
 .aboutImage {
   grid-area: image;
   display: flex;

@@ -10,7 +10,7 @@ import Facebook from "../icons/Facebook";
 import SimpleLink from "../icons/SimpleLink";
 import Telegram from "../icons/Telegram";
 
-const ShareButtons = () => {
+const ShareButtons = ({ hasMessage }: { hasMessage?: boolean }) => {
   const [currentUrl, setCurrentUrl] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -37,7 +37,8 @@ const ShareButtons = () => {
 
   return (
     <div className={s.container}>
-      <p>Found it interesting? Share it on:</p>
+      {hasMessage && <p>Found it interesting? Share it on:</p>}
+
       <a
         href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
         target="_blank"
