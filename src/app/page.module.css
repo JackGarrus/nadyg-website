@@ -1,6 +1,7 @@
 .page {
   display: flex;
   flex-direction: column;
+  padding: 3rem 0;
 }
 
 .yapSection,
@@ -9,7 +10,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  margin-bottom: 7rem;
+  margin-bottom: 50px;
 }
 
 .blogSection {
@@ -24,6 +25,7 @@
     display: grid;
     grid-template-areas: "about posts";
     grid-template-columns: 1fr 2fr;
+    padding: 0;
   }
 
   .yapSection {

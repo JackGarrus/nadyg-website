@@ -45,9 +45,12 @@
   flex-direction: column;
 }
 
+.credits {
+  display: none;
+}
+
 .contacts {
   display: flex;
-  padding-bottom: 2rem;
 }
 
 @media (min-width: 600px) {
@@ -70,6 +73,10 @@
 
   .contacts {
     padding-bottom: 0;
+  }
+
+  .credits {
+    display: block;
   }
 }
 

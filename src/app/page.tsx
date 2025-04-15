@@ -3,11 +3,7 @@ import s from "@/app/page.module.css";
 import AboutSection from "@/app/components/AboutSection";
 import Section from "@/app/components/Section";
 import { BlogPosts } from "./components/posts";
-import Link from "next/link";
-import ArrowUpSquare from "./icons/arrowUpSquare";
 import t from "@/app/style/typography.module.css";
-import l from "@/app/style/layout.module.css";
-import clsx from "clsx";
 // import ThemeToggle from "./theme/ThemeToggle";
 
 export default function Home() {

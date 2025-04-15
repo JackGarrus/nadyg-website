@@ -3,7 +3,7 @@
   min-height: 100vh;
   max-height: fit-content;
   width: 100vw;
-  padding: 0 5rem 0;
+  padding: 0 2rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -14,11 +14,7 @@
   height: 100%;
 }
 
-@media (max-width: 600px) {
-  .pageOuterContainer {
-    padding: 4rem 0.8rem;
-  }
-
+@media screen and (max-width: 600px) {
   .pageInnerContainer {
     flex-direction: column;
   }

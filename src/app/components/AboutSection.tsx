@@ -37,15 +37,20 @@ export default function AboutSection() {
         <p className={t.aboutParagraph}>
           I have been building for the web since 2019, and my current stack
           includes
-          <span className={clsx(t.highlight, l.pt0, l.pb0)}>React</span>,
-          <span className={clsx(t.highlight, l.pt0, l.pb0)}>Ruby on Rails</span>
+          <span className={clsx(t.highlight, l.pt0, l.pb0, l.ml4)}>React</span>,
+          <span className={clsx(t.highlight, l.pt0, l.pb0, l.ml4)}>
+            Ruby on Rails
+          </span>
           , and
-          <span className={clsx(t.highlight, l.pt0, l.pb0)}>PostgreSQL</span>.
+          <span className={clsx(t.highlight, l.pt0, l.pb0, l.ml4)}>
+            PostgreSQL
+          </span>
+          .
         </p>
         <br />
         <p className={t.aboutParagraph}>
           In this blog, I share what I learn, practical experiences, real-world
-          solutions, and interesting resources related to web developmentall
+          solutions, and interesting resources related to web development, all
           delivered clearly and without fluff.
         </p>
         <br />
@@ -82,7 +87,7 @@ export default function AboutSection() {
         </div>
         <br />
         <br />
-        <i>Powered by Next.js, icons by Font Awesome</i>
+        <i className={s.credits}>Powered by Next.js, icons by Font Awesome</i>
       </div>
     </div>
   );

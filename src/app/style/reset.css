@@ -34,6 +34,10 @@ ul {
   list-style: none;
 }
 
+span {
+  display: inline-block;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
