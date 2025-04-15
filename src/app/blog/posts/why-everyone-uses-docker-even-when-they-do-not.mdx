@@ -8,11 +8,24 @@ author: "Nadia Guarracino"
 
 ## The Docker Engine
 
-<Image src="/docker-engine.png" width={400} height={350} alt="Docker Engine" />
-
-Under the hood, Docker is made up of <strong>two daemons</strong> (background processes that interact with the system):
+<Image
+  src="/docker-engine.png"
+  alt="Docker Engine"
+  sizes="100vw"
+  style={{
+    width: "100%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
 
 <br />
+<br />
+<br />
+
+Under the hood, Docker is made up of <strong>two daemons</strong> (background processes
+that interact with the system):
 
 <ul>
   <li>
@@ -25,48 +38,36 @@ Under the hood, Docker is made up of <strong>two daemons</strong> (background pr
   </li>
 </ul>
 
-<br />
-<br />
-
 As containers became more widely adopted, Docker decided to extract <strong>containerd</strong> from its ecosystem and make it usable as a <strong>standalone runtime</strong> — without requiring full commitment to the Docker stack.
-
-<br />
-<br />
-<br />
-<Image
-  src="/dockerd-containerd.png"
-  width={400}
-  height={350}
-  alt="dockerd vs containerd"
-/>
-<br />
-<br />
-<br />
 
 That’s when Kubernetes and many other modern cloud platforms entered the scene.
 
 <br />
 <br />
+<br />
 
-## Docker Inc: Where’s the Money?
+## Docker Inc: How Is It Making Money?
 
 When Docker <strong>donated containerd</strong> to the CNCF, it was a smart community move, and it quickly became the industry standard.
 
 But here’s the catch: Docker Inc. is a for-profit company (duh), but it isn't making any money from either dockerd or containerd.
 
+<br />
 So… how was it surviving?
 
+<br />
 ...<strong>By selling Docker Desktop!</strong>
 
+<br />
 <br />
 <br />
 
 ## Kubernetes Enters the Picture
 
-Kubernetes didn’t want to depend on Docker.
+Now, Kubernetes didn’t want to depend on Docker.
 
-It was even developing its own runtime: <strong>CRI-O</strong>, meant to replace <strong>containerd</strong>.
-But by then, <strong>containerd</strong> was already mature and widely adopted by major players like <strong>AWS, Google Cloud, Azure</strong>, and <strong>IBM</strong>.
+It was even developing its own runtime: <strong>CRI-O</strong>, meant to <strong>replace containerd</strong>.
+But by then, containerd was already mature and widely adopted by major players like <strong>AWS, Google Cloud, Azure</strong>, and <strong>IBM</strong>.
 
 So, to survive:
 
@@ -84,36 +85,21 @@ the global standard, even if the rest of its stack was being phased out.
 
 <br />
 <br />
-<br />
 
-<Image
-  src="/dockerd-separate.containerd.png"
-  width={400}
-  height={350}
-  alt="dockerd and containerd separation"
-/>
+Here’s the twist: <strong>containerd</strong> relies on images created in the <strong>Docker format</strong>.
 
 <br />
-<br />
-<br />
-<br />
-
-## Docker Hub: The Hidden Pillar
-
-Here’s the twist:
-
-<strong>containerd</strong> relies on images created in the
-<strong>Docker format</strong>.
 
 ...And guess what is the biggest image registry in the world?
 
+<br />
 <strong>Docker Hub</strong>!
 
 <br />
 <br />
 <br />
 
-## Colima: Docker Without Docker Desktop
+## Ever heard about Colima?
 
 <blockquote>
   “Wait… if I’m using dockerd + containerd, why would I need Colima?”
@@ -140,25 +126,23 @@ It gives you:
   </li>
 </ul>
 
-So:
+Basically:
 
 <br />
 <br />
 <br />
 
-<Image src="/colima-does.png" width={600} height={200} alt="colima does" />
-
-<br />
-<br />
-<br />
-
-In brief:
-
-<br />
-<br />
-<br />
-
-<Image src="/colima-is.png" width={600} height={350} alt="colima is" />
+<Image
+  src="/colima-is.png"
+  alt="colima is"
+  sizes="100vw"
+  style={{
+    width: "100%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
 
 <br />
 <br />
@@ -166,9 +150,9 @@ In brief:
 
 ## Why Docker Runs Natively on Linux
 
-Because Linux already has everything Docker needs built-in:
+Because Linux already has everything Docker needs built-in: cgroups, namespaces, container-friendly file systems...
 
-cgroups, namespaces, container-friendly file systems...
+<br />
 
 Plus, <strong>Docker runs directly on the OS</strong>, that means that <strong>no VM required!</strong>
 

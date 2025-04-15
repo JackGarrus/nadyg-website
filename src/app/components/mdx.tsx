@@ -51,7 +51,7 @@ function CustomLink(props) {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
-function RoundedImage(props) {
+function ResponsiveImage(props) {
   return <Image alt={props.alt} {...props} />;
 }
 
@@ -145,7 +145,7 @@ const components = {
   blockquote: Blockquote,
   ul: UnorderedList,
   li: ListItem,
-  Image: RoundedImage,
+  Image: ResponsiveImage,
   a: CustomLink,
   code: Code,
   Callout: callout,
