@@ -3,6 +3,7 @@ import path from "path";
 
 type Metadata = {
   title: string;
+  author: string;
   publishedAt: string;
   summary: string;
   image?: string;
@@ -40,7 +41,6 @@ export function getMDXData(dir: string) {
   return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(path.join(dir, file));
     const slug = path.basename(file, path.extname(file));
-
     return {
       metadata,
       slug,

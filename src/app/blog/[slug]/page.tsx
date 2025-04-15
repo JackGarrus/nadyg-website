@@ -31,6 +31,7 @@ export function generateMetadata({ params }) {
     publishedAt: publishedTime,
     summary: description,
     image,
+    author,
   } = post.metadata;
 
   const ogImage = image?.startsWith("http") ? image : `${baseUrl}${image}`;
@@ -44,6 +45,7 @@ export function generateMetadata({ params }) {
       type: "article",
       publishedTime,
       url: `${baseUrl}/blog/${post.slug}`,
+      authors: [author],
       images: [
         {
           url: ogImage,
@@ -55,6 +57,9 @@ export function generateMetadata({ params }) {
       title,
       description,
       images: [ogImage],
+    },
+    other: {
+      author,
     },
   };
 }
