@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: end;
+}
+
+.container p,
+.container a,
+.container button {
+  padding-left: 8px;
+}
