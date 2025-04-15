@@ -85,8 +85,9 @@ export default function Blog({ params }) {
                 : `/og?title=${encodeURIComponent(post.metadata.title)}`,
               url: `${baseUrl}/blog/${post.slug}`,
               author: {
-                "@type": "Nadia Guarracino",
+                "@type": "Person",
                 name: "Nadia Guarracino",
+                url: "https://nadia-guarracino.vercel.app/",
               },
             }),
           }}
@@ -104,8 +105,9 @@ export default function Blog({ params }) {
         <br />
         <br />
         <article>
-          <CustomMDX source={post.content} />
           <ShareButtons />
+          <CustomMDX source={post.content} />
+          <ShareButtons hasMessage />
         </article>
       </div>
     </Section>
