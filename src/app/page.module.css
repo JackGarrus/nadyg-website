@@ -9,20 +9,14 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
+  margin-bottom: 7rem;
 }
 
 .blogSection {
-  max-height: 80vh;
   overflow-y: scroll;
   scrollbar-color: var(--main-brand);
   scrollbar-width: thin;
   /* background-color: gold; */
-}
-
-@media screen and (min-width: 400px) {
-  .blogSection {
-    padding: 0.5rem;
-  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -34,11 +28,25 @@
 
   .yapSection {
     grid-area: about;
+    margin-bottom: 0;
   }
 
   .blogSection {
     grid-area: posts;
     padding: 2rem;
     border: 10px solid var(--highlight);
+    max-height: 80vh;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .page {
+    grid-template-columns: minmax(auto, 500px) minmax(auto, 800px);
+    justify-content: center;
+  }
+
+  .blogSection {
+    max-height: 80vh;
   }
 }
