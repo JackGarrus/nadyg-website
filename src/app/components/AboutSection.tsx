@@ -25,15 +25,19 @@ export default function AboutSection() {
           Nadia Guarracino
         </motion.h1>
         <br />
-        <h2>Full-Stack Engineer @Doctolib</h2>
+        <p className={clsx(t.aboutParagraph, t.highlightText)}>
+          Full-Stack Engineer @Doctolib
+        </p>
       </div>
       <br />
       <div className={s.aboutDescription}>
         <p className={t.aboutParagraph}>
           I have been building for the web since 2019, and my current stack
-          includes <span className={t.highlight}>React</span>,
-          <span className={t.highlight}>Ruby on Rails</span>, and
-          <span className={t.highlight}>PostgreSQL</span>.
+          includes
+          <span className={clsx(t.highlight, l.pt0, l.pb0)}>React</span>,
+          <span className={clsx(t.highlight, l.pt0, l.pb0)}>Ruby on Rails</span>
+          , and
+          <span className={clsx(t.highlight, l.pt0, l.pb0)}>PostgreSQL</span>.
         </p>
         <br />
         <p className={t.aboutParagraph}>

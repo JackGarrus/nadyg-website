@@ -46,8 +46,12 @@
 }
 
 .aboutParagraph {
-  font-size: 1rem;
-  line-height: 1.2;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.highlightText {
+  color: var(--accent) !important;
 }
 
 /* Color */
