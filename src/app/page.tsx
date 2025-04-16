@@ -1,7 +1,6 @@
 import "@/app/style/globals.css";
 import s from "@/app/page.module.css";
 import AboutSection from "@/app/components/AboutSection";
-import Section from "@/app/components/Section";
 import { BlogPosts } from "./components/posts";
 import t from "@/app/style/typography.module.css";
 // import ThemeToggle from "./theme/ThemeToggle";
@@ -13,13 +12,12 @@ export default function Home() {
       <div className={clsx(l.w100, t.tar)}>
         <ThemeToggle />
       </div> */}
-      <Section>
-        <div className={s.page}>
-          <section className={s.yapSection}>
-            <AboutSection />
-          </section>
-          <section className={s.blogSection}>
-            {/*
+      <div className={s.page}>
+        <section className={s.yapSection}>
+          <AboutSection />
+        </section>
+        <section className={s.blogSection}>
+          {/*
             <Link
               key="/blog"
               href="/blog"
@@ -32,12 +30,11 @@ export default function Home() {
               </div>
             </Link>
             */}
-            <p className={t.blogTitle}>Blog</p>
-            <p className={t.subtitle}>Latest posts</p>
-            <BlogPosts />
-          </section>
-        </div>
-      </Section>
+          <p className={t.blogTitle}>Blog</p>
+          <p className={t.subtitle}>Latest posts</p>
+          <BlogPosts />
+        </section>
+      </div>
     </>
   );
 }
