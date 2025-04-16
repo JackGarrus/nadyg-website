@@ -1,7 +1,7 @@
 .page {
   display: flex;
   flex-direction: column;
-  padding: 3rem 0;
+  margin: 3rem 1rem;
 }
 
 .yapSection,
@@ -10,7 +10,6 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  margin-bottom: 50px;
 }
 
 .blogSection {
@@ -20,12 +19,29 @@
   /* background-color: gold; */
 }
 
+@media screen and (min-width: 768px) {
+  .page {
+    display: grid;
+    grid-template-areas: "about" "posts";
+    grid-template-rows: 400px 1fr;
+    padding-top: 3rem;
+    margin-top: 0;
+    margin-bottom: 3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    align-items: center;
+    height: 100vh;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .page {
     display: grid;
     grid-template-areas: "about posts";
     grid-template-columns: 1fr 2fr;
     padding: 0;
+    margin: 5rem 2rem;
+    align-items: flex-start;
   }
 
   .yapSection {
@@ -37,7 +53,7 @@
     grid-area: posts;
     padding: 2rem;
     border: 7px solid var(--highlight);
-    max-height: 80vh;
+    height: 80vh;
     margin-bottom: 0;
   }
 }
@@ -46,9 +62,31 @@
   .page {
     grid-template-columns: minmax(auto, 500px) minmax(auto, 800px);
     justify-content: center;
+    margin: 0;
+
+    grid-template-rows: 100vh;
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  .yapSection {
+    height: fit-content;
   }
 
   .blogSection {
     max-height: 80vh;
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .page {
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  .blogSection {
+    height: 100%;
+    max-height: var(--sectionsHeight);
   }
 }

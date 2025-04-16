@@ -73,52 +73,50 @@ export default function Blog({ params }) {
   }
 
   return (
-    <Section>
-      <div className={s.pageLayout}>
-        <script
-          type="application/ld+json"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              headline: post.metadata.title,
-              datePublished: post.metadata.publishedAt,
-              dateModified: post.metadata.publishedAt,
-              description: post.metadata.summary,
-              image: post.metadata.image
-                ? `${baseUrl}${post.metadata.image}`
-                : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-              url: `${baseUrl}/blog/${post.slug}`,
-              author: {
-                "@type": "Person",
-                name: "Nadia Guarracino",
-                url: "https://nadia-guarracino.vercel.app/",
-              },
-            }),
-          }}
-        />
-        <h1
-          className={clsx(t.blogPostTitle, t.highlight)}
-          style={{ textAlign: "right" }}
-        >
-          {post.metadata.title}
-        </h1>
-        <br />
-        <div className={clsx(l.flex, l.jcsb, l.aic)}>
-          <p className={clsx(t.p, t.blogPostDate)}>
-            {formatDate(post.metadata.publishedAt)}
-          </p>
+    <div className={s.pageLayout}>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image
+              ? `${baseUrl}${post.metadata.image}`
+              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+            url: `${baseUrl}/blog/${post.slug}`,
+            author: {
+              "@type": "Person",
+              name: "Nadia Guarracino",
+              url: "https://nadia-guarracino.vercel.app/",
+            },
+          }),
+        }}
+      />
+      <h1
+        className={clsx(t.blogPostTitle, t.highlight)}
+        style={{ textAlign: "right" }}
+      >
+        {post.metadata.title}
+      </h1>
+      <br />
+      <div className={clsx(l.flex, l.jcsb, l.aic)}>
+        <p className={clsx(t.p, t.blogPostDate)}>
+          {formatDate(post.metadata.publishedAt)}
+        </p>
 
-          <ShareButtons />
-        </div>
-        <br />
-        <br />
-        <article>
-          <CustomMDX source={post.content} />
-          <ShareButtons hasMessage />
-        </article>
+        <ShareButtons />
       </div>
-    </Section>
+      <br />
+      <br />
+      <article>
+        <CustomMDX source={post.content} />
+        <ShareButtons hasMessage />
+      </article>
+    </div>
   );
 }
