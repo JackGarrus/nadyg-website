@@ -61,7 +61,7 @@
     grid-template-areas: "image . about";
     grid-template-columns: auto 2rem auto;
 
-    height: 100vh;
+    height: 100%;
     align-items: center;
   }
 }
@@ -69,6 +69,7 @@
 @media screen and (min-width: 1024px) {
   .container {
     padding-right: 2rem;
+    height: 100vh;
   }
 
   .contacts {
