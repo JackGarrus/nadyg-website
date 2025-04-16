@@ -6,6 +6,20 @@ image: "/public/docker-engine.png"
 author: "Nadia Guarracino"
 ---
 
+
+## Fast intro
+What pushed me to write this article? One word: Colima.
+<br />
+At some point, we had to uninstall Docker Desktop and start using Colima via the CLI, but I never really understood why. For a while, I just went along with it.
+Then one day, I decided to dig into how our app’s dev environment actually starts up. The first command I run is colima start, followed by docker compose up.
+That got me wondering:
+ <strong>If we don’t have Docker Desktop anymore, why are we still running Docker commands?</strong>
+ <br />
+So… what is Colima, really? And that’s how this whole investigation started, which I’ve now wrapped up in this article.
+<br />
+If you, like me, enjoy discovering what’s going on behind the scenes, this one’s for you!
+<br />
+<br />
 ## The Docker Engine
 
 <Image
@@ -23,7 +37,8 @@ author: "Nadia Guarracino"
 <br />
 <br />
 <br />
-
+First, let's have a quick overview of what the Docker engine consists of.
+<br />
 Under the hood, Docker is made up of <strong>two daemons</strong> (background processes
 that interact with the system):
 
@@ -44,22 +59,18 @@ Originally, containerd was just a component inside Docker, but as containers bec
 <br />
 ## Kubernetes Didn't Want Docker
 
-Originally, Kubernetes only worked with Docker.
-But over time, people wanted to use different runtimes (like containerd standalone, etc.).
-
-<br />
-So the Kubernetes team created <strong>CRI</strong>, so Kubernetes could support
-any runtime, as long as it followed this standard interface.
+Originally, Kubernetes only worked with Docker, but over time, people wanted to use different runtimes (like containerd standalone, etc.).
+So the Kubernetes team created <strong>CRI</strong>, so it could support any runtime, as long as it followed this standard interface.
 
 <Callout>
-  <strong>CRI</strong>:Container Runtime Interface. API that tells Kube how to
+  <strong>CRI</strong>(Container Runtime Interface): API that tells Kube how to
   talk to a container runtime
 </Callout>
 
 <br />
 
 On top of that, <strong>dockerd</strong> was doing way more then Kube needed, like handling volumes, networks, image builds, and logs.
-So the Kubernetes team decided to build something simpler: a lightweight runtime made just for Kubernetes, called <strong>CRI-O</strong>
+that's why at a certain point the Kubernetes team decided to build something simpler: a lightweight runtime made just for Kubernetes, called <strong>CRI-O</strong>
 
 <br />
 <br />
@@ -67,12 +78,12 @@ So the Kubernetes team decided to build something simpler: a lightweight runtime
 
 ## Docker’s Strategic Pivot
 
-At that point, Docker Inc. realized something important:
-
-“We're not going to make money from dockerd or containerd, but we can make money from developer tools!”
+At that point, Docker Inc. realized something important: “We're not going to make money from dockerd or containerd, but we can make money from developer tools!”
 
 <br />
-So in 2017, Docker made a bold move. It:
+So in 2017, Docker made a bold move.
+
+It:
 
 <ul>
   <li>
@@ -86,7 +97,7 @@ So in 2017, Docker made a bold move. It:
   </li>
 </ul>
 
-Smart play. After all, containerd runs Docker images. And where are most of those stored? On Docker Hub (hehe).
+Smart play. After all, containerd runs Docker images, ...and where are most of those stored? On Docker Hub!.
 
 <br />
 Now the ecosystem could adopt containerd freely, and Docker could monetize elsewhere.
@@ -112,8 +123,7 @@ containerd became the most widely adopted container runtime in Kubernetes cluste
 CRI-O remained a valid alternative, but containerd won the popularity contest.
 
 <br />
-And no — Kube didn’t drop CRI. It still uses it, but now it talks to containerd
-directly using a CRI plugin, rather than going through dockerd.
+Kube didn’t drop CRI. It still uses it, but now it talks to containerd directly using a CRI plugin, rather than going through dockerd.
 
 <br />
 <br />
@@ -121,14 +131,14 @@ directly using a CRI plugin, rather than going through dockerd.
 
 ## Enter Colima
 
-Meanwhile, most devs were still using Docker Desktop on macOS to run containers locally.
+While this corporate beef was going on, most devs were still using Docker Desktop on MacOS to run containers locally and they were happy.
+<br />
+But happiness is an ephemeral emotion, easily disrupted, and in the most cases the disruption is caused by money:
+<strong>Docker Inc. started charging for Docker Desktop</strong> in some cases, and developers  started looking for alternatives because they love free stuff.
 
 <br />
-But then <strong>Docker Inc. started charging for Docker Desktop</strong> in certain cases, and developers looked for alternatives.
 
-<br />
-
-That’s when Colima entered the scene.
+That’s when Colima came in to save the day (and the devs happiness).
 
 <br />
 <br />
@@ -136,7 +146,9 @@ That’s when Colima entered the scene.
 
 ## What Is Colima?
 
-Colima is a free, open-source replacement for Docker Desktop.
+
+Colima is  <strong>a free, open-source replacement for Docker Desktop.</strong>
+<br />
 
 It doesn't replace the Docker engine itself, instead, it:
 
@@ -152,10 +164,10 @@ It doesn't replace the Docker engine itself, instead, it:
   </li>
 </ul>
 
-Is CLI-based, fast, and ideal for devs who don’t need a GUI
+Is CLI-based, fast, and ideal for devs who don’t need a GUI.
 
 <br />
-So basically, Colima gives you a fully Docker-compatible setup, without Docker Desktop, without the licensing restrictions.
+So basically, Colima gives you a fully Docker-compatible setup, without Docker Desktop, without the licensing restrictions but still using the docker's commands.
 
 <br />
 <Callout>
