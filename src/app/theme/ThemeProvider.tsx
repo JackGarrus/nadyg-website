@@ -23,10 +23,20 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    const storedTheme =
-      (localStorage.getItem("theme") as "light" | "dark") || "light";
-    setTheme(storedTheme);
-    document.documentElement.setAttribute("data-theme", storedTheme);
+    const storedTheme = localStorage.getItem("theme");
+
+    let finalTheme: "light" | "dark";
+    if (storedTheme === "light" || storedTheme === "dark") {
+      finalTheme = storedTheme;
+    } else {
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      finalTheme = prefersDark ? "dark" : "light";
+    }
+
+    setTheme(finalTheme);
+    document.documentElement.setAttribute("data-theme", finalTheme);
   }, []);
 
   const toggleTheme = () => {

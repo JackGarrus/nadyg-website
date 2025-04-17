@@ -3,15 +3,16 @@ import s from "@/app/page.module.css";
 import AboutSection from "@/app/components/AboutSection";
 import { BlogPosts } from "./components/posts";
 import t from "@/app/style/typography.module.css";
-// import ThemeToggle from "./theme/ThemeToggle";
+import l from "@/app/style/layout.module.css";
+import ThemeToggle from "./theme/ThemeToggle";
+import clsx from "clsx";
 
 export default function Home() {
   return (
     <>
-      {/*
       <div className={clsx(l.w100, t.tar)}>
         <ThemeToggle />
-      </div> */}
+      </div>
       <div className={s.page}>
         <section className={s.yapSection}>
           <AboutSection />
