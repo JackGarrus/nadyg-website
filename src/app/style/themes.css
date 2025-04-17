@@ -1,13 +1,7 @@
 :root {
   --accent: #007bff;
-  --blogPostTitle: #5b5a5a;
   --normal: #0b3220;
-  --dark-accent: #254f3b;
-  --dark-shade: #fdfdfd;
   --contrast: #fdfdfd;
-  --main-brand: #38765b;
-  --about-title: #007bff;
-  --blog-title: #254f3b;
   --highlight: rgb(24, 187, 100);
   --highlight-opaque: rgb(19, 192, 94, 0.24);
   --highlight-opaque-2: rgba(19, 192, 94, 0.11);
@@ -16,43 +10,37 @@
   --sh-class: color-mix(in srgb, var(--highlight) 80%, black);
   --sh-identifier: color-mix(in srgb, var(--normal) 70%, white);
   --sh-sign: color-mix(in srgb, var(--accent) 70%, gray);
-  --sh-property: color-mix(in srgb, var(--dark-accent) 60%, var(--accent));
-  --sh-entity: color-mix(in srgb, var(--main-brand) 60%, var(--dark-shade));
-  --sh-jsxliterals: color-mix(in srgb, var(--accent) 50%, var(--dark-shade));
-  --sh-string: color-mix(in srgb, var(--accent) 50%, var(--dark-accent));
+  --sh-property: color-mix(in srgb, var(--normal) 60%, var(--accent));
+  --sh-entity: color-mix(in srgb, var(--highlight) 60%, var(--contrast));
+  --sh-jsxliterals: color-mix(in srgb, var(--accent) 50%, var(--contrast));
+  --sh-string: color-mix(in srgb, var(--accent) 50%, var(--normal));
   --sh-keyword: color-mix(in srgb, var(--normal) 90%, red);
-  --sh-comment: color-mix(in srgb, var(--normal) 50%, var(--dark-shade));
+  --sh-comment: color-mix(in srgb, var(--normal) 50%, var(--contrast));
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --accent: #007bff;
-    --blogPostTitle: #5b5a5a;
     --normal: #0b3220;
-    --normal-opaque: #0b3220c2;
-    --dark-accent: #254f3b;
-    --dark-shade: #fdfdfd;
     --contrast: #fdfdfd;
-    --main-brand: #38765b;
-    --about-title: #007bff;
-    --blog-title: #254f3b;
-    --highlight: rgb(19, 192, 94);
+    --highlight: rgb(24, 187, 100);
+    --highlight-opaque: rgb(19, 192, 94, 0.24);
     --highlight-opaque-2: rgba(19, 192, 94, 0.11);
 
     /* 🎨 Syntax Highlighting for Light Mode */
     --sh-class: color-mix(in srgb, var(--highlight) 80%, black);
     --sh-identifier: color-mix(in srgb, var(--normal) 70%, white);
     --sh-sign: color-mix(in srgb, var(--accent) 70%, gray);
-    --sh-property: color-mix(in srgb, var(--dark-accent) 60%, var(--accent));
-    --sh-entity: color-mix(in srgb, var(--main-brand) 60%, var(--dark-shade));
-    --sh-jsxliterals: color-mix(in srgb, var(--accent) 50%, var(--dark-shade));
-    --sh-string: color-mix(in srgb, var(--accent) 50%, var(--dark-accent));
+    --sh-property: color-mix(in srgb, var(--normal) 60%, var(--accent));
+    --sh-entity: color-mix(in srgb, var(--highlight) 60%, var(--contrast));
+    --sh-jsxliterals: color-mix(in srgb, var(--accent) 50%, var(--contrast));
+    --sh-string: color-mix(in srgb, var(--accent) 50%, var(--normal));
     --sh-keyword: color-mix(in srgb, var(--normal) 90%, red);
-    --sh-comment: color-mix(in srgb, var(--normal) 50%, var(--dark-shade));
+    --sh-comment: color-mix(in srgb, var(--normal) 50%, var(--contrast));
   }
 }
 
 body {
-  background-color: var(--dark-shade);
+  background-color: var(--contrast);
   transition: background-color 0.6s ease, color 0.6s ease;
 }

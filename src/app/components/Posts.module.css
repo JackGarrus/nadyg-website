@@ -31,13 +31,13 @@
   font-weight: 500;
   padding-bottom: 1rem;
   line-height: 1.5;
-  color: color-mix(in srgb, var(--blogPostTitle) 50%, var(--normal) 50%);
+  color: var(--normal) 50%;
 }
 
 .date {
   text-align: right;
   font-style: italic;
-  color: var(--dark-accent);
+  color: var(--normal);
 }
 
 @media screen and (min-width: 400px) {
