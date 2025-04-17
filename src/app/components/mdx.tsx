@@ -10,6 +10,7 @@ import s from "@/app/components/MDX.module.css";
 import clsx from "clsx";
 import { ReactNode } from "react";
 import Callout from "./Callout";
+import Highlight from "./Highlight";
 
 function Table({ data }) {
   const headers = data.headers.map((header, index) => (
@@ -132,6 +133,10 @@ function ListItem({ children }: { children: ReactNode }) {
   return <li className={s.li}>{children}</li>;
 }
 
+function highlighted({ children }: { children: ReactNode }) {
+  return <Highlight>{children}</Highlight>;
+}
+
 function callout({ children }: { children: ReactNode }) {
   return <Callout>{children}</Callout>;
 }
@@ -149,6 +154,7 @@ const components = {
   a: CustomLink,
   code: Code,
   Callout: callout,
+  Highlight: highlighted,
   Table,
 };
 

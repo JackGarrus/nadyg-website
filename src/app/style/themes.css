@@ -10,6 +10,7 @@
   --blog-title: #254f3b;
   --highlight: rgb(24, 187, 100);
   --highlight-opaque: rgb(19, 192, 94, 0.24);
+  --highlight-opaque-2: rgba(19, 192, 94, 0.11);
 
   /* 🎨 Syntax Highlighting for Light Mode */
   --sh-class: color-mix(in srgb, var(--highlight) 80%, black);
@@ -28,6 +29,7 @@
     --accent: #007bff;
     --blogPostTitle: #5b5a5a;
     --normal: #0b3220;
+    --normal-opaque: #0b3220c2;
     --dark-accent: #254f3b;
     --dark-shade: #fdfdfd;
     --contrast: #fdfdfd;
@@ -35,6 +37,7 @@
     --about-title: #007bff;
     --blog-title: #254f3b;
     --highlight: rgb(19, 192, 94);
+    --highlight-opaque-2: rgba(19, 192, 94, 0.11);
 
     /* 🎨 Syntax Highlighting for Light Mode */
     --sh-class: color-mix(in srgb, var(--highlight) 80%, black);

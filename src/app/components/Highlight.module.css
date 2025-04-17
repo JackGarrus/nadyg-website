@@ -1,0 +1,8 @@
+.highlighted {
+  font-family: "Courier New", Courier, monospace;
+  background-color: var(--highlight-opaque-2);
+  padding: 2px 5px;
+  margin: 0 2px;
+  color: var(--normal-opaque);
+  letter-spacing: normal;
+}
