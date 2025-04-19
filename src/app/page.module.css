@@ -30,11 +30,9 @@
   .page {
     display: grid;
     grid-template-areas: "about" "posts";
-    grid-template-rows: 400px 1fr;
     padding: 2rem;
     padding-top: 0;
     align-items: center;
-    height: 100vh;
   }
 }
 
@@ -44,7 +42,7 @@
     grid-template-areas: "about posts";
     grid-template-columns: 1fr 2fr;
     align-items: flex-start;
-    margin-bottom: 3rem;
+    padding: 3rem;
   }
 
   .yapSection {
