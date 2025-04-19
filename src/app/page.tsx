@@ -3,14 +3,12 @@ import s from "@/app/page.module.css";
 import AboutSection from "@/app/components/AboutSection";
 import { BlogPosts } from "./components/posts";
 import t from "@/app/style/typography.module.css";
-import l from "@/app/style/layout.module.css";
 import ThemeToggle from "./theme/ThemeToggle";
-import clsx from "clsx";
 
 export default function Home() {
   return (
     <>
-      <div className={clsx(l.w100, t.tar)}>
+      <div className={s.themeContainer}>
         <ThemeToggle />
       </div>
       <div className={s.page}>
