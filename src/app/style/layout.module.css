@@ -42,7 +42,7 @@
   margin-left: 4px;
 }
 
-/* PADDING */
+/********************** PADDING */
 
 .p0 {
   padding: 0;
@@ -58,6 +58,10 @@
 
 .pl8 {
   padding-left: 0.6rem;
+}
+
+.pr8 {
+  padding-right: 8px;
 }
 
 .p16 {

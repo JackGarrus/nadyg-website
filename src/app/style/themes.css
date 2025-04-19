@@ -33,7 +33,7 @@
 /* 🌙 Manual Dark mode */
 [data-theme="dark"] {
   --accent: #00b3ff;
-  --normal: #ffffff;
+  --normal: #8fc2a9;
   --contrast: #07160d;
   --highlight: rgb(24, 187, 100);
   --highlight-opaque: rgb(19, 192, 94, 0.24);
