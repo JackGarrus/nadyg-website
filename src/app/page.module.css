@@ -1,7 +1,14 @@
 .page {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentContainer {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
 }
 
 .yapSection,
@@ -17,29 +24,41 @@
   display: flex;
   margin: 0 auto;
   justify-content: end;
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.themeContainer button {
+  padding: 1rem 0;
 }
 
 .blogSection {
   overflow-y: scroll;
   scrollbar-color: var(--main-brand);
   scrollbar-width: thin;
-  /* background-color: gold; */
 }
 
 @media screen and (min-width: 768px) {
-  .page {
+  .contentContainer {
     display: grid;
-    grid-template-areas: "about" "posts";
-    padding: 2rem;
-    padding-top: 0;
+    grid-template-areas: "header" "about" "posts";
+    padding: 0 2rem 2rem;
     align-items: center;
+  }
+
+  .themeContainer {
+    grid-area: header;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .page {
+    height: 100vh;
+  }
+
+  .contentContainer {
     display: grid;
-    grid-template-areas: "about posts";
+    grid-template-areas: "header header" "about posts";
     grid-template-columns: 1fr 2fr;
     align-items: flex-start;
     padding: 3rem;
@@ -60,14 +79,16 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .page {
+  .contentContainer {
     grid-template-columns: minmax(auto, 500px) minmax(auto, 800px);
     justify-content: center;
-
-    grid-template-rows: 80vh;
     align-items: center;
-    padding: 0 2rem;
     margin-bottom: 0;
+  }
+
+  .themeContainer button {
+    padding: 0;
+    padding-bottom: 1rem;
   }
 
   .yapSection {
@@ -81,9 +102,8 @@
 }
 
 @media screen and (min-width: 1366px) {
-  .page {
-    align-items: center;
-    padding: 3rem 2rem 0;
+  .contentContainer {
+    padding: 0;
   }
 
   .blogSection {
