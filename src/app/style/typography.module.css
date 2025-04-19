@@ -162,7 +162,6 @@
 }
 
 li .blogPostParagraph {
-  max-width: 300px;
   margin-left: 0;
 }
 
@@ -199,6 +198,13 @@ li .blogPostParagraph {
 }
 
 @media screen and (min-width: 400px) {
+  .blogPostParagraph {
+    margin-left: 1rem;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .blogPostParagraph {
     margin-left: 1rem;
     width: auto;
