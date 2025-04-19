@@ -49,43 +49,45 @@ export default function AboutSection() {
         </p>
         <br />
         <p className={t.aboutParagraph}>
-          In this blog, I share what I learn, practical experiences, real-world
-          solutions, and interesting resources related to web development, all
-          delivered clearly and without fluff.
+          This is where I drop things I learn, things I break, and things I fix.
         </p>
         <br />
         <p className={t.aboutParagraph}>
-          I get straight to the point, and you’ll always walk away having
-          learned something useful, promise 😉!
+          Mostly web dev, sometimes math or physics (high-level, no flex, just
+          me nerding out for fun 😜).
         </p>
         <br />
-        <div className={s.contacts}>
-          <Link
-            key="/linkedin"
-            href="https://www.linkedin.com/in/nadia-guarracino17/"
-            target="blank"
-            className={s.link}
-          >
-            <Linkedin className="icon" />
-          </Link>
-          <Link
-            key="/github"
-            href="https://github.com/JackGarrus"
-            target="blank"
-            className={clsx(s.link, l.pl8)}
-          >
-            <Github className="icon" />
-          </Link>
-          <Link
-            key="/codepen"
-            href="https://codepen.io/NadGu"
-            target="blank"
-            className={clsx(s.link, l.pl8)}
-          >
-            <Codepen className="icon" />
-          </Link>
+        <div>
+          <div className={s.contacts}>
+            <p className={clsx(t.aboutParagraph, l.pr8)}>
+              Let&#39;s get in touch!
+            </p>
+            <Link
+              key="/linkedin"
+              href="https://www.linkedin.com/in/nadia-guarracino17/"
+              target="blank"
+              className={s.link}
+            >
+              <Linkedin className="icon" />
+            </Link>
+            <Link
+              key="/github"
+              href="https://github.com/JackGarrus"
+              target="blank"
+              className={clsx(s.link, l.pl8)}
+            >
+              <Github className="icon" />
+            </Link>
+            <Link
+              key="/codepen"
+              href="https://codepen.io/NadGu"
+              target="blank"
+              className={clsx(s.link, l.pl8)}
+            >
+              <Codepen className="icon" />
+            </Link>
+          </div>
         </div>
-        <br />
         <br />
         <i className={s.credits}>Powered by Next.js, icons by Font Awesome</i>
       </div>

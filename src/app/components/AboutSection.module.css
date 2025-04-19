@@ -48,6 +48,7 @@
 .credits {
   display: none;
   font-size: 12px;
+  color: var(--normal);
 }
 
 .contacts {
