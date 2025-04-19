@@ -16,6 +16,10 @@
   color: inherit;
 }
 
+.fdc {
+  flex-direction: column;
+}
+
 .aic {
   align-items: center;
 }
