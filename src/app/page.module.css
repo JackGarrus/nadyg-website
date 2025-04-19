@@ -42,7 +42,7 @@
     grid-template-areas: "about posts";
     grid-template-columns: 1fr 2fr;
     align-items: flex-start;
-    padding: 2rem;
+    padding: 3rem;
   }
 
   .yapSection {
