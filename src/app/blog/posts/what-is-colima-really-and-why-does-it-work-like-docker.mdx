@@ -1,26 +1,25 @@
 ---
 title: "What Is Colima, Really? And Why Does It Work Like Docker?"
-publishedAt: "2025-04-14"
+publishedAt: "2025-04-19"
 summary: "A quick and curious dive into how Colima replaces Docker Desktop, why it still uses Docker commands, and what’s really happening behind the scenes in your dev environment"
 image: "/public/docker-engine.png"
 author: "Nadia Guarracino"
 ---
 
 
-## Fast intro
+## Quick intro
 What pushed me to write this article? One word: Colima.
 <br />
-At some point, we had to uninstall Docker Desktop and start using Colima via the CLI, but I never really understood why. For a while, I just went along with it.
-Then one day, I decided to dig into how our app’s dev environment actually starts up. The first command I run is colima start, followed by docker compose up.
-That got me wondering:
- <strong>If we don’t have Docker Desktop anymore, why are we still running Docker commands?</strong>
+At some point, we had to uninstall Docker Desktop at work and start using Colima via the CLI, but I never really understood why.
+<br />For a while, I just went along with it.
+Then one day, I decided to dig into how our app’s dev environment actually starts up. The first command I run starts colima, followed by <Highlight>docker compose -up</Highlight>.
+And that got me thinking:
+ <strong>if we don’t have Docker Desktop anymore, why are we still running Docker commands?</strong>
  <br />
-So… what is Colima, really? And that’s how this whole investigation started, which I’ve now wrapped up in this article.
-<br />
-If you, like me, enjoy discovering what’s going on behind the scenes, this one’s for you!
+So… what is Colima, <i>really</i>? And that’s how this whole investigation started, which I am going to share with you now.
 <br />
 <br />
-## The Docker Engine
+## The Basics: The Docker Engine
 
 <Image
   src="/docker-engine.png"
@@ -53,7 +52,7 @@ that interact with the system):
   </li>
 </ul>
 
-Originally, <Highlight>containerd</Highlight> was just a component inside Docker, but as containers became more widely adopted, things got complicated, especially when Kubernetes entered the picture.
+Originally, <Highlight>containerd</Highlight> was just a component within Docker, but as containers became more widely adopted, things got complicated, especially when Kubernetes entered the picture.
 
 <br />
 <br />
@@ -76,9 +75,9 @@ that's why at a certain point the Kubernetes team decided to build something sim
 <br />
 <br />
 
-## Docker’s Strategic Pivot
+## Docker Inc. Strategy
 
-At that point, Docker Inc. realized something important: “We're not going to make money from <Highlight>dockerd</Highlight> or <Highlight>containerd</Highlight>, but we can make money from developer tools!”
+At that point, Docker Inc. realised something important: “We're not going to make money from <Highlight>dockerd</Highlight> or <Highlight>containerd</Highlight>, but we can make money from developer tools!”
 
 <br />
 So in 2017, Docker made a bold move.
@@ -93,24 +92,37 @@ It:
     donated it to the CNCF (Cloud Native Computing Foundation)
   </li>
   <li>
-    pivoted to focus on Docker Desktop and Docker Hub
+    refocused on Docker Desktop and Docker Hub
   </li>
 </ul>
 
-Smart play. After all, <Highlight>containerd</Highlight> runs Docker images, ...and where are most of those stored? On Docker Hub!.
+But the strategy didn't stop there. <strong>Docker also decided to open-source dockerd</strong> by moving it into the <a href="https://github.com/moby/moby" target="blank" style={{textDecoration: 'underline'}}><strong>Moby project</strong></a>,an official open-source project by Docker to <i>"to enable and accelerate software containerization"</i>.
 
 <br />
-Now the ecosystem could adopt <Highlight>containerd</Highlight> freely, and Docker could monetize elsewhere.
 
-(And yes, Docker still uses <Highlight>containerd</Highlight> internally as part of dockerd. That didn't change.)
+Smart play. After all, <Highlight>containerd</Highlight> runs Docker images, ...and where are most of those stored? On Docker Hub!
 
 <br />
+Now the ecosystem could adopt <Highlight>containerd</Highlight> freely, and Docker could monetize its dev tools (and yes, Docker still uses <Highlight>containerd</Highlight> internally as part of dockerd. That hasn't change).
+
+<br />
+
+<Callout>
+  <ul>
+    <li>
+      <strong>containerd</strong>: used by Kubernetes, cloud, CI/CD; is industry standard
+    </li>
+    <li>
+      <strong>dockerd</strong>: used by Docker CLI, Colima, dev env; is <i>NOT</i>  industry standard
+    </li>
+  </ul>
+</Callout>
 <br />
 <br />
 
 ## Kubernetes surrenders to containerd
 
-Once <Highlight>containerd</Highlight> became an open source standalone runtime, Kubernetes had to adopt it.
+Once <Highlight>containerd</Highlight> became an open-source standalone runtime, Kubernetes had to adopt it.
 
 <br />
 Why?
@@ -138,7 +150,7 @@ But happiness is an ephemeral emotion, easily disrupted, and in the most cases t
 
 <br />
 
-That’s when Colima came in to save the day (and the devs happiness).
+That’s when Colima came in to save the day (and the devs' happiness).
 
 <br />
 <br />
@@ -171,6 +183,7 @@ So basically, Colima gives you a fully Docker-compatible setup, without Docker D
 
 <br />
 <Callout>
+  So, we've got the answer:
   <strong>Colima</strong> doesn’t replace the Docker engine: it replaces
   <strong>Docker Desktop</strong>.
 </Callout>
@@ -214,8 +227,12 @@ Docker Desktop or Colima or something else.
 
 <ul>
   <li>
-    <strong>containerd</strong> is now the <strong>industry standard</strong>
-    container runtime.
+    <strong>dockerd</ strong> is open-source, lives in the Moby project, and is still used by Docker
+  </li>
+
+  <li>
+    <strong>containerd</strong> is also open-source but is not in Docker's hands anymore
+    now and is the industry standard container runtime.
   </li>
   <li>
     <strong>Docker Inc.</strong> makes money from

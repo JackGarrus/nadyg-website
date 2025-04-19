@@ -30,6 +30,8 @@ export function BlogPosts() {
             </div>
           </Link>
         ))}
+
+      <p>.Curious minds, stay close: fresh content is coming!</p>
     </div>
   );
 }
