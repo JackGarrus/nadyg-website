@@ -51,7 +51,7 @@
 }
 
 .highlightText {
-  color: var(--accent) !important;
+  color: var(--highlight) !important;
 }
 
 /* Color */

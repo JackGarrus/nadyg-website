@@ -20,7 +20,7 @@
 }
 
 .card_inner:hover {
-  background-color: var(--accent);
+  background-color: var(--highlight);
 }
 
 .card_inner:hover > * {
