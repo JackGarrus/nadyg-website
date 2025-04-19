@@ -7,11 +7,11 @@ import ThemeToggle from "./theme/ThemeToggle";
 
 export default function Home() {
   return (
-    <>
-      <div className={s.themeContainer}>
-        <ThemeToggle />
-      </div>
-      <div className={s.page}>
+    <div className={s.page}>
+      <div className={s.contentContainer}>
+        <div className={s.themeContainer}>
+          <ThemeToggle />
+        </div>
         <section className={s.yapSection}>
           <AboutSection />
         </section>
@@ -34,6 +34,6 @@ export default function Home() {
           <BlogPosts />
         </section>
       </div>
-    </>
+    </div>
   );
 }

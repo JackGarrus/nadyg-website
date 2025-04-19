@@ -127,6 +127,12 @@ export default function Blog({ params }) {
         <CustomMDX source={post.content} />
         <ShareButtons hasMessage />
       </article>
+      <br />
+      <br />
+      <Link href="/" className={clsx(l.flex, l.aic)}>
+        <LeftArrow className="icon" />
+        <Home className="icon" />
+      </Link>
     </div>
   );
 }
