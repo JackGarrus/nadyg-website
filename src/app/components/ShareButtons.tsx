@@ -37,7 +37,9 @@ const ShareButtons = ({ hasMessage }: { hasMessage?: boolean }) => {
 
   return (
     <div className={s.container}>
-      {hasMessage && <p>Found it interesting? Share it on:</p>}
+      {hasMessage && (
+        <p className={s.message}>Found it interesting? Share it on:</p>
+      )}
 
       <a
         href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}

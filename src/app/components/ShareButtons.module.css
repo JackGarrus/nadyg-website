@@ -3,10 +3,15 @@
   align-items: center;
   width: 100%;
   justify-content: end;
+  height: 35px;
 }
 
 .container p,
 .container a,
 .container button {
   padding-left: 8px;
+}
+
+.message {
+  color: var(--normal);
 }
