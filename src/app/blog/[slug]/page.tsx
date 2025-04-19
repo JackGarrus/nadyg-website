@@ -2,12 +2,15 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "@/app/components/mdx";
 import { formatDate, getBlogPosts } from "@/app/blog/utils";
 import { baseUrl } from "@/app/sitemap";
-import Section from "@/app/components/Section";
+import Link from "next/link";
 import t from "@/app/style/typography.module.css";
 import s from "./Page.module.css";
 import l from "@/app/style/layout.module.css";
 import clsx from "clsx";
 import ShareButtons from "@/app/components/ShareButtons";
+import ThemeToggle from "@/app/theme/ThemeToggle";
+import Home from "@/app/icons/Home";
+import LeftArrow from "@/app/icons/LeftArrow";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -74,6 +77,13 @@ export default function Blog({ params }) {
 
   return (
     <div className={s.pageLayout}>
+      <div className={s.header}>
+        <Link href="/" className={clsx(l.flex, l.aic)}>
+          <LeftArrow className="icon" />
+          <Home className="icon" />
+        </Link>
+        <ThemeToggle />
+      </div>
       <script
         type="application/ld+json"
         suppressHydrationWarning
