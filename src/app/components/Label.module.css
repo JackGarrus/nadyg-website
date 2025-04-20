@@ -43,10 +43,6 @@
   margin-right: 8px;
 }
 
-.label:not(:last-child) {
-  margin-right: 8px;
-}
-
 .js {
   background-color: var(--js-a);
   fill: var(--js);

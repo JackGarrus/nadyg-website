@@ -3,18 +3,7 @@
 import s from "@/app/components/Label.module.css";
 import clsx from "clsx";
 import Square from "../icons/Square";
-
-type Topic =
-  | "js"
-  | "ts"
-  | "react"
-  | "devops"
-  | "ruby"
-  | "ror"
-  | "math"
-  | "cs"
-  | "db"
-  | "physics";
+import { Topic } from "../types";
 
 interface Props {
   topic: Topic;
