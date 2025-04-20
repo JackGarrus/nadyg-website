@@ -12,6 +12,15 @@
   justify-content: space-between;
 }
 
+.labelContainter {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  justify-content: end;
+  row-gap: 10px;
+}
+
 @media screen and (min-width: 768px) {
   .pageLayout {
     padding: 3rem;
