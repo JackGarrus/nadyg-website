@@ -1,0 +1,63 @@
+.label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 12px;
+  color: var(--normal);
+}
+
+.label svg {
+  margin-right: 8px;
+}
+
+.js {
+  background-color: var(--js-a);
+  fill: var(--js);
+}
+
+.ts {
+  background-color: var(--ts-a);
+  fill: var(--ts);
+}
+
+.math {
+  background-color: var(--math-a);
+  fill: var(--math);
+}
+
+.ruby {
+  background-color: var(--ruby-a);
+  fill: var(--ruby);
+}
+
+.ror {
+  background-color: var(--ror-a);
+  fill: var(--ror);
+}
+
+.physics {
+  background-color: var(--physics-a);
+  fill: var(--physics);
+}
+
+.cs {
+  background-color: var(--cs-a);
+  fill: var(--cs);
+}
+
+.react {
+  background-color: var(--react-a);
+  fill: var(--react);
+}
+
+.db {
+  background-color: var(--db-a);
+  fill: var(--db);
+}
+
+.devops {
+  background-color: var(--devops-a);
+  fill: var(--devops);
+}

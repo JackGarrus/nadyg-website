@@ -11,6 +11,8 @@ import ShareButtons from "@/app/components/ShareButtons";
 import ThemeToggle from "@/app/theme/ThemeToggle";
 import Home from "@/app/icons/Home";
 import LeftArrow from "@/app/icons/LeftArrow";
+import Label from "@/app/components/Label";
+import { Topic } from "@/app/types";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -107,6 +109,12 @@ export default function Blog({ params }) {
           }),
         }}
       />
+      <div className={s.labelContainter}>
+        {post.metadata.topics?.map((topic) => (
+          <Label key={topic} topic={topic as Topic} />
+        ))}
+      </div>
+      <br />
       <h1
         className={clsx(t.blogPostTitle, t.highlight)}
         style={{ textAlign: "right" }}
