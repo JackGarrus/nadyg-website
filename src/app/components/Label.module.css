@@ -1,0 +1,98 @@
+:root {
+  --js: gold;
+  --js-a: rgba(255, 217, 0, 0.093);
+
+  --ts: rgb(0, 102, 255);
+  --ts-a: rgba(0, 102, 255, 0.09);
+
+  --math: rgb(6, 207, 6);
+  --math-a: rgba(6, 207, 6, 0.09);
+
+  --ruby: red;
+  --ruby-a: rgba(255, 0, 0, 0.09);
+
+  --ror: rgb(229, 5, 5);
+  --ror-a: rgba(229, 5, 5, 0.09);
+
+  --physics: rgb(185, 225, 5);
+  --physics-a: rgba(185, 225, 5, 0.09);
+
+  --cs: rgba(215, 7, 104, 0.765);
+  --cs-a: rgba(215, 7, 104, 0.09);
+
+  --react: rgb(6, 223, 223);
+  --react-a: rgba(6, 223, 223, 0.09);
+
+  --db: rgb(161, 130, 238);
+  --db-a: rgba(161, 130, 238, 0.09);
+
+  --devops: rgb(26, 8, 188);
+  --devops-a: rgba(26, 8, 188, 0.09);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.label svg {
+  margin-right: 8px;
+}
+
+.label:not(:last-child) {
+  margin-right: 8px;
+}
+
+.js {
+  background-color: var(--js-a);
+  fill: var(--js);
+}
+
+.ts {
+  background-color: var(--ts-a);
+  fill: var(--ts);
+}
+
+.math {
+  background-color: var(--math-a);
+  fill: var(--math);
+}
+
+.ruby {
+  background-color: var(--ruby-a);
+  fill: var(--ruby);
+}
+
+.ror {
+  background-color: var(--ror-a);
+  fill: var(--ror);
+}
+
+.physics {
+  background-color: var(--physics-a);
+  fill: var(--physics);
+}
+
+.cs {
+  background-color: var(--cs-a);
+  fill: var(--cs);
+}
+
+.react {
+  background-color: var(--react-a);
+  fill: var(--react);
+}
+
+.db {
+  background-color: var(--db-a);
+  fill: var(--db);
+}
+
+.devops {
+  background-color: var(--devops-a);
+  fill: var(--devops);
+}
