@@ -37,6 +37,7 @@
   padding: 8px;
   font-weight: bold;
   font-size: 12px;
+  color: var(--normal);
 }
 
 .label svg {
@@ -48,9 +49,17 @@
   fill: var(--js);
 }
 
+[data-theme="dark"] .js {
+  border: 1px solid var(--js);
+}
+
 .ts {
   background-color: var(--ts-a);
   fill: var(--ts);
+}
+
+[data-theme="dark"] .ts {
+  border: 1px solid var(--ts);
 }
 
 .math {
@@ -58,9 +67,17 @@
   fill: var(--math);
 }
 
+[data-theme="dark"] .math {
+  border: 1px solid var(--math);
+}
+
 .ruby {
   background-color: var(--ruby-a);
   fill: var(--ruby);
+}
+
+[data-theme="dark"] .ruby {
+  border: 1px solid var(--ruby);
 }
 
 .ror {
@@ -68,9 +85,17 @@
   fill: var(--ror);
 }
 
+[data-theme="dark"] .ror {
+  border: 1px solid var(--ror);
+}
+
 .physics {
   background-color: var(--physics-a);
   fill: var(--physics);
+}
+
+[data-theme="dark"] .physics {
+  border: 1px solid var(--physics);
 }
 
 .cs {
@@ -78,9 +103,17 @@
   fill: var(--cs);
 }
 
+[data-theme="dark"] .cs {
+  border: 1px solid var(--cs);
+}
+
 .react {
   background-color: var(--react-a);
   fill: var(--react);
+}
+
+[data-theme="dark"] .react {
+  border: 1px solid var(--react);
 }
 
 .db {
@@ -88,7 +121,15 @@
   fill: var(--db);
 }
 
+[data-theme="dark"] .db {
+  border: 1px solid var(--db);
+}
+
 .devops {
   background-color: var(--devops-a);
   fill: var(--devops);
+}
+
+[data-theme="dark"] .devops {
+  border: 1px solid var(--devops);
 }
