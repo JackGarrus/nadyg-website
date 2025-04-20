@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { Topic } from "../types";
 
 type Metadata = {
   title: string;
@@ -7,6 +8,7 @@ type Metadata = {
   publishedAt: string;
   summary: string;
   image?: string;
+  topics: Topic[];
 };
 
 export function parseFrontmatter(fileContent: string) {
@@ -18,10 +20,19 @@ export function parseFrontmatter(fileContent: string) {
   const metadata: Partial<Metadata> = {};
 
   frontMatterLines.forEach((line) => {
-    const [key, ...valueArr] = line.split(": ");
-    let value = valueArr.join(": ").trim();
-    value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value;
+    const [keyRaw, ...valueArr] = line.split(":");
+    const key = keyRaw.trim();
+    let value = valueArr.join(":").trim();
+
+    value = value.replace(/^['"](.*)['"]$/, "$1");
+
+    if (key === "topics") {
+      const items = value.split(",").map((item) => item.trim()) as Topic[];
+
+      metadata.topics = items;
+    } else {
+      (metadata as any)[key] = value;
+    }
   });
 
   return { metadata: metadata as Metadata, content };
