@@ -7,9 +7,10 @@ import { Topic } from "../types";
 
 interface Props {
   topic: Topic;
+  isButton?: boolean;
 }
 
-const Label = ({ topic }: Props) => {
+const Label = ({ topic, isButton }: Props) => {
   const getTopicLabel = (topic: Topic) => {
     switch (topic) {
       case "js":
@@ -36,8 +37,12 @@ const Label = ({ topic }: Props) => {
         return topic;
     }
   };
-
-  return (
+  return isButton ? (
+    <button className={clsx(s.label, s[topic])}>
+      <Square className={clsx(s[`${topic}`])} />
+      <p> {getTopicLabel(topic)}</p>
+    </button>
+  ) : (
     <div className={clsx(s.label, s[topic])}>
       <Square className={clsx(s[`${topic}`])} />
       <p> {getTopicLabel(topic)}</p>
