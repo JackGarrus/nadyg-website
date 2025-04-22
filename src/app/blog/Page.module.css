@@ -1,10 +1,37 @@
+.pageLayout {
+  height: 100%;
+  padding: 1rem;
+}
+
 .pageLayout h1 {
   padding-bottom: 1rem;
+}
+
+.labelContainter {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  justify-content: end;
+  row-gap: 10px;
 }
 
 @media screen and (max-width: 1024px) {
   .pageLayout {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .pageLayout {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .pageLayout {
+    width: 1200px;
+    margin: 0 auto;
   }
 }
