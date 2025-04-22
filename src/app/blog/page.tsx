@@ -16,6 +16,7 @@ export default function Page() {
   return (
     <div className={s.pageLayout}>
       <h1 className={t.blogTitle}>Blog</h1>
+      {/* TODO: move lavelContainer to a separate component */}
       <div className={s.labelContainter}>
         {topics.map((topic) => (
           <Label key={topic} topic={topic as Topic} isButton />

@@ -5,11 +5,11 @@ import s from "@/app/components/ArticleCards.module.css";
 import clsx from "clsx";
 
 export function ArticleCards() {
-  const allBlogs = getBlogPosts();
+  const articles = getBlogPosts();
 
   return (
     <div className={s.page}>
-      {allBlogs
+      {articles
         .sort((a, b) => {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
