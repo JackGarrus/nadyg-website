@@ -5,8 +5,6 @@ import { ArticleCards } from "./components/ArticleCards";
 import t from "@/app/style/typography.module.css";
 import l from "@/app/style/layout.module.css";
 import ThemeToggle from "./theme/ThemeToggle";
-import Link from "next/link";
-import ArrowUpSquare from "./icons/arrowUpSquare";
 import clsx from "clsx";
 
 export default function Home() {
@@ -20,7 +18,8 @@ export default function Home() {
           <AboutSection />
         </section>
         <section className={s.blogSection}>
-          <Link
+          {/*
+            <Link
             key="/blog"
             href="/blog"
             target="blank"
@@ -30,7 +29,9 @@ export default function Home() {
             <div className={l.pl8}>
               <ArrowUpSquare className="icon" />
             </div>
-          </Link>
+          </Link> */}
+          <p className={clsx(t.blogTitle, l.tar)}>Blog</p>
+
           <p className={t.subtitle}>Latest posts</p>
           <ArticleCards />
         </section>
