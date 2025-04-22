@@ -1,4 +1,4 @@
-import { BlogPosts } from "@/app/components/posts";
+import { ArticleCards } from "@/app/components/ArticleCards";
 import t from "@/app/style/typography.module.css";
 import s from "./Page.module.css";
 import Label from "../components/Label";
@@ -22,7 +22,7 @@ export default function Page() {
         ))}
       </div>
       <br />
-      <BlogPosts />
+      <ArticleCards />
     </div>
   );
 }
