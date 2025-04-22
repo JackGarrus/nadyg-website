@@ -18,9 +18,10 @@ export default function Page() {
       <h1 className={t.blogTitle}>Blog</h1>
       <div className={s.labelContainter}>
         {topics.map((topic) => (
-          <Label key={topic} topic={topic as Topic} />
+          <Label key={topic} topic={topic as Topic} isButton />
         ))}
       </div>
+      <br />
       <BlogPosts />
     </div>
   );

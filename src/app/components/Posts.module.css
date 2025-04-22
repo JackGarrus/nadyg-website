@@ -3,7 +3,6 @@
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 1rem;
   background-color: transparent;
-
   align-items: center;
 }
 
