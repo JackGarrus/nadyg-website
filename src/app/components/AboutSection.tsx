@@ -53,8 +53,7 @@ export default function AboutSection() {
         </p>
         <br />
         <p className={t.aboutParagraph}>
-          Mostly web dev, sometimes math or physics (high-level, no flex, just
-          me nerding out for fun 😜).
+          Mostly web dev, sometimes I will deep dive into other nerdy topics 😜
         </p>
         <br />
         <div>
