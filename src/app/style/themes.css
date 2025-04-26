@@ -29,6 +29,9 @@
   --ruby: red;
   --ruby-a: rgba(255, 0, 0, 0.09);
 
+  --systems: rgb(32, 190, 190);
+  --systems-a: rgba(32, 190, 190, 0.09);
+
   --ror: rgb(229, 5, 5);
   --ror-a: rgba(229, 5, 5, 0.09);
 
@@ -74,6 +77,7 @@
   --math-a: rgba(6, 207, 6, 0.526);
   --ruby-a: rgba(255, 0, 0, 0.526);
   --ror-a: rgba(229, 5, 5, 0.526);
+  --systems-a: rgba(32, 190, 190, 0.526);
   --physics-a: rgba(185, 225, 5, 0.526);
   --cs-a: rgba(33, 17, 24, 0.526);
   --react-a: rgba(6, 223, 223, 0.526);

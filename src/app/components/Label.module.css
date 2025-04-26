@@ -37,6 +37,11 @@
   fill: var(--ror);
 }
 
+.systems {
+  background-color: var(--systems);
+  fill: var(--systems-a);
+}
+
 .physics {
   background-color: var(--physics-a);
   fill: var(--physics);
