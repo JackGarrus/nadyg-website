@@ -53,13 +53,13 @@ that interact with the system):
   </li>
 </ul>
 
-Originally, <Highlight>containerd</Highlight> was just a component within Docker, but as containers became more widely adopted, things got complicated, especially when Kubernetes entered the picture.
+Initially, <strong>containerd</strong> was just a component within Docker, but as containers became more widely adopted, things got complicated, especially when Kubernetes entered the picture.
 
 <br />
 <br />
 ## Kubernetes Didn't Want Docker
 
-Originally, Kubernetes only worked with Docker, but over time, people wanted to use different runtimes (like <Highlight>containerd</Highlight> standalone, etc.).
+Originally, Kubernetes only worked with Docker, but over time, people wanted to use different runtimes (like <strong>containerd</strong> standalone, etc.).
 So the Kubernetes team created <strong>CRI</strong>, so it could support any runtime, as long as it followed this standard interface.
 
 <Callout>
@@ -78,7 +78,7 @@ that's why at a certain point the Kubernetes team decided to build something sim
 
 ## Docker Inc. Strategy
 
-At that point, Docker Inc. realised something important: “We're not going to make money from <Highlight>dockerd</Highlight> or <Highlight>containerd</Highlight>, but we can make money from developer tools!”
+At that point, Docker Inc. realised something important: “We're not going to make money from <strong>dockerd</strong> or <strong>containerd</strong>, but we can make money from developer tools!”
 
 <br />
 So in 2017, Docker made a bold move.
@@ -87,7 +87,7 @@ It:
 
 <ul>
   <li>
-    open-sourced <Highlight>containerd</Highlight>
+    open-sourced <strong>containerd</strong>
   </li>
   <li>
     donated it to the CNCF (Cloud Native Computing Foundation)
@@ -101,10 +101,10 @@ But the strategy didn't stop there. <strong>Docker also decided to open-source d
 
 <br />
 
-Smart play. After all, <Highlight>containerd</Highlight> runs Docker images, ...and where are most of those stored? On Docker Hub!
+Smart play. After all, <strong>containerd</strong> runs Docker images, ...and where are most of those stored? On Docker Hub!
 
 <br />
-Now the ecosystem could adopt <Highlight>containerd</Highlight> freely, and Docker could monetize its dev tools (and yes, Docker still uses <Highlight>containerd</Highlight> internally as part of dockerd. That hasn't change).
+Now the ecosystem could adopt <strong>containerd</strong> freely, and Docker could monetize its dev tools (and yes, Docker still uses <strong>containerd</strong> internally as part of <strong>dockerd</strong>. That hasn't change).
 
 <br />
 
@@ -123,20 +123,20 @@ Now the ecosystem could adopt <Highlight>containerd</Highlight> freely, and Dock
 
 ## Kubernetes surrenders to containerd
 
-Once <Highlight>containerd</Highlight> became an open-source standalone runtime, Kubernetes had to adopt it.
+Once <strong>containerd</strong> became an open-source standalone runtime, Kubernetes had to adopt it.
 
 <br />
 Why?
 <br />
 
-<Highlight>containerd</Highlight> became the most widely adopted container runtime in Kubernetes clusters, major cloud providers (AWS, GCP, Azure, IBM...) all adopted it.
+<strong>containerd</strong> became the most widely adopted container runtime in Kubernetes clusters, major cloud providers (AWS, GCP, Azure, IBM...) all adopted it.
 
 <br />
 
-<Highlight>CRI-O</Highlight> remained a valid alternative, but <Highlight>containerd</Highlight> won the popularity contest.
+<strong>CRI-O</strong> remained a valid alternative, but <strong>containerd</strong> won the popularity contest.
 
 <br />
-Kube didn’t drop <Highlight>CRI</Highlight>. It still uses it, but now it talks to <Highlight>containerd</Highlight> directly using a CRI plugin, rather than going through <Highlight>dockerd</Highlight>.
+Kube didn’t drop <strong>CRI</strong>. It still uses it, but now it talks to <strong>containerd</strong> directly using a CRI plugin, rather than going through <strong>dockerd</strong>.
 
 <br />
 <br />
@@ -167,7 +167,7 @@ It doesn't replace the Docker engine itself, instead, it:
 
 <ul>
   <li>
-    provides a working <Highlight>dockerd + containerd</Highlight> environment
+    provides a working <strong>dockerd + containerd</strong> environment
   </li>
   <li>
     runs inside a lightweight Linux VM (via Lima)
@@ -180,7 +180,7 @@ It doesn't replace the Docker engine itself, instead, it:
 Is CLI-based, fast, and ideal for devs who don’t need a GUI.
 
 <br />
-So basically, Colima gives you a fully Docker-compatible setup, without Docker Desktop, without the licensing restrictions but still using the <Highlight>docker</Highlight>'s commands.
+So basically, Colima gives you a fully Docker-compatible setup, without Docker Desktop, without the licensing restrictions but still using the <strong>docker</strong>'s commands.
 
 <br />
 <Callout>
@@ -240,7 +240,7 @@ Docker Desktop or Colima or something else.
     <strong>Docker Desktop</strong>, not the daemons
   </li>
   <li>
-    <strong>Kubernetes</strong> adopted containerd because it was already
+    Kubernetes adopted <strong>containerd</strong> because it was already
     widespread
   </li>
   <li>
