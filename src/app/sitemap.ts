@@ -1,9 +1,9 @@
-import { getBlogPosts } from "./blog/utils";
+import { getArticles } from "./blog/utils";
 
 export const baseUrl = "https://nadia-guarracino.vercel.app/";
 
 export default async function sitemap() {
-  const blogs = getBlogPosts().map((post) => ({
+  const blogs = getArticles().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: post.metadata.publishedAt,
   }));

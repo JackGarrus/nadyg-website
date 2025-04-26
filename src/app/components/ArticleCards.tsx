@@ -1,9 +1,9 @@
-import { getBlogPosts } from "../blog/utils";
+import { getArticles } from "../blog/utils";
 import s from "@/app/components/ArticleCards.module.css";
 import { ArticleCard } from "./ArticleCard";
 
 export function ArticleCards() {
-  const articles = getBlogPosts();
+  const articles = getArticles();
 
   return (
     <div className={s.page}>
