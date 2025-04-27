@@ -95,6 +95,7 @@
 .h3 strong,
 .p strong {
   color: color-mix(in srgb, var(--highlight) 70%, var(--normal) 20%);
+  letter-spacing: 0;
 }
 
 /* Padding & spacing */

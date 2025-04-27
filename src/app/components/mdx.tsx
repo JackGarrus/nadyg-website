@@ -11,27 +11,11 @@ import clsx from "clsx";
 import { ReactNode } from "react";
 import Callout from "./Callout";
 import Highlight from "./Highlight";
+import { TableData } from "../types";
+import Table from "./Table";
 
-function Table({ data }) {
-  const headers = data.headers.map((header, index) => (
-    <th key={index}>{header}</th>
-  ));
-  const rows = data.rows.map((row, index) => (
-    <tr key={index}>
-      {row.map((cell, cellIndex) => (
-        <td key={cellIndex}>{cell}</td>
-      ))}
-    </tr>
-  ));
-
-  return (
-    <table>
-      <thead>
-        <tr>{headers}</tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
+function TableWapper({ data }: { data: TableData }) {
+  return <Table tableData={data} />;
 }
 
 function CustomLink(props) {
@@ -53,7 +37,11 @@ function CustomLink(props) {
 }
 
 function ResponsiveImage(props) {
-  return <Image alt={props.alt} {...props} />;
+  return (
+    <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+      <Image alt={props.alt} {...props} />
+    </div>
+  );
 }
 
 function Code({ children, ...props }) {
@@ -76,7 +64,7 @@ function slugify(str: string) {
     .replace(/\-\-+/g, "-");
 }
 
-function createHeading(level: number) {
+function heading(level: number) {
   const Heading = ({ children }: { children: ReactNode }) => {
     const slug = slugify(children);
 
@@ -109,7 +97,7 @@ function createHeading(level: number) {
   return Heading;
 }
 
-function createParagraph({ children }: { children: ReactNode }) {
+function paragraph({ children }: { children: ReactNode }) {
   return (
     <>
       <p className={clsx(t.p, t.blogPostParagraph)}>{children}</p>
@@ -142,10 +130,10 @@ function callout({ children }: { children: ReactNode }) {
 }
 
 const components = {
-  h1: createHeading(1),
-  h2: createHeading(2),
-  h3: createHeading(3),
-  p: createParagraph,
+  h1: heading(1),
+  h2: heading(2),
+  h3: heading(3),
+  p: paragraph,
   strong: Strong,
   blockquote: Blockquote,
   ul: UnorderedList,
@@ -155,7 +143,7 @@ const components = {
   code: Code,
   Callout: callout,
   Highlight: highlighted,
-  Table,
+  TableWapper,
 };
 
 export function CustomMDX(props) {
