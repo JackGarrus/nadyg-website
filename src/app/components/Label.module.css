@@ -38,8 +38,8 @@
 }
 
 .systems {
-  background-color: var(--systems);
-  fill: var(--systems-a);
+  background-color: var(--systems-a);
+  fill: var(--systems);
 }
 
 .physics {
