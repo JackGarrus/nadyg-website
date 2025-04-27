@@ -1,0 +1,279 @@
+---
+title: "$PATH Demystified: From Chaos to Clarity"
+publishedAt: "2025-04-28"
+summary: "Confused about $PATH and random tool issues? Here’s how I finally understood it (and cleaned up the mess), with real-world tips for developers"
+image: "/public/dups-in-path.png"
+author: "Nadia Guarracino"
+topics: "systems"
+---
+
+For developers coming from the web front-end world without a computer science background,
+dealing with system configurations can feel tedious, especially at the beginning.
+<br />
+I remember <i>hating</i> this part, deeply, until I had the ✨ brilliant ✨ idea of installing a
+tool I already had, blindly trusting that everything would somehow "just work" and the system would automatically swap versions.
+<br />
+Spoiler: it didn’t 🙂
+I spent hours going crazy trying to fix the mess with my enviromental variables.
+<br />
+Eventually, things started working again... but honestly, I had no idea why they did. I hadn’t understood what I had broken, nor what I had accidentally fixed.
+<br />
+After that painful experience, I made myself a promise: keep an eye on the <Highlight>$PATH</Highlight>.
+<br />
+Months later, one random day, I ran <Highlight>echo $PATH</Highlight> just to check... and I gasped: the story was about to repeat itself:
+<br />
+<br />
+<Image
+  src="/dups-in-path.png"
+  alt="dups-in-path"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+But this time, I caught it early enough to avoid another descent into madness.
+<br />
+That’s when I decided: it was time for me to control my machine, not the other way around!
+<br />
+<br />
+<br />
+
+## Fist, A Basic Question: What Is $PATH?
+<ul>
+  <li>
+    <Highlight>$PATH</Highlight> is an <strong>environment variable</strong>
+  </li>
+  <li>
+    lists directories where the system looks for <strong>executable programs</strong>
+  </li>
+</ul>
+
+<br />
+## Why do we need it?
+<ul>
+  <li>
+    For you, so can easily run tools from the CLI (git, node, ruby, etc.)
+  </li>
+  <li>
+    For the shell, so it can find the corresponding executable when you type a command
+  </li>
+</ul>
+
+<Callout>
+  Without <Highlight>$PATH</Highlight>, your terminal wouldn't know where to find git, node, ruby, brew, or anything else
+</Callout>
+
+<br />
+<br />
+<br />
+<br />
+## How The Shell Searches For Commands
+<ul>
+  <li>
+    The shell reads your <Highlight>$PATH</Highlight>
+  </li>
+  <li>
+    Starts from the first directory
+  </li>
+  <li>
+    Checks if a file matching your command name exists and is executable
+  </li>
+  <li>
+    If found, it executes it immediately
+  </li>
+  <li>
+    If not, it moves to the next directory
+  </li>
+</ul>
+Here's a visual sketch of the process:
+<br />
+<br />
+<Image
+  src="/shell-linear-search.png"
+  alt="shell-linear-searchs"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<ul>
+  <li>
+    If no match is found, you get the infamous error:
+    <Highlight>zsh: command not found: brew</Highlight>
+  </li>
+</ul>
+
+
+Yes: the lookup for the executable is a simple <strong>linear search</strong>, and that's why:
+
+<Callout>
+   the order in which the directories appear in your <Highlight>$PATH</Highlight> is important
+</Callout>
+
+<br />
+And fun fact: shells like zsh cache found commands in a <strong>hash table</strong> for faster reuse.
+<br />
+So, basically once it has found the executable in your  <Highlight>$PATH</Highlight> it won't perfom the search all over again
+once you type the command. It will look into its hash table first.
+<br />
+Now, going back to the (beautiful)  <Highlight>$PATH</Highlight> I showed you at the beginning, you can see
+two times Postgresql version 15:
+<br />
+<br />
+<Image
+  src="/postgres-in-path-1.png"
+  alt="postgres-in-path"
+  sizes="100vw"
+  style={{
+    width: "50%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+But what if eventually I would have wanted to install and use Postgresql version 16?
+<br />
+Then, most likely, if I wouldn't have paid attention, I would ended up having in my path:
+<br />
+<br />
+<Image
+  src="/postgres-in-path-2.png"
+  alt="postgres-in-path"
+  sizes="100vw"
+  style={{
+    width: "50%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+ ...which brings me to the issue I described initially.
+ <br />
+ No thanks, I like to live an happy life. That means: time to roll up my sleeves and fix the problem for good.
+<br />
+<br />
+<br />
+ ## How To Clean Repeated Entries In $PATH
+
+The strategy that worked for me was consisting of 6 easy steps:
+<ul>
+  <li>
+    1 - manually remove from .zshrc file any <Highlight>$PATH</Highlight> declaration for the old verisons of the tools
+  </li>
+  <li>
+    2 - remove any other explicit <Highlight>$PATH</Highlight> declaration for the tools that were not necessary (for some tools the <Highlight>$PATH</Highlight> is updated in the background during the installation)
+  </li>
+  <li>
+    3 - add at very top of the .zshrc file the command: <Highlight>typeset -U path</Highlight> and save
+  </li>
+</ul>
+
+<Image
+  src="/typeset-u-path.png"
+  alt="typeset-u-path"
+  sizes="100vw"
+  style={{
+    width: "100%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+
+<ul>
+  <li>
+    5 - close all the istances of the terminal (if you want to be extra-clean, go for a full reboot of the system)
+  </li>
+  <li>
+    6 - reopen the terminal and run <Highlight>source ~/.zshrc</Highlight>
+  </li>
+  <li>
+    7 - and finally run <Highlight>echo $PATH | tr ':' '\n’</Highlight>
+  </li>
+</ul>
+
+Result: clean <Highlight>$PATH</Highlight>, as it was always meant to be:
+<br />
+<br />
+<Image
+  src="/clean-path.png"
+  alt="clean-path"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+
+<br />
+<br />
+Veri nais. My mental health was saved and grateful.
+<br />
+<br />
+<br />
+<br />
+## Now, The Nerdy Stuff: Understanding macOS System Directories (briefly)
+
+The main issue was fixed, but I still had a little pebble in my shoe,
+ something small but important before I could really say, “I fully control my <Highlight>$PATH</Highlight>.”
+<br />
+I won't go deep into this (maybe will be covered in another article), but here's a taste:
+<ul>
+  <li>
+    <Highlight>/bin</Highlight> and <Highlight>/sbin</Highlight> contain essential binaries needed for macOS to boot
+  </li>
+  <li>
+    <Highlight>/usr/bin</Highlight> and <Highlight>/usr/sbin</Highlight> have everyday system tools you use without even realizing
+  </li>
+  <li>
+    <Highlight>/usr/local/bin</Highlight> and <Highlight>/opt/homebrew/bin</Highlight> are where your custom-installed stuff usually ends up
+  </li>
+</ul>
+
+If <Highlight>/bin</Highlight> or <Highlight>/sbin</Highlight> vanish, your Mac won’t even boot.
+<br />
+If <Highlight>/usr/bin</Highlight> or <Highlight>/usr/sbin</Highlight> disappear,
+  macOS will boot...  but good luck using it normally.
+
+<br />
+<br />
+<br />
+<br />
+## TL;DR
+
+<ul>
+  <li>
+    <Highlight>$PATH</Highlight> is an environment variable listing where executables live
+  </li>
+  <li>
+    The shell searches the <Highlight>$PATH</Highlight> **linearly** to find commands
+  </li>
+  <li>
+    The **first** match wins
+  </li>
+  <li>
+    Duplicates don't hurt performance badly, but keeping <Highlight>$PATH</Highlight> clean avoids weird version conflicts.
+  </li>
+  <li>
+    System directories (<Highlight>/bin</Highlight>, <Highlight>/sbin</Highlight>, <Highlight>/usr/sbin</Highlight>) are there so macOS and your terminal work properly; leave them alone!
+  </li>
+</ul>
+<br />
+<br />
+<br />
+<br />
