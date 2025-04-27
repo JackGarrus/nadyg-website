@@ -29,6 +29,8 @@ const Label = ({ topic, isButton }: Props) => {
         return "Math";
       case "cs":
         return "CS";
+      case "systems":
+        return "Systems";
       case "db":
         return "Database";
       case "physics":
