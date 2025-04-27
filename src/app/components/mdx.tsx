@@ -11,27 +11,11 @@ import clsx from "clsx";
 import { ReactNode } from "react";
 import Callout from "./Callout";
 import Highlight from "./Highlight";
+import { TableData } from "../types";
+import Table from "./Table";
 
-function Table({ data }) {
-  const headers = data.headers.map((header, index) => (
-    <th key={index}>{header}</th>
-  ));
-  const rows = data.rows.map((row, index) => (
-    <tr key={index}>
-      {row.map((cell, cellIndex) => (
-        <td key={cellIndex}>{cell}</td>
-      ))}
-    </tr>
-  ));
-
-  return (
-    <table>
-      <thead>
-        <tr>{headers}</tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
+function TableWapper({ data }: { data: TableData }) {
+  return <Table tableData={data} />;
 }
 
 function CustomLink(props) {
@@ -155,7 +139,7 @@ const components = {
   code: Code,
   Callout: callout,
   Highlight: highlighted,
-  Table,
+  TableWapper,
 };
 
 export function CustomMDX(props) {

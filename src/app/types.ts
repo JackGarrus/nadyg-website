@@ -24,3 +24,16 @@ export interface Post {
   slug: string;
   content: string;
 }
+
+export interface TableData {
+  headers: string[];
+  rows: (string | number)[][];
+}
+
+export interface TableHeaders {
+  headers: string[];
+}
+
+export interface TableRows {
+  rows: (string | number)[][];
+}
