@@ -1,0 +1,201 @@
+---
+title: "How a Stuck Git Branch Taught Me About Git Garbage Collection"
+publishedAt: "2025-06-30"
+summary: "How I fixed a Git issue caused my local branch to fall out of sync and how it turned out to be a great learning about git garbage collection"
+image: "/public/git-object-database.png"
+author: "Nadia Guarracino"
+topics: "systems"
+---
+
+<br />
+
+## The issue
+My local master branch wasn’t integrating the latest updates, even though <Highlight>git pull --rebase</Highlight> completed without errors. Even when I updated master on GitHub by merging a PR, my local branch would download the changes but not actually reflect them in the branch history.
+<br />
+<br />
+## Initial attempts
+I tried the following commands to force synchronization:
+
+<ul>
+  <li>
+    <p>
+      <Highlight>git prune</Highlight>
+    </p>
+  </li>
+  <li>
+    <p>
+      <Highlight>git reset --hard origin/master</Highlight>
+    </p>
+  </li>
+</ul>
+but the problem remained: the pull fetched changes, yet my local branch didn’t show them.
+<br />
+<br />
+
+## The clue
+Then I tried pulling using the GitHub desktop app ...and it failed too. But al least this time I got an error message:
+<Highlight>error: cannot lock ref 'refs/remotes/origin/BRANCH-1016': is at ...</Highlight>
+<br />
+A quick search led me to this
+<a href="https://stackoverflow.com/a/51669941/5691255" target="blank"><u>Stack Overflow</u></a>
+thread, which explained that the error was likely due to a corrupted or stale remote reference.
+<br />
+The suggested fix involved these three commands:
+<ul>
+  <li>
+    <p>
+      <Highlight>git gc --prune=now</Highlight>
+    </p>
+  </li>
+  <li>
+    <p>
+      <Highlight>git remote prune origin</Highlight>
+    </p>
+  </li>
+  <li>
+    <p>
+      <Highlight>git pull</Highlight>
+    </p>
+  </li>
+</ul>
+and after running those, everything worked. My local master finally included the commit I had merged earlier, confirmed by grepping the name of the last commit I saw on remote master:
+<Highlight>git log --grep="Error toast and dialog keys" --oneline</Highlight>.
+<br />
+<br />
+
+<br />
+## But... what actually did I just do?
+Even though the solution worked, I realized I didn’t fully understand what I had just done, especially what these Git commands really do.
+After a quick search into the Git official guide for git prune I had more questions then answers. The definition for the command is:
+<i>"git-prune - Prune all unreachable objects from the object database"</i>
+<br />
+<br />
+Cool, thank you official guide.
+<br />
+Now... what's the 'object database' in Git?
+<br />
+<br />
+<br />
+
+## The Git object database
+It’s a folder inside your <Highlight>.git</Highlight> directory, specifically at <Highlight>.git/objects/</Highlight>. This is where Git stores all the internal objects of your repository: commits, file contents (blobs), directory structures (trees), and more.
+Each object is identified by a SHA-1 (or SHA-256) hash.
+<br />
+<Image
+  src="/git-object-database.png"
+  alt="git-object-database"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+When you prune you will remove every unreachable reference that still lives in this database, and here the things gets a bit more complex, because...
+
+<br />
+<br />
+<br />
+
+## ...git prune is dangerous!
+As we said git prune is risky because it immediately and permanently, and if used without caution,
+deletes all unreachable objects that not only are present in your Git object database, but also those that are not protected
+from the reflog. These include commits and other data that aren’t referenced by any tag, branch, or even reflog.
+<br />
+This is the reason whey you will see many guides online recommending not using git prune on its own, unless you’re <strong>absolutely</strong>
+sure you don’t need anything that might still be floating around as unreachable data.
+<br />
+Instead, it’s safer to use <Highlight>git gc</Highlight>, which calls <Highlight>git prune</Highlight> internally but in a more controlled way.
+<br />
+<br />
+
+## What does git gc do that makes it safer?
+<Highlight>git gc</Highlight> stands for 'garbage collection', removes the unreachable objects
+like <Highlight>git prune</Highlight>  with the difference that it does it by respecting the reflog retention period, typically 90 days for recent history and 30 days for orphaned data.
+<br />
+Basically, the reflog is your safety net in Git. It keeps a log of changes to references like <strong>HEAD</strong>,
+so you can go back to previous states, even after a reset hard, rebase, or branch deletion.
+<br />
+<br />
+<Image
+  src="/git-reflog.png"
+  alt="git-reflog"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+
+## Ok, let's not play with git prune, but when to use it, then?
+<br />
+<strong>Almost never</strong>! Unless:
+<ul>
+  <li>
+    you're 100% sure you don’t need your changes
+  </li>
+  <li>
+    you're working in a temp repo
+  </li>
+  <li>
+    or you've backed everything up
+  </li>
+</ul>
+<br />
+And since <Highlight>git gc</Highlight> runs <strong>prune</strong> as part of its process, it’s almost always better to just run <Highlight>git gc</Highlight>.
+<br />
+<br />
+
+## And when should you use git gc?
+Use it regularly for safe cleanup and maintenance:
+<br />
+<ul>
+  <li>
+    to reduce your repository size
+  </li>
+  <li>
+    to optimize storage and performance
+  </li>
+  <li>
+    to clean up unreachable or expired objects without risk
+  </li>
+</ul>
+
+## So what about git remote prune origin?
+Despite the name, <Highlight>git remote prune origin</Highlight> also works entirely locally.
+It doesn't touch the remote (origin), and it doesn’t delete any branches on GitHub or other remotes.
+What it actually does is clean up your local references to remote branches that no longer exist. These are stored under
+<Highlight>.git/refs/remotes/origin/</Highlight>
+<br />
+If someone deletes a branch on GitHub, it might still appear in your local copy as <Highlight>origin/feature-xyz</Highlight>, so this command removes it.
+<br />
+In my case, the pull was failing because one of these references was corrupted or stale. Pruning it locally resolved the issue.
+<br />
+<br />
+
+## In summary:
+Git keeps your objects for:
+<ul>
+  <li>
+    90 days if they’re referenced in the reflog
+  </li>
+  <li>
+    30 days if they’re unreachable and not in the reflog
+  </li>
+</ul>
+but it will remove them immediately if you use:
+<ul>
+  <li>
+    <Highlight>git prune</Highlight> or <Highlight>git gc --prune=now</Highlight> in your local repository
+  </li>
+  <li>
+    <Highlight>git remote prune origin</Highlight> to clean up remote-tracking branches in your local copy of <Highlight>origin</Highlight>
+  </li>
+</ul>

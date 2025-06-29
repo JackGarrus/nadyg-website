@@ -5,6 +5,6 @@
   background-color: var(--highlight-opaque-2);
   padding: 2px 5px;
   margin: 0 2px;
-  color: var(--normal-opaque);
+  color: var(--highlight-opaque);
   letter-spacing: normal;
 }
