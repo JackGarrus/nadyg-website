@@ -1,3 +1,5 @@
+/* UTILS FOR SERVER SIDE COMPONENTS */
+
 import fs from "fs";
 import path from "path";
 import { Topic, Metadata } from "../types";

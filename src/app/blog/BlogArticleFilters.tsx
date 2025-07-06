@@ -20,6 +20,11 @@ export default function BlogArticleFilters() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  /* TODO:
+  - Reset filters
+  - Show only labels that have at least 1 article
+  */
+
   const handleClick = (label: string) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("filter", label);
