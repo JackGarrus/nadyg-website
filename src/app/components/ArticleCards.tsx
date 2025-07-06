@@ -18,7 +18,7 @@ export function ArticleCards() {
         })
         .map((post, i) => (
           <div key={i}>
-            <ArticleCard post={post} />
+            <ArticleCard post={post} label={post.metadata.topics} />
           </div>
         ))}
     </div>

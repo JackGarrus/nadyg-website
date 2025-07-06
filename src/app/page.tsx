@@ -20,18 +20,6 @@ export default function Home() {
           <AboutSection />
         </section>
         <section className={s.blogSection}>
-          {/*
-            <Link
-            key="/blog"
-            href="/blog"
-            target="blank"
-            className={clsx(s.link, l.flex, l.aic, l.jce, l.pb16)}
-          >
-            <p className={clsx(t.blogTitle, l.tar)}>Blog</p>
-            <div className={l.pl8}>
-              <ArrowUpSquare className="icon" />
-            </div>
-          </Link> */}
           <p className={clsx(t.blogTitle, l.tar)}>Blog</p>
 
           <p className={t.subtitle}>Latest posts</p>
