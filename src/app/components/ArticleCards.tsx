@@ -21,10 +21,6 @@ export function ArticleCards() {
             <ArticleCard post={post} />
           </div>
         ))}
-
-      <p className="info">
-        Curious minds, stay close: fresh content is coming!
-      </p>
     </div>
   );
 }
