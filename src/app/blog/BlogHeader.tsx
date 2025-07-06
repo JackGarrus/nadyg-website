@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function BlogHeader() {
   return (
-    <div className={clsx(l.flex, l.aic)}>
+    <div className={clsx(l.flex, l.aic, t.borderBottom)}>
       <Link href="/" className={clsx(l.flex, l.aic)}>
         <LeftArrow className="icon" />
         <Home className="icon" />

@@ -78,9 +78,11 @@
   color: var(--normal);
   width: 100%;
   text-align: right;
+}
+
+.borderBottom {
   border-bottom: 2px solid var(--highlight);
   padding-bottom: 1rem;
-  margin-bottom: 1rem;
 }
 
 .subtitle {

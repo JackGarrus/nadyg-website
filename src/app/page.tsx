@@ -20,8 +20,9 @@ export default function Home() {
           <AboutSection />
         </section>
         <section className={s.blogSection}>
-          <p className={clsx(t.blogTitle, l.tar)}>Tech Blog</p>
+          <p className={clsx(t.blogTitle, t.borderBottom, l.tar)}>Tech Blog</p>
 
+          <br />
           <p className={t.subtitle}>Latest posts</p>
           <ArticleCards />
           <br />
