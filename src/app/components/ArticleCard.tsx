@@ -5,6 +5,7 @@ import s from "@/app/components/ArticleCards.module.css";
 import clsx from "clsx";
 import { Post, Topic } from "../types";
 import Label from "./Label";
+import l from "@/app/style/layout.module.css";
 
 interface Props {
   post: Post;
@@ -18,8 +19,12 @@ export function ArticleCard({ post, label }: Props) {
         <p className={clsx(s.title, t.p)}>{post.metadata.title}</p>
         <p className={t.summary}>{post.metadata.summary}</p>
         <br />
-        <p className={s.date}>{formatDate(post.metadata.publishedAt, false)}</p>
-        <Label topic={label[0] as Topic} />
+        <div className={clsx(l.flex, l.aic, l.jcsb)}>
+          <Label topic={label[0] as Topic} />
+          <p className={s.date}>
+            {formatDate(post.metadata.publishedAt, false)}
+          </p>
+        </div>
       </div>
     </Link>
   );

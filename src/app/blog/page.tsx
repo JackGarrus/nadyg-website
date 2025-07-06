@@ -14,7 +14,9 @@ export default function Page({ searchParams }: PageProps) {
   return (
     <div className={s.pageLayout}>
       <BlogHeader />
+      <br />
       <BlogArticleFilters />
+      <br />
       <br />
       <ArticleCards filter={selectedFilter} />
     </div>
