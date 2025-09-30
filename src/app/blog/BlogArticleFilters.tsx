@@ -8,13 +8,13 @@ import { Topic } from "../types";
 export default function BlogArticleFilters() {
   const TOPICS: Topic[] = [
     "js",
-    "cs",
-    "db",
+    // "cs",
+    //"db",
     "devops",
-    "ts",
-    "ruby",
-    "ror",
-    "react",
+    // "ts",
+    // "ruby",
+    //  "ror",
+    // "react",
     "systems",
   ];
   const router = useRouter();
