@@ -7,9 +7,9 @@ import LeftArrow from "@/app/icons/LeftArrow";
 import clsx from "clsx";
 
 export const metadata = {
-  title: "Blog",
+  title: "Nadia's Tech Blog",
   // TODO: change description
-  description: "Read my blog.",
+  description: "Everything I learn, everything I know, with no fluff",
 };
 
 export default function BlogHeader() {
