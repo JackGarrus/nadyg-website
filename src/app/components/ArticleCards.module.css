@@ -16,6 +16,10 @@
 
   background-color: transparent;
   transition: background-color 0.3s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card_inner:hover {
@@ -48,7 +52,7 @@
 
 @media screen and (min-width: 1024px) {
   .card_inner {
-    max-height: 290px;
+    height: 290px;
     border: 1px solid var(--normal);
     padding: 1rem;
   }
@@ -56,7 +60,6 @@
 
 @media screen and (min-width: 1366px) {
   .card_inner {
-    min-height: 290px;
     max-height: 290px;
   }
 }

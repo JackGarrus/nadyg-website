@@ -1,30 +1,35 @@
 import { getArticles } from "../blog/utils";
 import s from "@/app/components/ArticleCards.module.css";
 import { ArticleCard } from "./ArticleCard";
+import { getTopicLabel } from "../blog/utils/getTopicLabel";
 
-export function ArticleCards() {
+interface Props {
+  filter?: string;
+}
+
+export function ArticleCards({ filter }: Props) {
   const articles = getArticles();
+
+  const filtered = filter
+    ? articles.filter((article) => {
+        const labels = article.metadata.topics.map(getTopicLabel);
+        return labels.includes(filter);
+      })
+    : articles;
 
   return (
     <div className={s.page}>
-      {articles
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1;
-          }
-          return 1;
-        })
+      {filtered
+        .sort(
+          (a, b) =>
+            new Date(b.metadata.publishedAt).getTime() -
+            new Date(a.metadata.publishedAt).getTime()
+        )
         .map((post, i) => (
           <div key={i}>
-            <ArticleCard post={post} />
+            <ArticleCard post={post} label={post.metadata.topics} />
           </div>
         ))}
-
-      <p className="info">
-        Curious minds, stay close: fresh content is coming!
-      </p>
     </div>
   );
 }

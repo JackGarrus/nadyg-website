@@ -1,0 +1,221 @@
+---
+title: "JS Traps: Pass By Value And Pass By Reference"
+publishedAt: "2025-10-01"
+summary: "Learn the difference between pass by value and pass by reference in JavaScript, with clear examples and tips to avoid unexpected side effects"
+image: "/public/git-object-database.png"
+author: "Nadia Guarracino"
+topics: "js"
+---
+ ## Two worlds: primitives and objects
+Let’s start with a necessary premise, just to refresh our memory.
+In JS, values are divided into two main categories:
+<ul>
+  <li>
+      Primitives: <Highlight>string</Highlight>, <Highlight>number</Highlight>, <Highlight>boolean</Highlight>, <Highlight>null</Highlight>, <Highlight>undefined</Highlight>
+  </li>
+  <li>
+    Objects: not only object literals, but also arrays, functions, <Highlight>Date</Highlight>, <Highlight>Set</Highlight>...
+  </li>
+</ul>
+The difference is not just academic: it completely changes how they are passed and what kind of side effects you can expect.
+<br />
+<br />
+<br />
+
+## Pass by Value
+Let’s start with the simplest one: pass by value. When you assign or pass a primitive,
+you’re actually passing a copy of its value, not the original:
+<br />
+<Image
+  src="/jsTrap/pass-by-value.png"
+  alt="pass-by-value"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+The variable <Highlight>b</Highlight> is assigned the value of <Highlight>a</Highlight>, but this doesn’t mean that if <Highlight>b</Highlight>
+is changed, the modification will also reflect on <Highlight>a</Highlight>. In fact, <Highlight>b</Highlight> receives a copy of the value
+of <Highlight>a</Highlight>, not the physical memory address where <Highlight>a</Highlight>’s value resides.
+<br />
+In practice, any changes to variables passed by value have no impact on the outer scope where they are used.
+<br />
+<br />
+<br />
+
+## Pass by Reference
+With objects, things work differently.
+Here you don’t copy the object, but rather the memory address where it resides.
+<br />
+<Image
+  src="/jsTrap/simple-object-mutation-side-effect.png"
+  alt="simple-object-mutation-side-effect"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+Oh! I unexpectedly changed the property value of <Highlight>obj1</Highlight> as well!!
+
+Disgusting, right? Yes, and this is one of the
+reasons many developers dislike Javascript.
+<br />
+<br />
+<br />
+
+## What’s really happening?
+When we write <Highlight>obj2 = obj1</Highlight>, we are assigning <Highlight>obj2</Highlight> a copy of the memory address of <Highlight>obj1</Highlight>:
+<br />
+<Image
+  src="/jsTrap/two-varisbles-same-reference-heap.png"
+  alt="two-varisbles-same-reference-heap"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+This means we are actually referring to the same object in memory,
+but with a different variable name. Any modification in <Highlight>obj1</Highlight> will inevitably
+be reflected in <Highlight>obj2</Highlight> regardless of the scope, and vice versa. In short, changes to objects
+passed by reference propagate to the outer scope.
+<br />
+<br />
+<br />
+
+## What if we modify the object inside a function?
+I’ve got bad news for you:
+<br />
+<Image
+  src="/jsTrap/mutate.png"
+  alt="mutate"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+Even objects passed as function parameters are not safe from this problem,
+if their properties are directly modified inside the function.
+<br />
+What happens here is that inside the function we dive into the object
+at the passed memory address and mutate one of its values directly.
+<br />
+<Image
+  src="/jsTrap/direct-mutation-heap.png"
+  alt="direct-mutation-heap"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<Highlight>obj1</Highlight> undergoes the direct mutation, and <Highlight>obj2</Highlight> is also affected even though it wasn’t
+explicitly modified, unlike <Highlight>obj1</Highlight>.
+<br />
+<br />
+<br />
+
+## What if we reassign the object passed as a parameter?
+The situation looks similar but is fundamentally different when it comes to reassignment:
+<br />
+<Image
+  src="/jsTrap/reassign.png"
+  alt="reassign"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+
+Here nothing happens to the original. Why? Inside the function you create a new object with a new address.
+The original one remains untouched.
+ <br />
+<Image
+  src="/jsTrap/new-reference.png"
+  alt="new-reference"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+And what happens to the reference of the object passed as a parameter? Nothing, it isn’t overwritten:
+it’s simply ignored inside the function, while the new <Highlight>obj</Highlight> created within will live only in that function’s scope
+and will be destroyed at the end of its execution.
+<br />
+<br />
+<br />
+
+## Important note
+A variable name is not an alias of a memory address.
+<Highlight>obj1</Highlight> is not a shortcut for “0xA23b”: it’s just a label pointing to that address.
+When you create a new object, the label can easily point elsewhere.
+It’s not that we use the reference’s address instead of variable names:
+we are simply changing what happens in that memory cell.
+<br />
+<br />
+<br />
+
+## How to avoid side effects?
+As we’ve seen, objects in JS are mutable. This provides the flexibility that defines the language,
+but often at a cost too high for large applications. However, this can be mitigated.
+Over the years, several methods have been developed to make objects immutable:
+
+<ul>
+  <li>
+      shallow clone (<Highlight>Object.assign</Highlight>, spread operator)
+  </li>
+  <li>
+    deep clone (<Highlight>structuredClone</Highlight>, <Highlight>_cloneDeep</Highlight> from Lodash, <Highlight>WeakMap</Highlight>)
+  </li>
+  <li>
+    <Highlight>Object.freeze(obj)</Highlight>
+  </li>
+  <li>
+    ES6 <Highlight>const</Highlight>
+  </li>
+  <li>
+    <Highlight>readonly</Highlight> in Typescript
+  </li>
+</ul>
+
+But we’ll explore these in another article 🙂
+<br />
+<br />
+<br /><br />
+<br />
+<br />
