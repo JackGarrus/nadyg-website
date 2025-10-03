@@ -69,7 +69,7 @@
   --normal: #8fc2a9;
   --contrast: #07160d;
   --highlight: rgb(24, 187, 100);
-  --highlight-opaque: rgba(11, 231, 106, 0.748);
+  --highlight-opaque: rgb(19, 192, 94, 0.24);
   --highlight-opaque-2: rgba(73, 148, 105, 0.491);
 
   --js-a: rgba(255, 217, 0, 0.24);
@@ -91,7 +91,7 @@
   --normal: #0b3220;
   --contrast: #fdfdfd;
   --highlight: rgb(24, 187, 100);
-  --highlight-opaque: rgba(13, 145, 70, 0.871);
+  --highlight-opaque: rgb(19, 192, 94, 0.24);
   --highlight-opaque-2: rgba(19, 192, 94, 0.11);
 
   /* 🎨 Syntax Highlighting for Light Mode */
