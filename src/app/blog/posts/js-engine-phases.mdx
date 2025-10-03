@@ -1,0 +1,175 @@
+---
+title: "JS Foundamentals: Engine Phases"
+publishedAt: "2025-10-03"
+summary: "Learn about the different engine phases and when the transpiling and bundling gets in the picture"
+image: "/public/jsEnginePhases/full-js-execution-program.png"
+author: "Nadia Guarracino"
+topics: "js"
+---
+
+<br />
+<br />
+<br />
+
+ ## Why this topic is important
+Capire le fasi del motore JavaScript è fondamentale per comprendere a fondo come funziona
+lo scope e perché certi errori compaiono in momenti specifici.
+
+Il processo può essere suddiviso in 4 fasi principali:
+
+<ul>
+  <li>
+    Phase 1: Parsing
+  </li>
+  <li>
+    Phase 2: Compiling
+  </li>
+  <li>
+    Phase 3: Execution
+  </li>
+  <li>
+    Phase 4: Optimization
+  </li>
+</ul>
+<br />
+
+ ## 1. Parsing
+In questa fase il **codice sorgente** viene letto dall’engine.
+<br />
+Se ci sono errori di sintassi, vengono sollevati immediatamente come **SyntaxError**.
+<br />
+Se il parsing ha successo, viene generata una struttura ad albero chiamata **AST (Abstract Syntax Tree)**,
+che rappresenta in maniera gerarchica il codice e servirà in fase di esecuzione per stabilire l’ordine delle
+operazioni.
+
+<br />
+Quando pensi a un SyntaxError, pensa alla fase di Parsing.
+IMAGE AST
+<br />
+<Image
+  src="/jsTrap/pass-by-value.png"
+  alt="pass-by-value"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+
+ ## 2. Compiling
+In questa fase:
+<ul>
+  <li>
+      viene eseguito l’**hoisting** delle dichiarazioni di variabili, funzioni e classi
+  </li>
+  <li>
+    viene determinato lo **scope** di ogni variabile
+  </li>
+  <li>
+    viene gestita la **Temporal Dead Zone (TDZ)** per le variabili dichiarate con <Highlight>let</Highlight> e <Highlight>const</Highlight>
+  </li>
+</ul>
+
+IMG HOIST TMZ
+
+<br />
+<br />
+<br />
+
+ ## 3. Execution
+Questa è la fase in cui il programma JavaScript **viene realmente eseguito** secondo le istruzioni fornite dall’AST.
+<br />
+Qui possono verificarsi errori di runtime come:
+<br />
+<ul>
+  <li>
+      **ReferenceError** (quando si accede a variabili non definite)
+  </li>
+  <li>
+    **TypeError** (quando un valore non viene usato nel modo corretto, ad esempio chiamando come funzione qualcosa che non lo è).
+  </li>
+</ul>
+<br />
+Quando pensi a ReferenceError o TypeError, pensa alla fase di Execution.
+
+IMG  esempio di errore in fase di execution
+
+<br />
+<br />
+<br />
+
+ ## 4. Optimization
+
+ Nella fase finale, l’engine cerca di eseguire il programma nel modo più efficiente possibile,
+ottimizzandone le prestazioni in base alle risorse disponibili su sistema operativo e hardware.
+Il discorso qui è più complicato di così, ovviamente, e magari lo affronteremo in un prossimo articolo.
+
+<br />
+<br />
+<br />
+
+ ## When the transpiling and bundling comes into play?
+
+Nella realtà, lo sviluppo moderno non si ferma qui. Le applicazioni JavaScript spesso passano attraverso una serie di **tool esterni** prima ancora che il codice raggiunga il motore:
+<br />
+
+<ul>
+  <li>
+      **Transpiler** (come Babel, TypeScript compiler <Highlight>tsc</Highlight>)
+  </li>
+  <li>
+    **Bundler** (come Webpack o Vite)
+  </li>
+  <li>
+    **Linguaggi e sintassi aggiuntive** (TypeScript, JSX, ecc.)
+  </li>
+</ul>
+<br />
+
+Questi strumenti come sappiamo rendono il codice **compatibile** con diversi ambienti e versioni di browser,
+rendono la scrittura più **produttiva** e manutenibile eroducono un JavaScript finale ottimizzato e pronto per essere processato dall’engine.
+<br />
+Il transpiling avviene prima che il motore inizi il Parsing.
+<br />
+È quindi un processo bloccante: senza di esso, il motore non può neanche iniziare.
+<br />
+<br />
+<br />
+
+ ## The Correct Order
+L’ordine corretto per l’esecuzione di un programma JS è:
+<br />
+**Transpiling (strumenti esterni) → Parsing → Compiling → Execution → Optimization**
+<br />
+<br />
+
+<Image
+  src="/jsEnginePhases/full-js-execution-program.png"
+  alt="pass-by-value"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
