@@ -6,16 +6,15 @@ image: "/public/jsEnginePhases/full-js-execution-program.png"
 author: "Nadia Guarracino"
 topics: "js"
 ---
-
 <br />
 <br />
 <br />
 
  ## Why this topic is important
-Capire le fasi del motore JavaScript è fondamentale per comprendere a fondo come funziona
-lo scope (ne parliamo qui link) e perché certi errori compaiono in momenti specifici.
+Understanding the phases of the JavaScript engine is essential to fully grasp how
+scope works (we talk about it here link) and why certain errors appear at specific times.
 
-Il processo può essere suddiviso in 4 fasi principali:
+The process can be divided into 4 main phases:
 
 <ul>
   <li>
@@ -49,58 +48,57 @@ Il processo può essere suddiviso in 4 fasi principali:
 <br />
 
  ## 1. Parsing
-In questa fase il **codice sorgente** viene letto dall’engine.
+In this phase, the **source code** is read by the engine.
 <br />
-Se ci sono errori di sintassi, vengono sollevati immediatamente come **SyntaxError**.
+If there are syntax errors, they are immediately raised as **SyntaxError**.
 <br />
-Se il parsing ha successo, viene generata una struttura ad albero chiamata **AST (Abstract Syntax Tree)**,
-che rappresenta in maniera gerarchica il codice e servirà in fase di esecuzione per stabilire l’ordine delle
-operazioni.
+If the parsing succeeds, a tree structure called **AST (Abstract Syntax Tree)** is generated,
+which hierarchically represents the code and will be used during execution to establish the order of operations.
 
 <br />
 <Callout>
-  Quando pensi a un **SyntaxError**, pensa alla fase di **Parsing**
+  When you think of a **SyntaxError**, think of the **Parsing** phase
 </Callout>
 <br />
 <br />
 <br />
 
  ## 2. Compiling
-In questa fase:
+In this phase:
 <ul>
   <li>
-      viene eseguito l’**hoisting** delle dichiarazioni di variabili, funzioni e classi
+      **Hoisting** of variable, function, and class declarations takes place
   </li>
   <li>
-    viene determinato lo **scope** di ogni variabile
+    The **scope** of each variable is determined
   </li>
   <li>
-    viene gestita la **Temporal Dead Zone (TDZ)** per le variabili dichiarate con <Highlight>let</Highlight> e <Highlight>const</Highlight>
+    The **Temporal Dead Zone (TDZ)** is managed for variables declared with <Highlight>let</Highlight> and <Highlight>const</Highlight>
   </li>
 </ul>
 
-(parleremo di hoisting e TMZ nell'articolo sullo Scope qui (link))
+(we will talk about hoisting and TDZ in the article on Scope here (link))
 <br />
 <br />
 <br />
 
  ## 3. Execution
-Questa è la fase in cui il programma JavaScript **viene realmente eseguito** secondo le istruzioni fornite dall’AST.
+This is the phase where the JavaScript program is **actually executed** according to the instructions provided by the AST.
 <br />
-Qui possono verificarsi errori di runtime come:
+Here runtime errors can occur, such as:
 <br />
 <ul>
   <li>
-    **ReferenceError** (quando si accede a variabili non definite)
+    **ReferenceError** (when accessing variables that are not defined)
   </li>
   <li>
-    **TypeError** (quando un valore non viene usato nel modo corretto, ad esempio chiamando come funzione qualcosa che non lo è).
+    **TypeError** (when a value is used incorrectly, for example calling something as a function that is not).
   </li>
 </ul>
 <br />
 
 <Callout>
-  Quando pensi a **ReferenceError** o **TypeError**, pensa alla fase di **Execution**
+  When you think of **ReferenceError** or **TypeError**, think of the **Execution** phase
 </Callout>
 <br />
 <br />
@@ -108,38 +106,38 @@ Qui possono verificarsi errori di runtime come:
 
  ## 4. Optimization
 
- Nella fase finale, l’engine cerca di eseguire il programma nel modo più efficiente possibile,
-ottimizzandone le prestazioni in base alle risorse disponibili su sistema operativo e hardware.
-Il discorso qui è più complicato di così, ovviamente, e magari lo affronteremo in un prossimo articolo.
+ In the final phase, the engine tries to run the program as efficiently as possible,
+optimizing performance based on the resources available on the operating system and hardware.
+Of course, the topic is more complex than this, and we may cover it in a future article.
 
 <br />
 <br />
 <br />
 
- ## When the transpiling and bundling comes into play?
+ ## When do transpiling and bundling come into play?
 
-Nella realtà, lo sviluppo moderno non si ferma qui. Le applicazioni JavaScript spesso passano attraverso una serie di **tool esterni** prima ancora che il codice raggiunga il motore:
+In reality, modern development does not stop here. JavaScript applications often go through a series of **external tools** even before the code reaches the engine:
 <br />
 
 <ul>
   <li>
-      **Transpiler** (come Babel, TypeScript compiler <Highlight>tsc</Highlight>)
+      **Transpiler** (like Babel, TypeScript compiler <Highlight>tsc</Highlight>)
   </li>
   <li>
-    **Bundler** (come Webpack o Vite)
+    **Bundler** (like Webpack or Vite)
   </li>
   <li>
-    **Linguaggi e sintassi aggiuntive** (TypeScript, JSX, ecc.)
+    **Additional languages and syntaxes** (TypeScript, JSX, etc.)
   </li>
 </ul>
 <br />
 
-Questi strumenti come sappiamo rendono il codice **compatibile** con diversi ambienti e versioni di browser,
-rendono la scrittura più **produttiva** e manutenibile eroducono un JavaScript finale ottimizzato e pronto per essere processato dall’engine.
+These tools, as we know, make the code **compatible** with different environments and browser versions,
+make writing more **productive** and maintainable, and produce a final optimized JavaScript ready to be processed by the engine.
 <br />
 <Callout>
-  Il transpiling avviene **prima** che il motore inizi il Parsing.
-  È quindi un processo bloccante: senza di esso, il motore non può neanche iniziare.
+  Transpiling happens **before** the engine starts Parsing.
+  It is therefore a blocking process: without it, the engine cannot even begin.
 </Callout>
 
 <br />
@@ -147,9 +145,9 @@ rendono la scrittura più **produttiva** e manutenibile eroducono un JavaScript 
 <br />
 
  ## The Correct Order
-L’ordine corretto per l’esecuzione di un programma JS è:
+The correct order for running a JS program is:
 <br />
-**Transpiling (strumenti esterni) → Parsing → Compiling → Execution → Optimization**
+**Transpiling (external tools) → Parsing → Compiling → Execution → Optimization**
 <br />
 <br />
 
