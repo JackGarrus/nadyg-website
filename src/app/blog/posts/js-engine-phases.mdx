@@ -13,7 +13,7 @@ topics: "js"
 
  ## Why this topic is important
 Capire le fasi del motore JavaScript è fondamentale per comprendere a fondo come funziona
-lo scope e perché certi errori compaiono in momenti specifici.
+lo scope (ne parliamo qui link) e perché certi errori compaiono in momenti specifici.
 
 Il processo può essere suddiviso in 4 fasi principali:
 
@@ -33,6 +33,21 @@ Il processo può essere suddiviso in 4 fasi principali:
 </ul>
 <br />
 
+<Image
+  src="/jsEnginePhases/four-js-phases.png"
+  alt="four-js-phases"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+
  ## 1. Parsing
 In questa fase il **codice sorgente** viene letto dall’engine.
 <br />
@@ -44,19 +59,7 @@ operazioni.
 
 <br />
 Quando pensi a un SyntaxError, pensa alla fase di Parsing.
-IMAGE AST
-<br />
-<Image
-  src="/jsTrap/pass-by-value.png"
-  alt="pass-by-value"
-  sizes="100vw"
-  style={{
-    width: "70%",
-    height: "auto",
-  }}
-  width={500}
-  height={300}
-/>
+
 <br />
 <br />
 <br />
@@ -75,8 +78,7 @@ In questa fase:
   </li>
 </ul>
 
-IMG HOIST TMZ
-
+(parleremo di hoisting e TMZ nell'articolo sullo Scope qui (link))
 <br />
 <br />
 <br />
@@ -88,7 +90,7 @@ Qui possono verificarsi errori di runtime come:
 <br />
 <ul>
   <li>
-      **ReferenceError** (quando si accede a variabili non definite)
+    **ReferenceError** (quando si accede a variabili non definite)
   </li>
   <li>
     **TypeError** (quando un valore non viene usato nel modo corretto, ad esempio chiamando come funzione qualcosa che non lo è).
@@ -96,8 +98,6 @@ Qui possono verificarsi errori di runtime come:
 </ul>
 <br />
 Quando pensi a ReferenceError o TypeError, pensa alla fase di Execution.
-
-IMG  esempio di errore in fase di execution
 
 <br />
 <br />
@@ -148,9 +148,11 @@ L’ordine corretto per l’esecuzione di un programma JS è:
 <br />
 <br />
 
+<br />
+<br />
 <Image
   src="/jsEnginePhases/full-js-execution-program.png"
-  alt="pass-by-value"
+  alt="full-js-execution-program"
   sizes="100vw"
   style={{
     width: "70%",
