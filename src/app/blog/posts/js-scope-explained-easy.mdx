@@ -1,0 +1,241 @@
+---
+title: "JS Foundamentals: Scope, Explained Easy"
+publishedAt: "2025-10-07"
+summary: "Learn about the different engine phases and when the transpiling and bundling gets in the picture"
+image: "/public/jsEnginePhases/full-js-execution-program.png"
+author: "Nadia Guarracino"
+topics: "js"
+---
+<br />
+<br />
+<br />
+
+ ## Why this topic is important
+The concept of scope is one of the most crucial in JavaScript, and in programming in general.
+Yet, it’s also one of the most common sources of confusion.
+
+<br />
+<br />
+<br />
+
+## What is scope?
+ In simple, simple terms, scope defines:
+
+<ul>
+  <li>
+    The **lifetime** of a variable
+  </li>
+  <li>
+    **Where** it lives
+  </li>
+  <li>
+    **Where** it’s accessible from
+  </li>
+</ul>
+That's really it. And in more simpler terms, they are of four types:
+<br />
+<br />
+<br />
+<Image
+  src="/jsScope/four-scopes.png"
+  alt="four-scopes"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+Let's see them in detail.
+<br />
+<br />
+<br />
+
+## 1. Global Scope
+The global scope refers to the <Highlight>window</Highlight> object (in browsers).
+<br />
+Everything declared here is available throughout the entire JavaScript application.
+<br />
+While convenient, this can easily become problematic in large applications, which is why, over time, new ways to handle variable lifetime were introduced.
+<br />
+Global scope still exists today, but modern JS provides better alternatives.
+<br />
+<br />
+<br />
+
+## 2. Block Scope
+Introduced with **ES6**, block scope is defined by curly braces <Highlight>{}</Highlight>.
+<br />
+Variables declared with <Highlight>let</Highlight> and <Highlight>const</Highlight> inside a block exist **only** within that block.
+<br />
+For example, loops (<Highlight>for</Highlight>, <Highlight>while</Highlight>) and conditionals (<Highlight>if</Highlight>) also create their own block scope.
+<br />
+<br />
+<br />
+
+## 3. Function Scope
+Variables declared within a function are accessible **only** during that function’s execution.
+<br />
+Before ES6 modules, function scope was heavily used to prevent **polluting the global scope**, often through **IIFEs** (Immediately Invoked Function Expressions).
+<br />
+<br />
+<br />
+
+## 4. Lexical Scope
+Not really separate from the previous types, as it is intrinsic of each one of them, as it's also known as the **scope chain**.
+<br />
+Functions in JavaScript remember the **lexical environment** in which they were defined, not where they’re called.
+<br />
+This concept forms the foundation of **closures**, which we’ll explore in a future article.
+<br />
+<br />
+<br />
+
+## Scope Chain
+When you use a variable, the JavaScript engine searches for its declaration starting in the **current scope**.
+<br />
+If it doesn’t find it there, it looks in the **outer scope**, then the next one up, and so on, until it reaches the **global scope** (the <Highlight>window</Highlight> object in browsers).
+<br />
+If the variable isn’t found even there, JavaScript throws a <Highlight>ReferenceError</Highlight>, or, in some cases with older constructs like <Highlight>var</Highlight>, sets it to <Highlight>undefined</Highlight>.
+<br />
+<br />
+<br />
+<Image
+  src="/jsScope/first-scope.png"
+  alt="first-scope"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<Image
+  src="/jsScope/var-in-global-scope.png"
+  alt="var-in-global-scope"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<Image
+  src="/jsScope/var-undefined.png"
+  alt="var-undefined"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+
+## Hoisting
+During the compilation phase, the JavaScript engine moves all variable declarations (not initializations) to the top of their scope.
+<br />
+<Image
+  src="/jsScope/hoisting.png"
+  alt="hoisting"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+Here, the declaration of <Highlight>a</Highlight> is hoisted, but not its value.
+<br />
+If you try to access a variable before it’s declared with <Highlight>var</Highlight>, you get <Highlight>undefined</Highlight>.
+<br />
+With <Highlight>let</Highlight> or <Highlight>const</Highlight>, things work differently, leading us to the next topic.
+<br />
+<br />
+<br />
+
+## The Temporary Dead Zone (TDZ)
+The **Temporary Dead Zone (TDZ)** is the time between a variable’s **declaration** and its **initialization**, the moment the JavaScript engine allocates memory for it but before it assigns a value.
+<br />
+Accessing a variable in this period throws a <Highlight>ReferenceError</Highlight>.
+<br />
+<Image
+  src="/jsScope/tdz.png"
+  alt="tdz"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+Here’s what happens behind the scenes:
+
+<ul>
+  <li>
+    **1** - During the **compilation phase**, the JS engine knows that <Highlight>a</Highlight> exists (it’s hoisted)
+  </li>
+  <li>
+    **2** - But it doesn’t assign it a value yet, it’s in the “dead zone”
+  </li>
+  <li>
+    **3** - Only when the line <Highlight>let a = 3</Highlight> is executed does the variable leave the TDZ and become accessible
+  </li>
+</ul>
+<br />
+<br />
+
+
+## Why the TDZ exists
+The TDZ prevents common bugs and unpredictable behavior that were possible with <Highlight>var</Highlight>.
+<br />
+Before ES6, variables declared with <Highlight>var</Highlight> were hoisted and **initialized to <Highlight>undefined</Highlight>**, even before their declaration line, often leading to confusing results.
+<br />
+This could cause subtle logical errors in large codebases.
+<br />
+<Highlight>let</Highlight> and <Highlight>const</Highlight> fixed that by ensuring variables can’t be accessed before initialization, making the language **more predictable and safer**.
+<br />
+To summarize:
+<ul>
+  <li>
+    TDZ **starts** from the beginning of the scope where the variable is declared
+  </li>
+  <li>
+    TDZ **ends** when the declaration line is executed
+  </li>
+  <li>
+    Accessing a variable in the TDZ results in a **ReferenceError**, not <Highlight>undefined</Highlight>.
+  </li>
+  <li>
+    <Highlight>let</Highlight> and <Highlight>const</Highlight> are still hoisted, but without initialization.
+  </li>
+
+</ul>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
