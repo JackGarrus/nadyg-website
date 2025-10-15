@@ -1,0 +1,213 @@
+---
+title: "JS Foundamentals: Closures, The Fridge That Keeps Data Fresh"
+publishedAt: "2025-10-15"
+summary: "Closures explained easy: how they 'store' variables in memory like food in a fridge."
+image: "/public/jsClosures1/***"
+author: "Nadia Guarracino"
+topics: "js"
+---
+<br />
+<br />
+<br />
+
+ ## Let's start simple
+Immaginiamo di avere un frigo con dentro una torta, del latte e delle uova.
+
+<br />
+
+<Image
+  src="/jsClosures1/fridgefn.png"
+  alt="fridge-function-declatarion"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+Ogni volta che lo apriamo, vogliamo prendere qualcosa da mangiare, e continueremo finché non sarà tutto finito.
+Decidiamo quindi di “aprire” il frigo chiamando la funzione fridge(), ma sorpresa: invece di mostrarci cosa abbiamo preso, il programma ci restituisce la dichiarazione della funzione grabSomething():
+<br />
+<Image
+  src="/jsClosures1/fridge.png"
+  alt="fridge-return-function"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+Ma come, grabSomething() è proprio quella funzione che ci aspettavamo venisse eseguita automaticamente una volta chiamato `fridge()`, e invece niente.
+
+<br />
+È come se, invece di aprire davvero il frigo, avessimo trovato solo un foglietto con scritto *“apri il frigo e prendi qualcosa”*.
+
+Utile? Non molto.
+
+<br />
+<br />
+Però, se guardiamo l’implementazione di fridge() con calma, il risultato ha perfettamente senso.
+Dopotutto, fridge() ritorna la dichiarazione di una funzione, non la esegue.
+Volendo filosofeggiare, l’azione di “prendere qualcosa dal frigo” è implicita nella
+funzione del frigo nella vita reale, ma nel nostro caso non basta: noi vogliamo davvero le uova.
+<br />
+<br />
+Un occhio furbo potrebbe dire, guardando il codice:
+
+> “Beh, facile: chiamiamola direttamente così → fridge()().”
+
+<br />
+e avrebbe ragione: in questo modo la console stamperebbe `'egg'`.
+
+Il problema è che *si ferma lì*.
+
+# Why calling fridge()() is not a good idea
+Quella chiamata funziona perché `fridge()` ritorna una funzione e noi la eseguiamo subito,
+ma la **funzione interna e il suo stato spariscono immediatamente**:
+la closure che gestiva il “frigo” **non sopravvive oltre quella singola esecuzione**.
+<br />
+Ed è proprio qui che entra in gioco il termine *closure*:
+si chiama così perché la funzione “**closures**” le variabili del contesto in cui è stata creata, mantenendole accessibili anche dopo la fine di quello scope.
+
+<br />
+In altre parole, `fridge()()` crea la closure e la consuma subito. Dopo che la funzione interna `grabSomething()` ha finito di stampare `'egg'`,
+il motore non ha più alcun riferimento a essa.
+
+<br />
+Il **Lexical Environment** che conteneva `storage` viene quindi **rilasciato dalla memoria** (*garbage-collected*).
+Ecco perché ogni volta che chiami `fridge()()` è come se la chiamassi per la prima volta:
+la funzione non “ricorda” nulla del suo stato precedente, perché quello stato **non esiste più**.
+<br />
+<Image
+  src="/jsClosures1/newistance.png"
+  alt="always-new-istance"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+<br />
+
+# What can be a good alternative?
+Per risolvere questo comportamento, basta salvare il riferimento alla funzione ritornata in una variabile:
+<br />
+<Image
+  src="/jsClosures1/openthefridge.png"
+  alt="variable-openthefridge"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+In questo modo non stiamo più creando e distruggendo la closure a ogni chiamata,
+ma la **manteniamo viva in memoria**, insieme al suo *Lexical Environment* (ne abbiamo parlato qui in dettaglio).
+<br />
+La variabile `openTheFridge` diventa così il nostro “pass” per accedere alla stessa istanza di `storage` ogni volta che richiamiamo la funzione.
+<br />
+Mentre `fridge()()` crea una nuova istanza a ogni invocazione (e quindi “si dimentica” cosa c’era nel frigo),
+`openTheFridge()` conserva lo stato interno tra una chiamata e l’altra, perché **mantiene il collegamento alla closure originaria**.
+<br />
+<Image
+  src="/jsClosures1/openthefridge_empty.png"
+  alt="variable-openthefridge"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+
+## Different variables, different istances!
+Ora, il nostro frigo però è vuoto e noi abbiamo ancora una fame da lupo.
+<br />
+Troppo pigri per andare a fare la spesa, ci ricordiamo che i nostri genitori
+hanno il frigo sempre pieno! Speriamo che lo sia anche questa volta:
+<br />
+<Image
+  src="/jsClosures1/fridgeparents.png"
+  alt="variable-openthefridge-parents"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+Senza vergona, cominciamo a scroccare:
+<br />
+<Image
+  src="/jsClosures1/fridgeparents2.png"
+  alt="execution-openthefridge-parents"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+Ma com'è possibile che nonostante stia chiamando la stessa fridge() al cui interno
+ha lo stesso storage, questa non ritorni 'Fridge is empty' come lo è stato per openTheFridge()?
+<br />
+Ogni chiamata a `fridge()` crea una **nuova closure con il proprio ambiente lessicale** (cioè un nuovo “frigo” in memoria).
+
+<br />
+`openTheFridge` e `openTheFridgeAtParentsHouse` sono due funzioni diverse, ciascuna con il proprio `storage` separato.
+
+<br />
+Quando svuoti il primo, il secondo rimane pieno: due frighi, due mondi, zero interferenze.
+
+
+<br />
+Ma facendo così... le closures non intasano la memoria? Cosa accade under the hood?
+Dove le abbiamo già viste?
+<br />
+E soprattutto, perché ci ricordano così tanto le classi?
+<br />
+Risponderò a tutto questo nel prossimo articolo!
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
