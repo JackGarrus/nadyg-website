@@ -1,0 +1,213 @@
+---
+title: "JS Fundamentals: Closures, The Fridge That Keeps Data Fresh"
+publishedAt: "2025-10-15"
+summary: "Closures explained easily: how they 'store' variables in memory like food in a fridge."
+image: "/public/jsClosures1/***"
+author: "Nadia Guarracino"
+topics: "js"
+---
+<br />
+<br />
+<br />
+
+ ## Let's start simple
+Imagine having a fridge with a cake, some milk, and a few eggs inside.
+
+<br />
+
+<Image
+  src="/jsClosures1/fridgefn.png"
+  alt="fridge-function-declaration"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+Every time we open it, we want to grab something to eat, and we’ll keep doing that until it’s empty.
+So we decide to “open” the fridge by calling the function <Highlight>fridge()</Highlight>, but surprise: instead of showing us what we grabbed, the program returns the declaration of the function <Highlight>grabSomething()</Highlight>:
+<br />
+<Image
+  src="/jsClosures1/fridge.png"
+  alt="fridge-return-function"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+But wait: <Highlight>grabSomething()</Highlight> is exactly the function we expected to run automatically once we called <Highlight>fridge()</Highlight>, and yet… nothing happened.
+
+<br />
+It’s as if, instead of actually opening the fridge, we found a sticky note that says *“open the fridge and grab something.”*
+
+Useful? Not really.
+
+<br />
+<br />
+However, if we look at the implementation of <Highlight>fridge()</Highlight> calmly, the result makes perfect sense.
+After all, <Highlight>fridge()</Highlight> returns the declaration of a function: it doesn’t execute it.
+Philosophically speaking, the act of “grabbing something from the fridge” is implicit in real life, but in our case, that’s not enough: we really want those eggs.
+<br />
+<br />
+A clever eye might say, looking at the code:
+
+> “Well, easy: just call it directly like this → <Highlight>fridge()()</Highlight>.”
+
+<br />
+And they’d be right: this way, the console would print <Highlight>'egg'</Highlight>.
+
+The problem is that *it stops there*.
+
+<br />
+<br />
+<br />
+
+# Why calling fridge()() is not a good idea
+That call works because <Highlight>fridge()</Highlight> returns a function and we execute it immediately,
+but the **inner function and its state disappear right away**:
+the closure managing the “fridge” **does not survive beyond that single execution**.
+<br />
+And this is where the term *closure* comes in:
+it’s called that because the function **“closes over”** the variables in the context where it was created, keeping them accessible even after that scope has ended.
+
+<br />
+In other words, <Highlight>fridge()()</Highlight> creates the closure and consumes it right away. After the inner function <Highlight>grabSomething()</Highlight> finishes printing <Highlight>'egg'</Highlight>,
+the engine no longer has any reference to it.
+
+<br />
+The **Lexical Environment** that contained the storage is then **released from memory** (*garbage-collected*).
+That’s why every time you call <Highlight>fridge()()</Highlight> it’s like calling it for the first time:
+the function doesn’t “remember” anything about its previous state, because that state **no longer exists**.
+<br />
+<Image
+  src="/jsClosures1/newistance.png"
+  alt="always-new-instance"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+<br />
+
+# What can be a good alternative?
+To fix this behavior, simply store the returned function reference in a variable:
+<br />
+<Image
+  src="/jsClosures1/openthefridge.png"
+  alt="variable-openthefridge"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+This way, we’re no longer creating and destroying the closure on every call,
+but rather **keeping it alive in memory**, together with its *Lexical Environment* (we talked about it in detail here).
+<br />
+The variable <Highlight>openTheFridge</Highlight> becomes our “pass” to access the same storage instance every time we call the function.
+<br />
+While <Highlight>fridge()()</Highlight> creates a new instance at every invocation (and thus “forgets” what was in the fridge),
+<Highlight>openTheFridge()</Highlight> preserves the internal state between calls because it **maintains the link to the original closure**.
+<br />
+<Image
+  src="/jsClosures1/openthefridge_empty.png"
+  alt="variable-openthefridge"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+
+## Different variables, different instances!
+Now, our fridge is empty and we’re still starving.
+<br />
+Too lazy to go shopping, we remember our parents always have a full fridge! Let’s hope it’s the same this time:
+<br />
+<Image
+  src="/jsClosures1/fridgeparents.png"
+  alt="variable-openthefridge-parents"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+Without shame, we start mooching:
+<br />
+<Image
+  src="/jsClosures1/fridgeparents2.png"
+  alt="execution-openthefridge-parents"
+  sizes="100vw"
+  style={{
+    width: "70%",
+    height: "auto",
+  }}
+  width={500}
+  height={300}
+/>
+<br />
+<br />
+<br />
+But how is it possible that even though we’re calling the same <Highlight>fridge()</Highlight>, with the same internal storage, this one doesn’t return 'Fridge is empty' like it did for <Highlight>openTheFridge()</Highlight>?
+<br />
+Each call to <Highlight>fridge()</Highlight> creates a **new closure with its own lexical environment** (that is, a new “fridge” in memory).
+
+<br />
+<Highlight>openTheFridge</Highlight> and <Highlight>openTheFridgeAtParentsHouse</Highlight> are two different functions, each with its own separate storage.
+
+<br />
+When you empty the first one, the second stays full: two fridges, two worlds, zero interference.
+
+<br />
+But wait: doesn’t that mean closures clog up memory? What happens under the hood?
+Where have we seen them before?
+<br />
+And most importantly, why do they remind us so much of classes?
+<br />
+I’ll answer all of that in the next article!
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
