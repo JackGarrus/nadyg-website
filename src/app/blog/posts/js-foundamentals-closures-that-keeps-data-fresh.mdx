@@ -1,7 +1,7 @@
 ---
-title: "JS Foundamentals: Closures, The Fridge That Keeps Data Fresh"
+title: "JS Fundamentals: Closures, The Fridge That Keeps Data Fresh"
 publishedAt: "2025-10-15"
-summary: "Closures explained easy: how they 'store' variables in memory like food in a fridge."
+summary: "Closures explained easily: how they 'store' variables in memory like food in a fridge."
 image: "/public/jsClosures1/***"
 author: "Nadia Guarracino"
 topics: "js"
@@ -11,13 +11,13 @@ topics: "js"
 <br />
 
  ## Let's start simple
-Immaginiamo di avere un frigo con dentro una torta, del latte e delle uova.
+Imagine having a fridge with a cake, some milk, and a few eggs inside.
 
 <br />
 
 <Image
   src="/jsClosures1/fridgefn.png"
-  alt="fridge-function-declatarion"
+  alt="fridge-function-declaration"
   sizes="100vw"
   style={{
     width: "70%",
@@ -29,8 +29,8 @@ Immaginiamo di avere un frigo con dentro una torta, del latte e delle uova.
 <br />
 <br />
 <br />
-Ogni volta che lo apriamo, vogliamo prendere qualcosa da mangiare, e continueremo finché non sarà tutto finito.
-Decidiamo quindi di “aprire” il frigo chiamando la funzione fridge(), ma sorpresa: invece di mostrarci cosa abbiamo preso, il programma ci restituisce la dichiarazione della funzione grabSomething():
+Every time we open it, we want to grab something to eat, and we’ll keep doing that until it’s empty.
+So we decide to “open” the fridge by calling the function <Highlight>fridge()</Highlight>, but surprise: instead of showing us what we grabbed, the program returns the declaration of the function <Highlight>grabSomething()</Highlight>:
 <br />
 <Image
   src="/jsClosures1/fridge.png"
@@ -46,50 +46,53 @@ Decidiamo quindi di “aprire” il frigo chiamando la funzione fridge(), ma sor
 <br />
 <br />
 <br />
-Ma come, grabSomething() è proprio quella funzione che ci aspettavamo venisse eseguita automaticamente una volta chiamato `fridge()`, e invece niente.
+But wait: <Highlight>grabSomething()</Highlight> is exactly the function we expected to run automatically once we called <Highlight>fridge()</Highlight>, and yet… nothing happened.
 
 <br />
-È come se, invece di aprire davvero il frigo, avessimo trovato solo un foglietto con scritto *“apri il frigo e prendi qualcosa”*.
+It’s as if, instead of actually opening the fridge, we found a sticky note that says *“open the fridge and grab something.”*
 
-Utile? Non molto.
+Useful? Not really.
+
+<br />
+<br />
+However, if we look at the implementation of <Highlight>fridge()</Highlight> calmly, the result makes perfect sense.
+After all, <Highlight>fridge()</Highlight> returns the declaration of a function: it doesn’t execute it.
+Philosophically speaking, the act of “grabbing something from the fridge” is implicit in real life, but in our case, that’s not enough: we really want those eggs.
+<br />
+<br />
+A clever eye might say, looking at the code:
+
+> “Well, easy: just call it directly like this → <Highlight>fridge()()</Highlight>.”
+
+<br />
+And they’d be right: this way, the console would print <Highlight>'egg'</Highlight>.
+
+The problem is that *it stops there*.
 
 <br />
 <br />
-Però, se guardiamo l’implementazione di fridge() con calma, il risultato ha perfettamente senso.
-Dopotutto, fridge() ritorna la dichiarazione di una funzione, non la esegue.
-Volendo filosofeggiare, l’azione di “prendere qualcosa dal frigo” è implicita nella
-funzione del frigo nella vita reale, ma nel nostro caso non basta: noi vogliamo davvero le uova.
 <br />
-<br />
-Un occhio furbo potrebbe dire, guardando il codice:
-
-> “Beh, facile: chiamiamola direttamente così → fridge()().”
-
-<br />
-e avrebbe ragione: in questo modo la console stamperebbe `'egg'`.
-
-Il problema è che *si ferma lì*.
 
 # Why calling fridge()() is not a good idea
-Quella chiamata funziona perché `fridge()` ritorna una funzione e noi la eseguiamo subito,
-ma la **funzione interna e il suo stato spariscono immediatamente**:
-la closure che gestiva il “frigo” **non sopravvive oltre quella singola esecuzione**.
+That call works because <Highlight>fridge()</Highlight> returns a function and we execute it immediately,
+but the **inner function and its state disappear right away**:
+the closure managing the “fridge” **does not survive beyond that single execution**.
 <br />
-Ed è proprio qui che entra in gioco il termine *closure*:
-si chiama così perché la funzione “**closures**” le variabili del contesto in cui è stata creata, mantenendole accessibili anche dopo la fine di quello scope.
+And this is where the term *closure* comes in:
+it’s called that because the function **“closes over”** the variables in the context where it was created, keeping them accessible even after that scope has ended.
 
 <br />
-In altre parole, `fridge()()` crea la closure e la consuma subito. Dopo che la funzione interna `grabSomething()` ha finito di stampare `'egg'`,
-il motore non ha più alcun riferimento a essa.
+In other words, <Highlight>fridge()()</Highlight> creates the closure and consumes it right away. After the inner function <Highlight>grabSomething()</Highlight> finishes printing <Highlight>'egg'</Highlight>,
+the engine no longer has any reference to it.
 
 <br />
-Il **Lexical Environment** che conteneva `storage` viene quindi **rilasciato dalla memoria** (*garbage-collected*).
-Ecco perché ogni volta che chiami `fridge()()` è come se la chiamassi per la prima volta:
-la funzione non “ricorda” nulla del suo stato precedente, perché quello stato **non esiste più**.
+The **Lexical Environment** that contained the storage is then **released from memory** (*garbage-collected*).
+That’s why every time you call <Highlight>fridge()()</Highlight> it’s like calling it for the first time:
+the function doesn’t “remember” anything about its previous state, because that state **no longer exists**.
 <br />
 <Image
   src="/jsClosures1/newistance.png"
-  alt="always-new-istance"
+  alt="always-new-instance"
   sizes="100vw"
   style={{
     width: "70%",
@@ -104,7 +107,7 @@ la funzione non “ricorda” nulla del suo stato precedente, perché quello sta
 <br />
 
 # What can be a good alternative?
-Per risolvere questo comportamento, basta salvare il riferimento alla funzione ritornata in una variabile:
+To fix this behavior, simply store the returned function reference in a variable:
 <br />
 <Image
   src="/jsClosures1/openthefridge.png"
@@ -120,13 +123,13 @@ Per risolvere questo comportamento, basta salvare il riferimento alla funzione r
 <br />
 <br />
 <br />
-In questo modo non stiamo più creando e distruggendo la closure a ogni chiamata,
-ma la **manteniamo viva in memoria**, insieme al suo *Lexical Environment* (ne abbiamo parlato qui in dettaglio).
+This way, we’re no longer creating and destroying the closure on every call,
+but rather **keeping it alive in memory**, together with its *Lexical Environment* (we talked about it in detail here).
 <br />
-La variabile `openTheFridge` diventa così il nostro “pass” per accedere alla stessa istanza di `storage` ogni volta che richiamiamo la funzione.
+The variable <Highlight>openTheFridge</Highlight> becomes our “pass” to access the same storage instance every time we call the function.
 <br />
-Mentre `fridge()()` crea una nuova istanza a ogni invocazione (e quindi “si dimentica” cosa c’era nel frigo),
-`openTheFridge()` conserva lo stato interno tra una chiamata e l’altra, perché **mantiene il collegamento alla closure originaria**.
+While <Highlight>fridge()()</Highlight> creates a new instance at every invocation (and thus “forgets” what was in the fridge),
+<Highlight>openTheFridge()</Highlight> preserves the internal state between calls because it **maintains the link to the original closure**.
 <br />
 <Image
   src="/jsClosures1/openthefridge_empty.png"
@@ -143,11 +146,10 @@ Mentre `fridge()()` crea una nuova istanza a ogni invocazione (e quindi “si di
 <br />
 <br />
 
-## Different variables, different istances!
-Ora, il nostro frigo però è vuoto e noi abbiamo ancora una fame da lupo.
+## Different variables, different instances!
+Now, our fridge is empty and we’re still starving.
 <br />
-Troppo pigri per andare a fare la spesa, ci ricordiamo che i nostri genitori
-hanno il frigo sempre pieno! Speriamo che lo sia anche questa volta:
+Too lazy to go shopping, we remember our parents always have a full fridge! Let’s hope it’s the same this time:
 <br />
 <Image
   src="/jsClosures1/fridgeparents.png"
@@ -163,7 +165,7 @@ hanno il frigo sempre pieno! Speriamo che lo sia anche questa volta:
 <br />
 <br />
 <br />
-Senza vergona, cominciamo a scroccare:
+Without shame, we start mooching:
 <br />
 <Image
   src="/jsClosures1/fridgeparents2.png"
@@ -179,25 +181,23 @@ Senza vergona, cominciamo a scroccare:
 <br />
 <br />
 <br />
-Ma com'è possibile che nonostante stia chiamando la stessa fridge() al cui interno
-ha lo stesso storage, questa non ritorni 'Fridge is empty' come lo è stato per openTheFridge()?
+But how is it possible that even though we’re calling the same <Highlight>fridge()</Highlight>, with the same internal storage, this one doesn’t return 'Fridge is empty' like it did for <Highlight>openTheFridge()</Highlight>?
 <br />
-Ogni chiamata a `fridge()` crea una **nuova closure con il proprio ambiente lessicale** (cioè un nuovo “frigo” in memoria).
+Each call to <Highlight>fridge()</Highlight> creates a **new closure with its own lexical environment** (that is, a new “fridge” in memory).
 
 <br />
-`openTheFridge` e `openTheFridgeAtParentsHouse` sono due funzioni diverse, ciascuna con il proprio `storage` separato.
+<Highlight>openTheFridge</Highlight> and <Highlight>openTheFridgeAtParentsHouse</Highlight> are two different functions, each with its own separate storage.
 
 <br />
-Quando svuoti il primo, il secondo rimane pieno: due frighi, due mondi, zero interferenze.
+When you empty the first one, the second stays full: two fridges, two worlds, zero interference.
 
-
 <br />
-Ma facendo così... le closures non intasano la memoria? Cosa accade under the hood?
-Dove le abbiamo già viste?
+But wait: doesn’t that mean closures clog up memory? What happens under the hood?
+Where have we seen them before?
 <br />
-E soprattutto, perché ci ricordano così tanto le classi?
+And most importantly, why do they remind us so much of classes?
 <br />
-Risponderò a tutto questo nel prossimo articolo!
+I’ll answer all of that in the next article!
 
 <br />
 <br />
