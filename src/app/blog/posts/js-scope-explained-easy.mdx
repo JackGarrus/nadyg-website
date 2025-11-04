@@ -32,13 +32,13 @@ Yet, it’s also one of the most common sources of confusion.
     **Where** it’s accessible from
   </li>
 </ul>
-That's really it. And in more simpler terms, they are of four types:
+That's really it. And in more simpler terms, they are of three types plus one 'special', let's say:
 <br />
 <br />
 <br />
 <Image
-  src="/jsScope/four-scopes.png"
-  alt="four-scopes"
+  src="/jsScope/4-scopes.png"
+  alt="4-scopes"
   sizes="100vw"
   style={{
     width: "70%",
@@ -83,17 +83,34 @@ Before ES6 modules, function scope was heavily used to prevent **polluting the g
 <br />
 <br />
 
-## 4. Lexical Scope
-Not really separate from the previous types, as it is intrinsic of each one of them, as it's also known as the **scope chain**.
+## 4. The Special one: Lexical Scope
+The Lexical Scope, also known as the **Scope Chain** or **Lexical Environment**, is not a separate scope that
+we can directly access from our code as we do with the other types mentioned before.
+It is an intrinsic part of each scope and not a tangible one, but rather an abstract construct, implemented in different
+ways, depending on the browser engine.
+<br />
+<br />
+Conceptually, a Lexical Environment consists of two areas:
+<ul>
+  <li>
+    **Environment Record**: that is an object that holds all the local variables, and the value of **this**
+  </li>
+  <li>
+    **Outer Scope Reference**: that is a reference to the lexical enviroment right outside
+  </li>
+</ul>
+<br />
+Every time a block scope, a function, or something in the global scope is declared, it automatically comes with an associated Lexical Scope.
 <br />
 Functions in JavaScript remember the **lexical environment** in which they were defined, not where they’re called.
 <br />
-This concept forms the foundation of **closures**, which we’ll explore in a future article.
+This concept forms the foundation of **closures**, which we’ll explore in this article:
+<a href="https://www.nadiaguarracino.dev/blog/js-foundamentals-closures-that-keeps-data-fresh" target="blank" style={{textDecoration: 'underline'}}><strong>JS Fundamentals: Closures, The Fridge That Keeps Data Fresh</strong></a>.
 <br />
 <br />
 <br />
 
-## Scope Chain
+## How Does The Scope Chain Work
 When you use a variable, the JavaScript engine searches for its declaration starting in the **current scope**.
 <br />
 If it doesn’t find it there, it looks in the **outer scope**, then the next one up, and so on, until it reaches the **global scope** (the <Highlight>window</Highlight> object in browsers).
